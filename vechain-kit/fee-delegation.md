@@ -60,7 +60,7 @@ export async function onRequestPost({ request, env }): Promise<Response> {
 ### [GO TO TUTORIAL](https://learn.vechain.energy/vechain.energy/FeeDelegation/Setup/)
 
 {% hint style="info" %}
-Add this address 0xD7B96cAC488fEE053daAf8dF74f306bBc237D3f5 (MAINNET)  in {YourProjectName/FeeDelegation/Configurations/Smart Contract to sponsor  all transactions.
+Add this address 0xD7B96cAC488fEE053daAf8dF74f306bBc237D3f5 (MAINNET) or 0x7C5114ef27a721Df187b32e4eD983BaB813B81Cb (TESTNET)  in {YourProjectName/FeeDelegation/Configurations/Smart Contract to sponsor  all transactions.
 {% endhint %}
 
 {% hint style="info" %}
