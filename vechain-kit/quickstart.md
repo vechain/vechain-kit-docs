@@ -25,9 +25,9 @@ React query, chakra and dapp-kit are peer dependencies.
 ```typescript
 'use client';
 
-import DAppKitPrivyProvider from '@vechain/dapp-kit-react-privy'
+import VeChainKitProvider from '@vechain/vechain-kit'
 
-export function DAppKitPrivyProvider({ children }: Props) {
+export function VeChainKitProviderWrapper({ children }: Props) {
     return (
          <VechainKitProvider
             // Mandatory
