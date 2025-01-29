@@ -5,7 +5,7 @@
 * [Intro](README.md)
 * [Quickstart](vechain-kit/quickstart.md)
 * [Migrations](vechain-kit/migrations/README.md)
-  * [Migration from DAppKit](vechain-kit/migrations/migration-from-dappkit.md)
+  * [Migrate from DAppKit](vechain-kit/migrations/migrate-from-dappkit.md)
   * [Migrate Social Login Users](vechain-kit/migrations/migrate-social-login-users.md)
 * [Connection Types](vechain-kit/connection-types.md)
 * [Fee Delegation](vechain-kit/fee-delegation.md)
