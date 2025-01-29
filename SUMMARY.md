@@ -3,11 +3,11 @@
 ## VeChain Kit
 
 * [Intro](README.md)
-* [Connection types](vechain-kit/connection-types.md)
 * [Quickstart](vechain-kit/quickstart.md)
 * [Migrations](vechain-kit/migrations/README.md)
   * [Migration from DAppKit](vechain-kit/migrations/migration-from-dappkit.md)
   * [Migrate Social Login Users](vechain-kit/migrations/migrate-social-login-users.md)
+* [Connection types](vechain-kit/connection-types.md)
 * [Fee Delegation](vechain-kit/fee-delegation.md)
 * [Smart Accounts](vechain-kit/smart-accounts.md)
 * [Embedded Wallets](vechain-kit/embedded-wallets.md)
