@@ -4,8 +4,8 @@
 
 Follow these steps to seamlessly transition your application from DAppKit or a classic web2 framework.
 
-{% content-ref url="migrate-from-dappkit.md" %}
-[migrate-from-dappkit.md](migrate-from-dappkit.md)
+{% content-ref url="migration-from-dappkit.md" %}
+[migration-from-dappkit.md](migration-from-dappkit.md)
 {% endcontent-ref %}
 
 {% content-ref url="migrate-social-login-users.md" %}

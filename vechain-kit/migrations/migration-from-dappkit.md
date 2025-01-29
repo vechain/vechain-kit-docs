@@ -1,4 +1,4 @@
-# Migration from DAppKit
+# Migrate from DAppKit
 
 1\) Install and overwrite the Provider.
 
