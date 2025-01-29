@@ -14,7 +14,7 @@ layout:
 
 # Quickstart
 
-### Install package
+### 1) Install package
 
 {% code overflow="wrap" %}
 ```sh
@@ -34,7 +34,7 @@ Only supported on React and Next.js
 React query, chakra and dapp-kit are peer dependencies.
 {% endhint %}
 
-### Define Provider
+### 2) Define Provider
 
 ```typescript
 'use client';
@@ -82,7 +82,7 @@ const VeChainKitProviderWrapper = dynamic(
 );
 ```
 
-### Setup Fee Delegation
+## 3) Setup Fee Delegation (mandatory)
 
 Fee delegation is **mandatory** in order to use this kit. Learn how to setup fee delegation in the following guide:
 
@@ -90,7 +90,7 @@ Fee delegation is **mandatory** in order to use this kit. Learn how to setup fee
 [fee-delegation.md](fee-delegation.md)
 {% endcontent-ref %}
 
-## Setup Privy (optional)
+## 4) Setup Privy (optional)
 
 If you already use Privy you can pass an additional prop with you settings and you will be able to access Privy SDK, customizing the login modal based on your needs.
 
@@ -155,7 +155,7 @@ import { usePrivy } from "@vechain/vechain-kit";
 const { user } = usePrivy();
 ```
 
-## Use the kit
+## 5) Use the kit
 
 Once you setup the kit provider and created your fee delegation service you are good to go and you can allow your users to login.
 
