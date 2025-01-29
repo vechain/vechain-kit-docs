@@ -3,6 +3,7 @@
 ## VeChain Kit
 
 * [Intro](README.md)
+* [Connection types](vechain-kit/connection-types.md)
 * [Quickstart](vechain-kit/quickstart.md)
 * [Migrations](vechain-kit/migrations/README.md)
   * [Migration from DAppKit](vechain-kit/migrations/migration-from-dappkit.md)

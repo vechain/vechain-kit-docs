@@ -59,6 +59,11 @@ export function SigningExample(): ReactElement {
 }
 ```
 
+{% hint style="warning" %}
+If you require your user to sign a message in order to prove his identity you will need to differentiate between users logged in with Privy and DAppKit.\
+When using Privy the user owns a smart account, and he cannot directly sign a message with the smart account but needs to do it with his Embedded Wallet. This means that when you verify identities of users connected with Privy **you will need to check that the address that signed the message is actually the owner of the smart account**.
+{% endhint %}
+
 ### `useSignTypedData()`
 
 Hook to sign typed data using the connected wallet.&#x20;
