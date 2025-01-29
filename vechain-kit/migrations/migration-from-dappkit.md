@@ -17,13 +17,9 @@ console.log(account.address, account.domain, account.image)
 ```
 
 4\) Use the `useSendTransaction()` hook from `@vechain/vechain-kit` to send your transactions to the network. \
-Read how to use the hook [here](../send-transactions.md).\
-\
+Read how to use the hook [here](../send-transactions.md).
 
-
-```typescriptreact
- const { open } = useWalletModal()
-```
+6\) If you use useConnex() by importing from dapp-kit, import it from vechain-kit.
 
 ## Troubleshooting
 
