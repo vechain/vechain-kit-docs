@@ -39,7 +39,7 @@ You could have conflicts with styling if you use Chakra also in your app.&#x20;
 
 VeChain Kit components are wrapped in their own Chakra Provider ensuring a consistent style accross the modal. Be sure to style you app with Chakra's theme options.
 
-## Fee Delegation
+### Fee Delegation
 
 If you were already using fee delegation in your app you should remove that and use the one handled by the kit. You just need to provide the FEE\_DELEGATION\_URL in the provider.
 
