@@ -17,6 +17,8 @@ We provide a standardized “kit” that quickly integrates social logins and Ve
 **Try It!**\
 Get started with our developer tools, including React Hooks, UI components, and out-of-the-box identity management, to effortlessly build your next VeChain-powered dApp.
 
+{% embed url="https://youtu.be/G8gWThlG2H0" %}
+
 ## Resources
 
 VeChain Kit Demo: [https://sample-vechain-app-demo.vechain.org/](https://sample-vechain-app-demo.vechain.org/)
