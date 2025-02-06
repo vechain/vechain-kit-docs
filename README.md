@@ -21,7 +21,7 @@ Get started with our developer tools, including React Hooks, UI components, and 
 
 ## Resources
 
-VeChain Kit Demo: [https://sample-vechain-app-demo.vechain.org/](https://sample-vechain-app-demo.vechain.org/)
+VeChain Kit Demo: [https://vechain-kit.vechain.org/](https://vechain-kit.vechain.org/)
 
 Smart Account Factory: [https://vechain.github.io/smart-accounts-factory/](https://vechain.github.io/smart-accounts-factory/)
 
