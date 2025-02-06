@@ -14,9 +14,6 @@ function MyComponent = () => {
         account,
         connectedWallet,
         smartAccount,
-        dappKitWallet,
-        embeddedWallet,
-        crossAppWallet,
         privyUser,
         connection,
         disconnect
@@ -124,7 +121,7 @@ interface User {
 
 ### Return values
 
-#### account: Wallet
+#### `account: Wallet`
 
 The primary account being used. This will be either:
 
@@ -151,18 +148,6 @@ The currently connected wallet, regardless of connection method (can be both a P
 * `address`: Wallet address
 * `domain`: Associated VeChain domain name
 * `image`: Generated avatar image
-
-#### `dappKitWallet?: Wallet`
-
-Wallet information when connected via DappKit (undefined if not connected this way)
-
-#### `embeddedWallet?: Wallet`
-
-Wallet information when connected via social login (undefined if not connected this way)
-
-#### `crossAppWallet?: Wallet`
-
-Wallet information when connected via cross-app integration (undefined if not connected this way)
 
 #### `privyUser: User | null`
 
