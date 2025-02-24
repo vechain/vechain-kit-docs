@@ -29,6 +29,8 @@ NPM: [https://www.npmjs.com/package/@vechain/vechain-kit](https://www.npmjs.com/
 
 Github: [https://github.com/vechain/vechain-kit](https://github.com/vechain/vechain-kit)
 
+Devs support: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+
 ## Available imports
 
 * @vechain/vechain-kit&#x20;

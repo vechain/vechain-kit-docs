@@ -127,6 +127,48 @@ The modal can be configured through the `VeChainKitProvider` props.
 </VeChainKitProvider>
 ```
 
+* vechain, dappkit, and ecosystem are always valid options
+* The Privy-dependent methods (email, google, passkey, more) are only available when the privy prop is defined
+* TypeScript will show an error if someone tries to use a Privy-dependent method when privy is not configured
+
+```typescript
+// This will show a type error
+const invalidConfig: VechainKitProviderProps = {
+    // no privy prop specified
+    loginMethods: [
+        { method: 'email' }  // ❌ Type error: 'email' is not assignable to type 'never'
+    ],
+    // ... other required props
+};
+
+// This is valid
+const validConfig1: VechainKitProviderProps = {
+    // no privy prop
+    loginMethods: [
+        { method: 'vechain' },  // ✅ OK
+        { method: 'dappkit' },  // ✅ OK
+        { method: 'ecosystem' } // ✅ OK
+    ],
+    // ... other required props
+};
+
+// This is also valid
+const validConfig2: VechainKitProviderProps = {
+    privy: {
+        appId: 'xxx',
+        clientId: 'yyy',
+        // ... other privy props
+    },
+    loginMethods: [
+        { method: 'email' },     // ✅ OK because privy is configured
+        { method: 'google' },    // ✅ OK because privy is configured
+        { method: 'vechain' },   // ✅ OK (always allowed)
+        { method: 'ecosystem' }  // ✅ OK (always allowed)
+    ],
+    // ... other required props
+};
+```
+
 #### **Ecosystem button**
 
 The ways to show the ecosystem login button are:
@@ -268,3 +310,11 @@ export function Page() {
     );
 }
 ```
+
+## Support for devs
+
+Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
+
+Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+
+Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
