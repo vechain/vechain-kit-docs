@@ -68,17 +68,53 @@ The factory maintains compatibility with all account versions, ensuring a smooth
 
 Upgrading the user's smart accounts from V1 to V3 is mandatory, in order to protect against reply attacks and to allow multiclause transactions on VeChain.
 
-To facilitate the mandatory upgrade process, the kit now includes a built-in check that automatically displays a non-closable modal prompting users to upgrade if they possess a V1 smart account, irrespective of whether it is deployed. This method ensures that the upgrade procedure is obligatory and consistent, relieving apps that integrate the kit from having to address this requirement independently. This approach streamlines the user experience by integrating the upgrade process directly into the kit, providing universal protection and access to new features for all users.
+To facilitate the mandatory upgrade process, the kit now includes:
+
+* **Built-in Check**: Automatically displays a non-closable modal prompting users to upgrade if they possess a V1 smart account.
+* **Universal Necessity**: The upgrade remains obligatory, regardless of whether the account is deployed.
+* **Consistent Experience**: This method ensures a uniform upgrade procedure, alleviating apps from handling this requirement individually.
+
+**Benefits**:
+
+* Streamlined user experience by integrating the upgrade process directly into the kit.
+* Consistent universal protection and access to new features for all users.
 
 <div data-full-width="true"><figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>Example of the upgrade modal</p></figcaption></figure></div>
 
 ### Hooks
 
-Developers can utilize a range of hooks provided by the kit to efficiently manage smart accounts. These hooks include `useSmartAccountVersion`, `useGetSmartAccountAddress`, `useIsSmartAccountDeployed`, `useSmartAccountNeedsUpgrade`, `useWallet`, `useSmartAccountImplementationAddress`, `useUpgradeSmartAccountVersion`, and `useHasV1SmartAccount`. By importing these hooks, developers can programmatically check if an upgrade is necessary, determine the current version of a smart account, and more. This functionality simplifies the process of maintaining and upgrading smart accounts, ensuring users benefit from the latest features and protections effortlessly.
+Developers can efficiently manage smart accounts using a variety of hooks provided by the kit:
+
+* `useSmartAccountVersion`
+* `useGetSmartAccountAddress`
+* `useIsSmartAccountDeployed`
+* `useSmartAccountNeedsUpgrade`
+* `useSmartAccountImplementationAddress`
+* `useUpgradeSmartAccountVersion`
+* `useHasV1SmartAccount`
+
+By importing these hooks, developers can:
+
+* Easily check if an upgrade is needed
+* Determine the current smart account version
+* Simplify maintaining and upgrading smart accounts
+
+This ensures users seamlessly benefit from the latest features and protections.
 
 ### Multiclause transactions
 
-Multiclause transactions in the VeChain ecosystem provide enhanced security and flexibility. While developers can still utilize `executeWithAuthorization` for single clause transactions, it's important to note that this method retains a replay attack vector, thus it's mainly kept for backward compatibility. Instead, developers are encouraged to adopt the new `executeBatchWithAuthorization` functionality. This advanced method not only addresses the replay attack issue but also enables the execution of multiple transactions with a singular signature, effectively mimicking VeChain's multiclause capabilities. When using `useSendTransaction` from the kit, this process is managed automatically, so developers do not need to make additional adjustments. However, understanding this is crucial for those interacting with smart accounts without the assistance of the vechain-kit.
+Multiclause transactions offer enhanced security and flexibility within the VeChain ecosystem. Here's a breakdown of the key points for developers:
+
+* **Single Clause Transactions**:\
+  You can still use `executeWithAuthorization`, but keep in mind it retains a replay attack vector. This method is primarily for backward compatibility.
+* **Recommended Adoption**:\
+  Switch to `executeBatchWithAuthorization` for a more secure solution. This method:
+  * Solves replay attack issues.
+  * Executes multiple transactions with a single signature, simulating multiclause capabilities.
+* **Automatic Management**:\
+  Using `useSendTransaction` from the kit automates this process, negating the need for manual adjustments.
+
+Understanding these components is crucial for those working with smart accounts outside of the vechain-kit. This knowledge ensures both security and operational efficiency.
 
 How to use `executeBatchWithAuthorization` and the `nonce` :
 
