@@ -1,26 +1,172 @@
 # Smart Accounts
 
-Our smart accounts are a simplified version of the [Account Abstraction pattern](https://github.com/eth-infinitism/account-abstraction) updated to simplify their implementation, increase developer experience and take advantage of VeChain unique features, such as fee delegation.
+Our [smart accounts](https://github.com/vechain/smart-accounts) are a simplified version of the Account Abstraction pattern, made for the VeChain blockchain, and are required in order to enable social login.
 
-There are 2 contracts:
+### Addresses
 
-* **SimpleAccount**: Is the abstracted account of the user.
-* **SimpleAccountFactory**: Factory contract to create SimpleAccount contracts on demand.
+#### Mainnet
 
-You can fork the contracts and deploy them on your own, but we recommend using the contracts deployed by us for a better cross-app compatibility.
+[0xC06Ad8573022e2BE416CA89DA47E8c592971679A](https://vechainstats.com/account/0xc06ad8573022e2be416ca89da47e8c592971679a/)
 
-Owner of the Simple Account can execute transactions by directly calling the `execute()` function on his Smart Account contract or by authorizing a transaction by signing it and allow a third party to broadcast the transaction by calling the `executeWithAuthorization()` function.
+#### Testnet
 
-The contracts are deployed on the following networks:
-
-* **Mainnet**: 0xC06Ad8573022e2BE416CA89DA47E8c592971679A
-* **Testnet**: 0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb
-
-You can look at the code of the contracts in the[ Smart Accounts Factory](https://github.com/vechain/smart-accounts-factory) repository.
+[0x51842eaF776912Ad848F0A15DC3DecC438dC56bC](https://explore-testnet.vechain.org/accounts/0x51842eaF776912Ad848F0A15DC3DecC438dC56bC)
 
 {% hint style="info" %}
 Every wallet on VeChain can own a smart account. The address of your smart account is deterministic, and it can be deployed at any time, and receive tokens even if it is not deployed yet.
 {% endhint %}
+
+### How it works
+
+There are 2 contracts that work together to enable social login and account abstraction:
+
+* **SimpleAccount**: A smart contract wallet owned by the user that can:
+  * Execute transactions directly from the owner or through signed messages
+  * Handle both single and batch transactions
+  * Be upgraded by the owner
+  * Transfer ownership to another address
+  * Use time-based validity windows for transactions
+  * Prevent replay attacks using nonces for batch transactions
+* **SimpleAccountFactory**: Factory contract that creates and manages SimpleAccount contracts:
+  * Creates new accounts with deterministic addresses using CREATE2
+  * Supports multiple accounts per owner through custom salts
+  * Manages different versions of the SimpleAccount implementation
+  * Maintains compatibility with legacy accounts
+
+### Transaction Flow
+
+1. **Account Creation**: When a user wants to create a smart account, they interact with the SimpleAccountFactory, which creates a new SimpleAccount instance with the user as the owner.
+2. **Transaction Execution**: The SimpleAccount can execute transactions in several ways:
+   * Direct execution by the owner
+   * Batch execution of multiple transactions
+   * Signature-based execution (useful for social login)
+   * Batch signature-based execution with replay protection (useful for social login + multiclause)
+3. **Nonce Management**: For batch transactions with authorization (executeBatchWithAuthorization), a nonce is required to protect users against replay attacks:
+   * The nonce should be generated when requesting the signature
+   * Best practice is to use `Date.now()` as the nonce value
+   * Each nonce can only be used once per account
+   * Without proper nonce management, malicious actors could replay the same signed transaction multiple times
+   * Nonces are only used and required for executeBatchWithAuthorization method
+4. **Social Login Integration**: This system enables social login by creating deterministic account addresses for each user and allowing transactions to be signed off-chain and executed by anyone. This creates a seamless experience where users can interact with dApps using their social credentials.
+
+### Version Management
+
+The system has evolved through multiple versions to improve functionality and security:
+
+* **SimpleAccount**:
+  * V1: Basic account functionality with single transaction execution
+  * V2: _Skipped for misconfiguration during upgrade_
+  * V3: Introduced batch transactions with nonce-based replay protection, ownership transfer and version tracking
+* **SimpleAccountFactory**:
+  * V1: Basic account creation and management
+  * V2: Added support for multiple accounts per owner using custom salts
+  * V3: Support for V3 SimpleAccounts, enhanced version management and backward compatibility with legacy accounts
+
+The factory maintains compatibility with all account versions, ensuring a smooth experience across different dApps and versions.
+
+### Smart Accounts V3 upgrade
+
+Upgrading the user's smart accounts from V1 to V3 is mandatory, in order to protect against reply attacks and to allow multiclause transactions on VeChain.
+
+To facilitate the mandatory upgrade process, the kit now includes a built-in check that automatically displays a non-closable modal prompting users to upgrade if they possess a V1 smart account, irrespective of whether it is deployed. This method ensures that the upgrade procedure is obligatory and consistent, relieving apps that integrate the kit from having to address this requirement independently. This approach streamlines the user experience by integrating the upgrade process directly into the kit, providing universal protection and access to new features for all users.
+
+<div data-full-width="true"><figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>Example of the upgrade modal</p></figcaption></figure></div>
+
+### Hooks
+
+Developers can utilize a range of hooks provided by the kit to efficiently manage smart accounts. These hooks include `useSmartAccountVersion`, `useGetSmartAccountAddress`, `useIsSmartAccountDeployed`, `useSmartAccountNeedsUpgrade`, `useWallet`, `useSmartAccountImplementationAddress`, `useUpgradeSmartAccountVersion`, and `useHasV1SmartAccount`. By importing these hooks, developers can programmatically check if an upgrade is necessary, determine the current version of a smart account, and more. This functionality simplifies the process of maintaining and upgrading smart accounts, ensuring users benefit from the latest features and protections effortlessly.
+
+### Multiclause transactions
+
+Multiclause transactions in the VeChain ecosystem provide enhanced security and flexibility. While developers can still utilize `executeWithAuthorization` for single clause transactions, it's important to note that this method retains a replay attack vector, thus it's mainly kept for backward compatibility. Instead, developers are encouraged to adopt the new `executeBatchWithAuthorization` functionality. This advanced method not only addresses the replay attack issue but also enables the execution of multiple transactions with a singular signature, effectively mimicking VeChain's multiclause capabilities. When using `useSendTransaction` from the kit, this process is managed automatically, so developers do not need to make additional adjustments. However, understanding this is crucial for those interacting with smart accounts without the assistance of the vechain-kit.
+
+How to use `executeBatchWithAuthorization` and the `nonce` :
+
+<pre class="language-javascript"><code class="lang-javascript">const executeBatchWithAuthorization = (txClauses: Connex.VM.Clause[]) => {
+    const toArray: string[] = [];
+    const valueArray: string[] = [];
+    const dataArray: string[] = [];
+    
+    txClauses.forEach((clause) => {
+        toArray.push(clause.to ?? '');
+        valueArray.push(String(clause.value));
+        if (typeof clause.data === 'object' &#x26;&#x26; 'abi' in clause.data) {
+            dataArray.push(encodeFunctionData(clause.data));
+        } else {
+            dataArray.push(clause.data || '0x');
+        }
+    });
+        
+    const dataToSign = {
+        domain: {
+            name: 'Wallet',
+            version: '1',
+            chainId,
+            verifyingContract, // the smart account of the user
+        },
+        types: {
+            ExecuteBatchWithAuthorization: [
+                { name: 'to', type: 'address[]' },
+                { name: 'value', type: 'uint256[]' },
+                { name: 'data', type: 'bytes[]' },
+                { name: 'validAfter', type: 'uint256' },
+                { name: 'validBefore', type: 'uint256' },
+                { name: 'nonce', type: 'bytes32' },
+            ],
+            EIP712Domain: [
+                { name: 'name', type: 'string' },
+                { name: 'version', type: 'string' },
+                { name: 'chainId', type: 'uint256' },
+                { name: 'verifyingContract', type: 'address' },
+            ],
+        },
+        primaryType: 'ExecuteBatchWithAuthorization',
+        message: {
+            to: toArray,
+            value: valueArray,
+            data: dataArray,
+            validAfter: 0,
+            validBefore: Math.floor(Date.now() / 1000) + 60, // e.g. 1 minute from now
+            nonce: ethers.hexlify(ethers.randomBytes(32)), // nonce needs to be random
+        },
+    };
+        
+    // Sign the typed data with Privy
+    const signature = (
+      await signTypedDataPrivy(typedData, {
+          uiOptions: {
+              title,
+              description,
+              buttonText,
+          },
+      })
+    ).signature;
+    
+      
+    // Rebuild the clauses to call the executeBatchWithAuthorization 
+    const clauses = [];
+<strong>    clauses.push(
+</strong>        Clause.callFunction(
+            Address.of(smartAccount.address),
+            ABIContract.ofAbi(SimpleAccountABI).getFunction(
+                'executeBatchWithAuthorization',
+            ),
+            [
+                typedData.message.to,
+                typedData.message.value?.map((val) => BigInt(val)) ?? 0,
+                typedData.message.data,
+                BigInt(typedData.message.validAfter),
+                BigInt(typedData.message.validBefore),
+                typedData.message.nonce, // If your contract expects bytes32
+                signature as `0x${string}`,
+            ],
+        ),
+    );
+                   
+    //Now you can broadcast the transaction to the blockchain with one of your delegator wallets
+    // ...
+};
+</code></pre>
 
 {% hint style="danger" %}
 Currently VeChain Kit does not support the handling of a smart account by a VeWorld wallet.

@@ -53,7 +53,7 @@ export async function onRequestPost({ request, env }): Promise<Response> {
 
 ## Option 2: use [vechain.energy](https://vechain.energy/)
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://learn.vechain.energy/vechain.energy/FeeDelegation/Setup/" %}
 
@@ -66,7 +66,7 @@ Add this address 0xD7B96cAC488fEE053daAf8dF74f306bBc237D3f5 (MAINNET) or 0x7C511
 {% hint style="info" %}
 <pre class="language-solidity"><code class="lang-solidity"><a data-footnote-ref href="#user-content-fn-1">/</a>// Smart contract to allow delegate all requests
 
-/<a data-footnote-ref href="#user-content-fn-2">// SPDX-License-Identifier: MIT</a>
+/<a data-footnote-ref href="#user-content-fn-1">// SPDX-License-Identifier: MIT</a>
 pragma solidity ^0.8.20;
 
 contract FeeDelegation {
@@ -123,5 +123,3 @@ Other use-cases are instant interactions with blockchains from different backend
 Currently, it is mandatory to sponsor your Privy transactions. You can deploy your own custom solution or use [vechain.energy](https://vechain.energy/).
 
 [^1]: 
-
-[^2]: 
