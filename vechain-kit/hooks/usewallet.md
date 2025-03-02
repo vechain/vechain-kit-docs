@@ -135,7 +135,7 @@ Information about the user's smart account:
 * `address`: The smart account address
 * `domain`: Associated VeChain domain name
 * `image`: Generated avatar image
-* `isDeployed`: Whether the smart account is deployed; smart accounts can be deployed on demand to avoid spending money on non active users. Learn more about smart accounts [here](wallet.md#smartaccount).
+* `isDeployed`: Whether the smart account is deployed; smart accounts can be deployed on demand to avoid spending money on non active users. Learn more about smart accounts [here](usewallet.md#smartaccount).
 * `isActive`: Whether this is the currently active account
 * `version`: Smart account contract version
 

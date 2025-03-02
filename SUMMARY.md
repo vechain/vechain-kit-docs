@@ -15,7 +15,7 @@
 * [Send Transactions](vechain-kit/send-transactions.md)
 * [Sign Messages](vechain-kit/sign-messages.md)
 * [Hooks](vechain-kit/hooks/README.md)
-  * [Wallet](vechain-kit/hooks/wallet.md)
+  * [Wallet](vechain-kit/hooks/usewallet.md)
   * [Smart Account](vechain-kit/hooks/smart-account.md)
   * [Blockchain Hooks](vechain-kit/hooks/blockchain-hooks.md)
   * [Oracle](vechain-kit/hooks/oracle.md)
