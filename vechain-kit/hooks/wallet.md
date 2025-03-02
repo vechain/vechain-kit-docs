@@ -1,4 +1,4 @@
-# useWallet()
+# Wallet
 
 The `useWallet` hook provides a unified interface for managing wallet connections in a VeChain application, supporting multiple connection methods including social logins (via Privy), direct wallet connections (via DappKit), and cross-application connections.
 
@@ -135,7 +135,7 @@ Information about the user's smart account:
 * `address`: The smart account address
 * `domain`: Associated VeChain domain name
 * `image`: Generated avatar image
-* `isDeployed`: Whether the smart account is deployed; smart accounts can be deployed on demand to avoid spending money on non active users. Learn more about smart accounts [here](usewallet.md#smartaccount).
+* `isDeployed`: Whether the smart account is deployed; smart accounts can be deployed on demand to avoid spending money on non active users. Learn more about smart accounts [here](wallet.md#smartaccount).
 * `isActive`: Whether this is the currently active account
 * `version`: Smart account contract version
 

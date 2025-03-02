@@ -78,7 +78,6 @@ export function TransactionExamples() {
                 isOpen={isTransactionModalOpen}
                 onClose={closeTransactionModal}
                 status={status}
-                progress={progress}
                 txId={txReceipt?.meta.txID}
                 errorDescription={error?.reason ?? 'Unknown error'}
                 showSocialButtons={true}
@@ -94,12 +93,4 @@ export function TransactionExamples() {
 
 You can build clauses with some of our available build functions, or with the [SDK](https://docs.vechain.org/developer-resources/sdks-and-providers/sdk) or connex.
 
-{% hint style="warning" %}
-Multiclause transaction are currently not supported when using Privy with **ecosystem cross-app connection**. Clauses will are currently separated into independent transactions.\
-Use the `progress` property returned by the `useSendTransaction()` hook to track the progress of the transactions.\
-\
-Keep in mind if a transaction fails previous "clauses" are not reverted.\
-\
-Work is in progress to provide a quick fix for this.
-{% endhint %}
-
+If you want to interact directly with the user's smart account read the [Smart Accounts](smart-accounts.md#multiclause-transactions) section.

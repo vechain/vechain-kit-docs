@@ -122,6 +122,7 @@ The modal can be configured through the `VeChainKitProvider` props.
         { method: 'email', gridColumn: 2 },
         { method: 'passkey', gridColumn: 2 },
     ]}
+    allowCustomTokens={false} // allow the user to manage custom tokens
 >
     {children}
 </VeChainKitProvider>

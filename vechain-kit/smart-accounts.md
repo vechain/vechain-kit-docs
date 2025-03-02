@@ -83,15 +83,7 @@ To facilitate the mandatory upgrade process, the kit now includes:
 
 ### Hooks
 
-Developers can efficiently manage smart accounts using a variety of hooks provided by the kit:
-
-* `useSmartAccountVersion`
-* `useGetSmartAccountAddress`
-* `useIsSmartAccountDeployed`
-* `useSmartAccountNeedsUpgrade`
-* `useSmartAccountImplementationAddress`
-* `useUpgradeSmartAccountVersion`
-* `useHasV1SmartAccount`
+Developers can efficiently manage smart accounts using a [variety of hooks](hooks/smart-account.md) provided by the kit.
 
 By importing these hooks, developers can:
 
