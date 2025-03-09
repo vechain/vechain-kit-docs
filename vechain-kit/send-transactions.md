@@ -108,7 +108,7 @@ You can build clauses with some of our available build functions, with our [SDK]
 If you want to interact directly with the user's smart account read the [Smart Accounts](smart-accounts.md#multiclause-transactions) section.
 
 {% hint style="warning" %}
-**Important Considerations**
+**Important**
 
 When implementing transaction logic within your application, it's crucial to ensure that all necessary data Data Pre-fetching for Transactions.
 
