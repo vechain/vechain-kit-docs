@@ -16,7 +16,7 @@ Our [smart accounts](https://github.com/vechain/smart-accounts) are a simplified
 Every wallet on VeChain can own a smart account. The address of your smart account is deterministic, and it can be deployed at any time, and receive tokens even if it is not deployed yet.
 {% endhint %}
 
-### How it works
+### Contracts
 
 There are 2 contracts that work together to enable social login and account abstraction:
 
@@ -33,14 +33,15 @@ There are 2 contracts that work together to enable social login and account abst
   * Manages different versions of the SimpleAccount implementation
   * Maintains compatibility with legacy accounts
 
-### Transaction Flow
+### How it works
 
-1. **Account Creation**: When a user wants to create a smart account, they interact with the SimpleAccountFactory, which creates a new SimpleAccount instance with the user as the owner.
-2. **Transaction Execution**: The SimpleAccount can execute transactions in several ways:
+1. **Account Creation**: When a user wants to create a smart account, they interact with the `SimpleAccountFactory`, which creates a new `SimpleAccount` instance with the user as the owner.
+2. **Transaction Execution**: The `SimpleAccount` can execute transactions in several ways:
    * Direct execution by the owner
    * Batch execution of multiple transactions
    * Signature-based execution (useful for social login)
    * Batch signature-based execution with replay protection (useful for social login + multiclause)
+   * Batch signature-based execution with 16-bit chain ID to allow iOS and Android developers handle VeChain chain ID.
 3. **Nonce Management**: For batch transactions with authorization (executeBatchWithAuthorization), a nonce is required to protect users against replay attacks:
    * The nonce should be generated when requesting the signature
    * Best practice is to use `Date.now()` as the nonce value
@@ -70,14 +71,8 @@ Upgrading the user's smart accounts from V1 to V3 is mandatory, in order to prot
 
 To facilitate the mandatory upgrade process, the kit now includes:
 
-* **Built-in Check**: Automatically displays a non-closable modal prompting users to upgrade if they possess a V1 smart account.
-* **Universal Necessity**: The upgrade remains obligatory, regardless of whether the account is deployed.
-* **Consistent Experience**: This method ensures a uniform upgrade procedure, alleviating apps from handling this requirement individually.
-
-**Benefits**:
-
-* Streamlined user experience by integrating the upgrade process directly into the kit.
-* Consistent universal protection and access to new features for all users.
+* **Built-in Check**: Automatically displays an alert prompting users to upgrade if they possess a V1 smart account.
+* **Hooks & Component**: To avoid apps spending VTHO to upgrade accounts of users that won't do any action on the app we allow the developer to check upgradeability on demand by using the `useUpgradeRequiredForAccount` hook and show the `UpgradeSmartAccountModal` (importable from the kit).
 
 <div data-full-width="true"><figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>Example of the upgrade modal</p></figcaption></figure></div>
 
