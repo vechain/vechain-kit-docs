@@ -1,4 +1,4 @@
-# Connection types
+# Connection Types
 
 VeChain Kit supports 3 types of connections:
 
@@ -22,8 +22,31 @@ With this type of connection you can have social login without actually create a
 
 This connection type is also crucial for allowing users to "Login with VeChain".
 
-Typically all apps that do not have their own app on Privy will use this connection type.
+Typically, all apps that do not have their own Privy will use this connection type.
 
 ## 3) Wallet (VeWorld, Sync2, Wallet Connect)
 
-The last type of connection is for wallets, which are using dapp-kit under the hood.
+The last type of connection is for wallets, which is using dapp-kit under the hood.
+
+You can allow users connect to your app only with wallet by using the dapp-kit connect modal, as follows:
+
+```typescript
+import { useDAppKitWalletModal, DAppKitWalletButton } from '@vechain/vechain-kit';
+
+export const LoginComponent = () => {
+  const { open: openWalletModal } = useDAppKitWalletModal();
+
+  return (
+    <Button onClick={openWalletModal}>
+        Open only "Connect Wallet"
+    </Button>
+    
+    // or
+
+    <DAppKitWalletButton>
+)}
+```
+
+{% hint style="warning" %}
+When your app is opened inside VeWorld mobile wallet, VeWorld is always enforced as a login choice.
+{% endhint %}
