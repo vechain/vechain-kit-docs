@@ -29,7 +29,6 @@
   * [Transactions](vechain-kit/hooks/transactions.md)
   * [Signing](vechain-kit/hooks/signing.md)
   * [Login](vechain-kit/hooks/login.md)
-  * [Kit's Modals](vechain-kit/hooks/kits-modals.md)
 * [Components](vechain-kit/components/README.md)
   * [Open targeted modals](vechain-kit/components/open-targeted-modals.md)
   * [Profile Card](vechain-kit/components/profile-card.md)
