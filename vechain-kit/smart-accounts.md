@@ -14,7 +14,7 @@ Our [smart accounts](https://github.com/vechain/smart-accounts) are a simplified
 
 #### Testnet
 
-[0x51842eaF776912Ad848F0A15DC3DecC438dC56bC](https://explore-testnet.vechain.org/accounts/0x51842eaF776912Ad848F0A15DC3DecC438dC56bC)
+[0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF](https://explore-testnet.vechain.org/accounts/0x713b908bcf77f3e00efef328e50b657a1a23aeaf)
 
 {% hint style="info" %}
 Every wallet on VeChain can own a smart account. The address of your smart account is deterministic, and it can be deployed at any time, and receive tokens even if it is not deployed yet.
