@@ -5,7 +5,7 @@ If you have an app with some custom login (eg: login with email, login with goog
 * Create your Privy app
 * Manually add your users or use Privy's APIs
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Privy/YourApp/Users/All Users/Add</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Privy/YourApp/Users/All Users/Add</p></figcaption></figure>
 
 Please refer to this documentation to import users through Privy APIs: [https://docs.privy.io/reference/sdk/server-auth/classes/PrivyClient#importuser](https://docs.privy.io/reference/sdk/server-auth/classes/PrivyClient#importuser)
 

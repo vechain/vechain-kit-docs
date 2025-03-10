@@ -19,18 +19,27 @@
   * [Smart Account](vechain-kit/hooks/smart-account.md)
   * [Blockchain Hooks](vechain-kit/hooks/blockchain-hooks.md)
   * [Oracle](vechain-kit/hooks/oracle.md)
-  * [Transactions](vechain-kit/hooks/transactions.md)
   * [VeBetterDAO](vechain-kit/hooks/vebetterdao.md)
   * [veDelegate](vechain-kit/hooks/vedelegate.md)
   * [vetDomains](vechain-kit/hooks/vetdomains.md)
+  * [Utils](vechain-kit/hooks/utils.md)
+  * [Indexer](vechain-kit/hooks/indexer.md)
+  * [Ipfs](vechain-kit/hooks/ipfs.md)
+  * [NFTs](vechain-kit/hooks/nfts.md)
+  * [Transactions](vechain-kit/hooks/transactions.md)
+  * [Signing](vechain-kit/hooks/signing.md)
+  * [Login](vechain-kit/hooks/login.md)
+  * [Kit's Modals](vechain-kit/hooks/kits-modals.md)
 * [Components](vechain-kit/components/README.md)
-  * [Wallet Button](vechain-kit/components/wallet-button.md)
-  * [Connect Modal](vechain-kit/components/connect-modal.md)
-  * [Account Modal](vechain-kit/components/account-modal.md)
+  * [Open targeted modals](vechain-kit/components/open-targeted-modals.md)
   * [Profile Card](vechain-kit/components/profile-card.md)
   * [Transaction Modal](vechain-kit/components/transaction-modal.md)
   * [Transaction Toast](vechain-kit/components/transaction-toast.md)
-* [Utils](vechain-kit/utils.md)
+
+***
+
+* [Configs](configs.md)
+* [Utils](utils.md)
 
 ## Templates
 

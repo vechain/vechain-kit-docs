@@ -12,7 +12,7 @@ Users benefit from an intuitively integrated wallet management experience that a
 
 Privy embedded wallets are portable and can be used by any app––even apps not using Privy. Privy’s cross application wallet system supports interoperability with simple user experiences accessible to everyone, and seamlessly integrates with other Privy integrations and wallet connector solutions like RainbowKit and wagmi.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Sample cross app wallet flow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Sample cross app wallet flow</p></figcaption></figure>
 
 Embedded wallets can be backed up by the user through the VeChain Kit modal in the Settings page.
 

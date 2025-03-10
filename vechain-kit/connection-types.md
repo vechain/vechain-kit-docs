@@ -16,7 +16,7 @@ Privy embedded wallets can be made interoperable across apps. In this setup, emb
 
 Using **cross-app wallets**, users can seamlessly move assets between different apps and can easily prove ownership of, sign messages, or send transactions with their existing embedded wallets.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 With this type of connection you can have social login without actually create an app on Privy, and you can also allow logins from apps like Cleanify, EVEarn, Mugshot, Greencart, etc.&#x20;
 

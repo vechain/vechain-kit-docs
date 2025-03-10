@@ -4,13 +4,17 @@
 
 The hooks offer tools for efficient smart account management:
 
-* **`useGetSmartAccountAddress`**: Retrieves the smart account's address linked to the wallet.
+* **`useGetAccountAddress`**: Retrieves the smart account's address linked to the wallet.
+* **`useGetAccountVersion`**: Retrieces the smart account's version even if the account is not deployed yet
+* **`useSmartAccountVersion`**: Retrieves the smart account's version, but only if it is already deployed, and it will revert for v1 smart accounts (because function was not implemented in that smart contract)
+* **`useSmartAccount`**: Retrieves the the account of an owner, returning additional information
+* **`useAccountImplementationAddress`**: Returns the implementation address of a specific version; this hook is useful when upgrading the smart account of the user
+* **`useCurrentAccountImplementationVersion`**: Returns the latest (and currently used) implementation version of the smart accounts used by the factory
+* **`useUpgradeRequired`**: Returns if a smart account needs an upgrade (even if it's not yet deployed)
+* **`useUpgradeRequiredForAccount`**: As above but only if the account is not yet deployed
 * **`useIsSmartAccountDeployed`**: Verifies the deployment status of the smart account.
-* **`useSmartAccountVersion`**: Obtains the current version of the smart account.
 * **`useHasV1SmartAccount`**: Checks for a legacy version's existence.
-* **`useSmartAccountNeedsUpgrade`**: Identifies if an upgrade is necessary.
-* **`useSmartAccountImplementationAddress`**: Fetches target version's implementation details.
-* **`useUpgradeSmartAccountVersion`**: Manages the upgrade process for a
+* **`useUpgradeSmartAccount`**: Hook to create a transaction to upgrade the smart account to a specific version
 
 ### Usage
 
@@ -33,8 +37,10 @@ const { data: smartAccountAddress } = useGetSmartAccountAddress(
     connectedWallet?.address,
 );
 
-const { data: hasV1SmartAccount } = useHasV1SmartAccount(
-    connectedWallet?.address,
+const { data: upgradeRequired } = useUpgradeRequired(
+    smartAccountAddress,
+    ownerAddress: connectedWallet?.address ?? "",
+    version: 3
 );
 
 const { data: smartAccountDeployed } =
@@ -59,8 +65,7 @@ const {
     sendTransaction: upgradeSmartAccount,
     isTransactionPending,
     error: upgradeError,
-} = useUpgradeSmartAccountVersion({
-    fromAddress: connectedWallet?.address ?? '',
+} = useUpgradeSmartAccount({
     smartAccountAddress: smartAccountAddress ?? '',
     targetVersion: 3,
     onSuccess: () => {
@@ -78,10 +83,8 @@ console.log(
     smartAccountDeployed,
     'version',
     currentSmartAccountVersion,
-    'has v1 smart account',
-    hasV1SmartAccount,
-    'needs upgrade',
-    smartAccountNeedsUpgrade,
+    'upgradeRequired',
+    upgradeRequired,
     'current implementation version',
     smartAccountImplementationVersion,
     'v3 implementation address',
