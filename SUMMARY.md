@@ -30,6 +30,7 @@
   * [Signing](vechain-kit/hooks/signing.md)
   * [Login](vechain-kit/hooks/login.md)
 * [Components](vechain-kit/components/README.md)
+  * [WalletButton](vechain-kit/components/walletbutton.md)
   * [Open targeted modals](vechain-kit/components/open-targeted-modals.md)
   * [Profile Card](vechain-kit/components/profile-card.md)
   * [Transaction Modal](vechain-kit/components/transaction-modal.md)
