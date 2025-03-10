@@ -1,5 +1,7 @@
 # WalletButton
 
+This button acts both as a login button and as an account button (when the user is already logged).
+
 VeChain Kit provides multiple ways to customize the UI components. Here are some examples of different button styles and variants.
 
 <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
