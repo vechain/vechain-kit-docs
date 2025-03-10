@@ -14,6 +14,7 @@
 * [Embedded Wallets](vechain-kit/embedded-wallets.md)
 * [Send Transactions](vechain-kit/send-transactions.md)
 * [Sign Messages](vechain-kit/sign-messages.md)
+* [Text Records (avatar & co.)](vechain-kit/text-records-avatar-and-co..md)
 * [Hooks](vechain-kit/hooks/README.md)
   * [Wallet](vechain-kit/hooks/usewallet.md)
   * [Smart Account](vechain-kit/hooks/smart-account.md)
