@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Smart Accounts
 
 Our [smart accounts](https://github.com/vechain/smart-accounts) are a simplified version of the Account Abstraction pattern, made for the VeChain blockchain, and are required in order to enable social login.
