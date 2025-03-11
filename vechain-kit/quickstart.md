@@ -67,6 +67,11 @@ export function VeChainKitProviderWrapper({ children }: Props) {
                     },
                 },
             }}
+            loginMethods={[
+                { method: 'vechain', gridColumn: 4 },
+                { method: 'dappkit', gridColumn: 4 },
+                { method: 'ecosystem', gridColumn: 4 },
+            ]}
             darkMode={true}
             language="en"
             network={{
