@@ -45,7 +45,9 @@ export function VeChainKitProviderWrapper({ children }: Props) {
     return (
          <VechainKitProvider
             feeDelegation={{
-                delegatorUrl: process.env.NEXT_PUBLIC_DELEGATOR_URL!
+                delegatorUrl: process.env.NEXT_PUBLIC_DELEGATOR_URL!,
+                // set to false if you want to delegate ONLY social login transactions
+                delegateAllTransactions: true 
             }}
             dappKit={{
                  allowedWallets: ['veworld', 'wallet-connect', 'sync2'],
