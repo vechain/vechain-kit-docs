@@ -37,11 +37,3 @@ Devs support: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
 * @vechain/vechain-kit/utils
 * @vechain/vechain-kit/contracts
 * @vechain/vechain-kit/assets
-
-
-
-{% hint style="warning" %}
-This is the **first public release** of this kit and it's functionalities and implementations could change in future releases.\
-\
-If you find any bug or issue please report it to our [Github](https://github.com/vechain/vechain-kit/issues) repository.
-{% endhint %}
