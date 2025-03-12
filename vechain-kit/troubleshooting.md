@@ -6,7 +6,7 @@ Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
 
 Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
 
-## Troubleshooting
+## Known issues
 
 ### Peer dependencies
 
