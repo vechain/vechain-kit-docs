@@ -21,25 +21,3 @@ Read how to use the hook [here](../send-transactions.md).
 
 6\) If you use useConnex() by importing from dapp-kit, import it from vechain-kit.
 
-## Troubleshooting
-
-### Peer dependencies
-
-Coming from DApp Kit or SDK you could have issues with different versions of them installed accross your project.
-
-Same goes for Chakra (v2) and React Query, be sure to have the proper versions
-
-### Chakra styling
-
-You could have conflicts with styling if you use Chakra also in your app.&#x20;
-
-VeChain Kit components are wrapped in their own Chakra Provider ensuring a consistent style accross the modal. Be sure to style you app with Chakra's theme options.
-
-### Fee Delegation
-
-If you were already using fee delegation in your app you should remove that and use the one handled by the kit. You just need to provide the FEE\_DELEGATION\_URL in the provider.
-
-If you want to delegate all transactions, also for veworld users, you need to also set `delegateAllTransactions` to `true`.
-
-If you do not remove your own delegation then transactions could fail because your transaction will delegate 2 times, will have 2 signatures and an incorrect format.
-

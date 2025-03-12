@@ -8,6 +8,7 @@
   * [Migrate from DAppKit](vechain-kit/migrations/migration-from-dappkit.md)
   * [Migrate Social Login Users](vechain-kit/migrations/migrate-social-login-users.md)
   * [Migrate embedded wallets](vechain-kit/migrations/migrate-embedded-wallets.md)
+* [Troubleshooting](vechain-kit/troubleshooting.md)
 * [Connection Types](vechain-kit/connection-types.md)
 * [Fee Delegation](vechain-kit/fee-delegation.md)
 * [Smart Accounts](vechain-kit/smart-accounts.md)

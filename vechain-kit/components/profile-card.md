@@ -4,7 +4,7 @@
 
 The ProfileCard component provides a comprehensive display of user profile information, including avatar, domain, social links, and customization options.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="322"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="322"><figcaption></figcaption></figure>
 
 ### Features
 

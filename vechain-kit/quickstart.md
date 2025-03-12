@@ -22,7 +22,7 @@ yarn add @tanstack/react-query@"^5.64.2" @chakra-ui/react@"^2.8.2" @vechain/dapp
 
 // or
 
-npm i @tanstack/react-query@"^5.64.2" @chakra-ui/react@"^2.8.2" @vechain/dapp-kit-react@"1.4.1" @vechain/vechain-ki
+npm i @tanstack/react-query@"^5.64.2" @chakra-ui/react@"^2.8.2" @vechain/dapp-kit-react@"1.4.1" @vechain/vechain-kit
 ```
 {% endcode %}
 
