@@ -319,6 +319,31 @@ export function Page() {
 }
 ```
 
+### Allow only wallets connections
+
+You can allow users connect to your app only with wallet by using the dapp-kit connect modal, as follows:
+
+```typescript
+import { useDAppKitWalletModal, DAppKitWalletButton } from '@vechain/vechain-kit';
+
+export const LoginComponent = () => {
+  const { open: openWalletModal } = useDAppKitWalletModal();
+
+  return (
+    <Button onClick={openWalletModal}>
+        Open only "Connect Wallet"
+    </Button>
+    
+    // or
+
+    <DAppKitWalletButton>
+)}
+```
+
+{% hint style="warning" %}
+When your app is opened inside VeWorld mobile wallet, VeWorld is always enforced as a login choice.
+{% endhint %}
+
 ## Support for devs
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!

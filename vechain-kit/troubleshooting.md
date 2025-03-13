@@ -91,3 +91,21 @@ If you want to delegate all transactions, also for veworld users, you need to se
 {% hint style="danger" %}
 If you do not remove your own delegation then transactions could fail because your transaction will delegate 2 times, will have 2 signatures and an incorrect format.
 {% endhint %}
+
+### Privy signing popup not opening
+
+Whenever we need to open the privy confirmation popup (in crossapp connection) if we do operations after we trigger the `onClick` function (like fetching some data and then asking privy to sign message) it creates a latency that web browsers will interpret as malicious and will block the popup.
+
+Ensuring data is pre-fetched before initiating a transaction is crucial to avoid browser pop-up blocking for users using social login, which can adversely affect user experience.
+
+```javascript
+// ✅ Good: Pre-fetch data
+const { data } = useQuery(['someData'], fetchSomeData);
+const sendTx = () => sendTransaction(data);
+
+// ❌ Bad: Fetching data during the transaction
+const sendTx = async () => {
+  const data = await fetchSomeData();
+  return sendTransaction(data);
+};
+```

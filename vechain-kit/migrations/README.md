@@ -11,3 +11,7 @@ Follow these steps to seamlessly transition your application from DAppKit or a c
 {% content-ref url="migrate-social-login-users.md" %}
 [migrate-social-login-users.md](migrate-social-login-users.md)
 {% endcontent-ref %}
+
+{% content-ref url="smart-accounts-v1-to-v3.md" %}
+[smart-accounts-v1-to-v3.md](smart-accounts-v1-to-v3.md)
+{% endcontent-ref %}
