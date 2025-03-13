@@ -66,7 +66,7 @@ The system has evolved through multiple versions to improve functionality and se
 The factory maintains compatibility with all account versions, ensuring a smooth experience across different dApps and versions.
 
 {% hint style="warning" %}
-Testnet Factory address changed from v1 to v3 from 0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb to  0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF which will cause all your testnet smart account addresses to change.
+Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to  `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change.
 {% endhint %}
 
 ### Smart Accounts V3 upgrade
