@@ -105,7 +105,7 @@ export function TransactionExamples() {
 
 You can build clauses with some of our available build functions, with our [SDK](https://docs.vechain.org/developer-resources/sdks-and-providers/sdk) or  with [connex](https://docs.vechain.org/developer-resources/sdks-and-providers/connex).
 
-If you want to interact directly with the user's smart account read the [Smart Accounts](smart-accounts.md#multiclause-transactions) section.
+If you want to interact directly with the user's smart account read the [Smart Accounts](../social-login/smart-accounts.md#multiclause-transactions) section.
 
 {% hint style="warning" %}
 **Important**

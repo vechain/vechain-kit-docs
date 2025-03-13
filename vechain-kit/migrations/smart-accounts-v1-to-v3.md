@@ -1,6 +1,6 @@
 # Smart Accounts v1 to v3
 
-Upgrading to[ **Smart Account v3**](../smart-accounts.md) unlocks **multi-clause support**, **enhanced security**, and other essential features for transactions on VeChain. This feature is available in VeChain Kit from [v1.5.0](https://github.com/vechain/vechain-kit/releases/tag/1.5.0).
+Upgrading to[ **Smart Account v3**](../../social-login/smart-accounts.md) unlocks **multi-clause support**, **enhanced security**, and other essential features for transactions on VeChain. This feature is available in VeChain Kit from [v1.5.0](https://github.com/vechain/vechain-kit/releases/tag/1.5.0).
 
 When integrating smart account connections in your app, users might connect using a version 1 smart account. This version doesn’t support multiclause transactions, potentially causing transaction issues within your app.
 

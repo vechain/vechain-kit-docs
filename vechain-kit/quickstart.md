@@ -192,8 +192,8 @@ By default we have a list of default apps that will be shown as ecosystem login 
 
 Fee delegation is **mandatory** in order to use this kit. Learn how to setup fee delegation in the following guide:
 
-{% content-ref url="fee-delegation.md" %}
-[fee-delegation.md](fee-delegation.md)
+{% content-ref url="../social-login/fee-delegation.md" %}
+[fee-delegation.md](../social-login/fee-delegation.md)
 {% endcontent-ref %}
 
 ## 4) Setup Privy (optional)

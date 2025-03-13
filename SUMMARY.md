@@ -11,9 +11,6 @@
   * [Migrate embedded wallets](vechain-kit/migrations/migrate-embedded-wallets.md)
 * [Troubleshooting](vechain-kit/troubleshooting.md)
 * [Connection Types](vechain-kit/connection-types.md)
-* [Fee Delegation](vechain-kit/fee-delegation.md)
-* [Embedded Wallets](vechain-kit/embedded-wallets.md)
-* [Smart Accounts](vechain-kit/smart-accounts.md)
 * [Send Transactions](vechain-kit/send-transactions.md)
 * [Sign Messages](vechain-kit/sign-messages.md)
 * [Text Records (avatar & co.)](vechain-kit/text-records-avatar-and-co..md)
@@ -50,3 +47,9 @@
 * [React dApp Template 🛠️](templates/react-dapp-template.md)
 * [Smart Contract Template 📜](templates/smart-contract-template.md)
 * [X2Earn Template 💰](templates/x2earn-template.md)
+
+## Social Login
+
+* [Embedded Wallets](social-login/embedded-wallets.md)
+* [Smart Accounts](social-login/smart-accounts.md)
+* [Fee Delegation](social-login/fee-delegation.md)
