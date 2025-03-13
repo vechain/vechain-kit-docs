@@ -56,6 +56,17 @@ export const ConvertModal = ({ isOpen, onClose }: Props) => {
 }
 ```
 
+{% hint style="info" %}
+You can customize the color button and size of the imported modal from the kit:
+
+```typescript
+const { open: openUpgradeSmartAccountModal } = useUpgradeSmartAccountModal({
+    accentColor: '#000000',
+    modalSize: 'xl',
+});
+```
+{% endhint %}
+
 ### Example demo
 
 #### With UI from the Kit
