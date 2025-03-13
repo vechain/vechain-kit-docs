@@ -110,8 +110,6 @@ If you want to interact directly with the user's smart account read the [Smart A
 {% hint style="warning" %}
 **Important**
 
-When implementing transaction logic within your application, it's crucial to ensure that all necessary data needed for the transaction is pre-fetched.
-
 Ensuring data is pre-fetched before initiating a transaction is crucial to avoid browser pop-up blocking for users using social login, which can adversely affect user experience.
 
 ```javascript
