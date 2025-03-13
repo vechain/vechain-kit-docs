@@ -7,6 +7,7 @@
 * [Migrations](vechain-kit/migrations/README.md)
   * [Migrate from DAppKit](vechain-kit/migrations/migration-from-dappkit.md)
   * [Migrate Social Login Users](vechain-kit/migrations/migrate-social-login-users.md)
+  * [Smart Accounts v1 to v3](vechain-kit/migrations/smart-accounts-v1-to-v3.md)
   * [Migrate embedded wallets](vechain-kit/migrations/migrate-embedded-wallets.md)
 * [Troubleshooting](vechain-kit/troubleshooting.md)
 * [Connection Types](vechain-kit/connection-types.md)
