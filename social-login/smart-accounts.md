@@ -74,7 +74,7 @@ To facilitate the mandatory upgrade process, the kit now includes:
 * **Built-in Check**: Automatically displays an alert prompting users to upgrade if they possess a V1 smart account.
 * **Hooks & Component**: To avoid apps spending VTHO to upgrade accounts of users that won't do any action on the app we allow the developer to check upgradeability on demand by using the `useUpgradeRequiredForAccount` hook and show the `UpgradeSmartAccountModal` (importable from the kit).
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/image (4).png" alt="" width="375"><figcaption><p>Example of the upgrade modal</p></figcaption></figure></div>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>Example of the upgrade modal</p></figcaption></figure>
 
 ### Hooks
 
