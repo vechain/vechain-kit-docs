@@ -261,6 +261,11 @@ import { usePrivy } from "@vechain/vechain-kit";
 const { user } = usePrivy();
 ```
 
+{% hint style="warning" %}
+If you setup your own Privy be sure to go over the recommended security settings provided by Privy: \
+[https://docs.privy.io/guide/security/implementation/](https://docs.privy.io/guide/security/implementation/) and [https://docs.privy.io/guide/security/implementation/csp](https://docs.privy.io/guide/security/implementation/csp)
+{% endhint %}
+
 ## 5) Use the kit
 
 Once you setup the kit provider and created your fee delegation service you are good to go and you can allow your users to login.

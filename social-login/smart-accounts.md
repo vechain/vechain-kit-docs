@@ -23,15 +23,11 @@ There are 2 contracts that work together to enable social login and account abst
 * **SimpleAccount**: A smart contract wallet owned by the user that can:
   * Execute transactions directly from the owner or through signed messages
   * Handle both single and batch transactions
-  * Be upgraded by the owner
-  * Transfer ownership to another address
-  * Use time-based validity windows for transactions
-  * Prevent replay attacks using nonces for batch transactions
 * **SimpleAccountFactory**: Factory contract that creates and manages SimpleAccount contracts:
   * Creates new accounts with deterministic addresses using CREATE2
+  * Get the account address of a smart account without deploying it
   * Supports multiple accounts per owner through custom salts
   * Manages different versions of the SimpleAccount implementation
-  * Maintains compatibility with legacy accounts
 
 ### How it works
 
@@ -39,15 +35,15 @@ There are 2 contracts that work together to enable social login and account abst
 2. **Transaction Execution**: The `SimpleAccount` can execute transactions in several ways:
    * Direct execution by the owner
    * Batch execution of multiple transactions
-   * Signature-based execution (useful for social login)
+   * Signature-based execution (useful for social login) - _Deprecated, should avoid using this_
    * Batch signature-based execution with replay protection (useful for social login + multiclause)
    * Batch signature-based execution with 16-bit chain ID to allow iOS and Android developers handle VeChain chain ID.
-3. **Nonce Management**: For batch transactions with authorization (executeBatchWithAuthorization), a nonce is required to protect users against replay attacks:
+3. **Nonce Management**: For batch transactions with authorization (`executeBatchWithAuthorization`), a nonce is required to protect users against replay attacks:
    * The nonce should be generated when requesting the signature
    * Best practice is to use `Date.now()` as the nonce value
    * Each nonce can only be used once per account
    * Without proper nonce management, malicious actors could replay the same signed transaction multiple times
-   * Nonces are only used and required for executeBatchWithAuthorization method
+   * Nonces are only used and required for `executeBatchWithAuthorization` method
 4. **Social Login Integration**: This system enables social login by creating deterministic account addresses for each user and allowing transactions to be signed off-chain and executed by anyone. This creates a seamless experience where users can interact with dApps using their social credentials.
 
 ### Version Management
