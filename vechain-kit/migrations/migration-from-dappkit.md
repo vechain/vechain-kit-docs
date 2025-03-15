@@ -21,3 +21,9 @@ Read how to use the hook [here](../send-transactions.md).
 
 6\) If you use useConnex() by importing from dapp-kit, import it from vechain-kit.
 
+7\) If you are using certificate signing to authenticate your users with your backend to issue a jwt/session token you will need to switch to use signTypedData instead, since Privy and Smart Accounts does not support the VeChain certificate authentication signature type. Read how to do [here](../sign-messages.md).
+
+{% hint style="danger" %}
+Remove all installations of @vechain/dapp-kit @vechain/dapp-kit-ui and @vechain/dapp-kit-react from your app. If you need some specific hooks or methods from dapp-kit you can import them directly from the @vechain/vechain-kit.
+{% endhint %}
+

@@ -23,7 +23,7 @@ import {
     useGetNodeUrl,
     useGetCustomTokenBalances,
     useGetCustomTokenInfo
-} from '@utility';
+} from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     const address = "0x..."; // User's wallet address

@@ -2,7 +2,7 @@
 
 Upgrading to[ **Smart Account v3**](../../social-login/smart-accounts.md) unlocks **multi-clause support**, **enhanced security**, and other essential features for transactions on VeChain. This feature is available in VeChain Kit from [v1.5.0](https://github.com/vechain/vechain-kit/releases/tag/1.5.0).
 
-When integrating smart account connections in your app, users might connect using a version 1 smart account. This version doesn’t support multiclause transactions, potentially causing transaction issues within your app.
+When integrating social login in your app, users might have a version 1 smart account. This version doesn’t support multiclause transactions, potentially causing issues within your app.
 
 To address this scenario, consider wrapping your `onClick` handler or using another suitable method to prompt users to upgrade their smart accounts to version 3.
 
@@ -42,7 +42,8 @@ export const ConvertModal = ({ isOpen, onClose }: Props) => {
   const handleConvertB3tr = useCallback(() => {
     if (connection.isConnectedWithPrivy && isSmartAccountUpgradeRequired) {
       //Open Upgrade Modal
-      return openUpgradeModal()
+      openUpgradeModal()
+      return
     }
 
     convertB3trMutation.resetStatus()
@@ -56,7 +57,7 @@ export const ConvertModal = ({ isOpen, onClose }: Props) => {
 }
 ```
 
-{% hint style="info" %}
+{% hint style="success" %}
 You can customize the color button and size of the imported modal from the kit:
 
 ```typescript
@@ -76,7 +77,3 @@ const { open: openUpgradeSmartAccountModal } = useUpgradeSmartAccountModal({
 #### With custom UI
 
 {% embed url="https://streamable.com/wrpzo4" %}
-
-{% hint style="warning" %}
-Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to  `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change.
-{% endhint %}

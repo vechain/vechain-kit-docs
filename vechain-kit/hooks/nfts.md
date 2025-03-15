@@ -52,7 +52,7 @@ interface NFTMetadataUriResult {
 
 ```typescript
 // Example usage of NFT hooks
-import { useNFTImage, useNFTMetadataUri } from '@nfts';
+import { useNFTImage, useNFTMetadataUri } from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     const walletAddress = "0x...";

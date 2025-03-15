@@ -1,8 +1,8 @@
 # Sign Messages
 
-### `useSignMessage()`
+## Sign Message
 
-Sign a string, eg "Hello VeChain".
+Sign a string, eg "Hello VeChain", with the `useSignMessage()` hook.
 
 ```typescript
 'use client';
@@ -59,18 +59,9 @@ export function SigningExample(): ReactElement {
 }
 ```
 
-{% hint style="warning" %}
-If you require your user to sign a message in order to prove his identity you will need to differentiate between users logged in with Privy and DAppKit.\
-When using Privy the user owns a smart account, and he cannot directly sign a message with the smart account but needs to do it with his Embedded Wallet. This means that when you verify identities of users connected with Privy **you will need to check that the address that signed the message is actually the owner of the smart account**.
-{% endhint %}
+## Sign Typed Data (EIP712)
 
-### `useSignTypedData()`
-
-Hook to sign typed data using the connected wallet.&#x20;
-
-Supports both Privy and VeChain wallets.
-
-Return Object containing the signing function and status
+Use the `useSignTypedData()` hook to sign structured data.&#x20;
 
 ```typescript
 'use client';
@@ -148,54 +139,220 @@ export function SigningTypedDataExample(): ReactElement {
 }
 ```
 
-## DAppKit
+## Certificate Signing
 
-If you are sure you are interacting with VeWorld then you can request VeChain's classic certificate signing method allowed by connex and the SDK.
+When integrating VeChain Privy with your application, you may want to allow users to sign in using different methods (e.g., Google). Unlike the VeWorld wallet, Privy does not handle signing certificates in the same way. To authenticate users in your backend (BE) and issue them a JWT (JSON Web Token), you need a reliable signing method that proves user identity.&#x20;
 
-### Certificate Signing
+The recommended approach is to use `signTypedData` to have the user sign a piece of structured data.\
+This allows you to include fields such as a random nonce or a timestamp, ensuring the signed payload is unique for each authentication request.
 
-Only supported on Wallet connections, as VeWorld and Sync2.
+{% hint style="warning" %}
+When using Privy the user owns a smart account (which is a smart contract), and he cannot directly sign a message with the smart account but needs to do it with his Embedded Wallet (the wallet created and secured by Privy). This means that when you verify identities of users connected with social login **you will need to check that the address that signed the message is actually the owner of the smart account**.
+{% endhint %}
 
-You can use Sign Typed Data instead.
-
-If you need to authenticate an user using a smart account, you will need to make the embedded wallet sign a message where he confirms to be the owner of the smart account, and then verify the signature.
-
-In the VeChainKitProvider add:
-
-```typescript
-return (
-   <VeChainKitProvider
-            //other props...
-             
-            network={{
-                type: 'main',
-                requireCertificate: true,
-                connectionCertificate: {
-                    message: {
-                        purpose: 'identification',
-                        payload: {
-                            type: 'text',
-                            content: 'Please sign this message to connect your wallet.',
-                        },
-                    },
-                },
-            }}
-            
-            //other props...
-        >
-            {children}
-        </VeChainKitProvider>
-)
-```
-
-### Invoke conditionally
-
-#### Use connex
-
-You can import the connex sdk and use it's functionalities when the user is connected through a wallet.
+#### Example usage
 
 {% tabs %}
-{% tab title="Sign" %}
+{% tab title="SignatureWrapperProvider.tsx" %}
+Create a provider that will handle the signature verification.
+
+```typescript
+import { useSignatureVerification } from "../hooks/useSignatureVerification";
+import { Modal, ModalOverlay, ModalContent, VStack, Text, Spinner, Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import { ReactNode, useEffect } from "react";
+import { useWallet } from "@vechain/vechain-kit";
+import { clearSignature, usePostUser } from "@/hooks";
+
+type Props = {
+  children: ReactNode;
+};
+
+export const SignatureVerificationWrapper = ({ children }: Props) => {
+  const { hasVerified, isVerifying, signature, verifySignature, value } = useSignatureVerification();
+  const { account } = useWallet();
+  const { t } = useTranslation();
+
+  const { mutate: postUser } = usePostUser();
+
+  useEffect(() => {
+    if (account?.address && !signature) {
+      verifySignature();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account?.address, signature]);
+
+  useEffect(() => {
+    // If user signed the signature we call our backend endpoint
+    if (signature && value.user !== "" && value.timestamp !== "" && account?.address) {
+      // When you want to execute the mutation:
+      postUser({
+        address: account.address,
+        value: value,
+        signature: signature,
+      });
+    }
+  }, [signature, value, account?.address, postUser]);
+
+  // if user disconnects we clear the signature
+  useEffect(() => {
+    if (!account) {
+      clearSignature();
+    }
+  }, [account]);
+
+  // Only show the modal if we have an account connected AND haven't verified yet AND are not in the process of verifying
+  const showModal = !!account?.address && (!hasVerified || !signature);
+
+  return (
+    <>
+      {children}
+      <Modal isOpen={showModal} onClose={() => {}} isCentered closeOnOverlayClick={false}>
+        <ModalOverlay />
+        <ModalContent p={6}>
+          <VStack spacing={4}>
+            {isVerifying ? (
+              <>
+                <Spinner size="xl" color="primary.500" />
+                <Text textAlign="center" fontSize="lg">
+                  {t("Please sign the message to verify your wallet ownership")}
+                </Text>
+              </>
+            ) : (
+              <>
+                <Text textAlign="center" fontSize="lg">
+                  {t("Signature verification is mandatory to proceed. Please try again.")}
+                </Text>
+                <Button onClick={verifySignature} colorScheme="secondary">
+                  {t("Try Again")}
+                </Button>
+              </>
+            )}
+          </VStack>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+```
+{% endtab %}
+
+{% tab title="main.tsx" %}
+Wrap the app with our new provider
+
+```typescript
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { VeChainKitProviderWrapper } from "./components/VeChainKitProviderWrapper.tsx";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import { lightTheme } from "./theme";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+import { AppProvider } from "./components/AppProvider.tsx";
+import { SignatureVerificationWrapper } from "./components/SignatureVerificationWrapper.tsx";
+
+(async () => {
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+      <ChakraProvider theme={lightTheme}>
+        <ColorModeScript initialColorMode="light" />
+        <VeChainKitProviderWrapper>
+          <SignatureVerificationWrapper>
+              <AppProvider>
+                <RouterProvider router={router} />
+              </AppProvider>
+          </SignatureVerificationWrapper>
+        </VeChainKitProviderWrapper>
+      </ChakraProvider>
+    </React.StrictMode>,
+  );
+})();
+
+```
+{% endtab %}
+
+{% tab title="useSignatureVerification.ts" %}
+Handle the signature within a custom hook
+
+```typescript
+import { useWallet, useSignTypedData } from "@vechain/vechain-kit";
+import { useState, useCallback } from "react";
+import { ethers } from "ethers";
+
+// EIP-712 typed data structure
+const domain = {
+  name: "MyAppName",
+  version: "1",
+};
+
+const types = {
+  Authentication: [
+    { name: "user", type: "address" },
+    { name: "timestamp", type: "string" },
+  ],
+};
+
+export type SignatureVerificationValue = {
+  user: string;
+  timestamp: string;
+};
+
+export const useSignatureVerification = () => {
+  const { account } = useWallet();
+  const { signTypedData } = useSignTypedData();
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [value, setValue] = useState<SignatureVerificationValue>({
+    user: "",
+    timestamp: "",
+  });
+
+  const signature = localStorage.getItem(`login_signature`);
+
+  const verifySignature = useCallback(async () => {
+    if (!account?.address || isVerifying) return;
+
+    setValue({
+      user: account.address,
+      timestamp: new Date().toISOString(),
+    });
+
+    const existingSignature = localStorage.getItem(`login_signature`);
+    if (existingSignature) return;
+
+    setIsVerifying(true);
+    try {
+      const signature = await signTypedData({
+        domain,
+        types,
+        message: value,
+        primaryType: "Authentication",
+      });
+
+      const isValid = ethers.verifyTypedData(domain, types, value, signature);
+
+      if (!isValid) {
+        throw new Error("Signature verification failed");
+      }
+
+      localStorage.setItem(`login_signature`, signature);
+    } catch (error) {
+      console.error("Signature verification failed:", error);
+    } finally {
+      setIsVerifying(false);
+    }
+  }, [account?.address, isVerifying, signTypedData, value]);
+
+  const hasVerified = account?.address ? !!localStorage.getItem(`login_signature`) : false;
+
+  return { hasVerified, isVerifying, signature, verifySignature, value };
+};
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="danger" %}
+You should **deprecate** this:
+
 ```typescript
 import { useConnex } from '@vechain/vechain-kit';
 
@@ -218,108 +375,4 @@ export default function Home(): ReactElement {
     return <button onClick={handleSignWithConnex}> Sign </button>
 }
 ```
-{% endtab %}
-
-{% tab title="Connex Vendor Interface" %}
-```typescript
-declare namespace Connex {
-    /** the vendor interface to interact with wallets */
-    interface Vendor {
-        /** create the tx signing service */
-        sign(kind: 'tx', msg: Vendor.TxMessage): Vendor.TxSigningService
-
-        /** create the cert signing service */
-        sign(kind: 'cert', msg: Vendor.CertMessage): Vendor.CertSigningService
-    }
-
-    namespace Vendor {
-        /** the interface is for requesting user wallet to sign transactions */
-        interface TxSigningService {
-            /** designate the signer address */
-            signer(addr: string): this
-
-            /** set the max allowed gas */
-            gas(gas: number): this
-
-            /** set another txid as dependency */
-            dependsOn(txid: string): this
-
-            /** 
-             * provides the url of web page to reveal tx related information.
-             * first appearance of slice '{txid}' in the given link url will be replaced with txid.
-             */
-            link(url: string): this
-
-            /** set comment for the tx content */
-            comment(text: string): this
-
-            /**
-             * enable VIP-191 by providing url of web api, which provides delegation service 
-             * @param url the url of web api
-             * @param signer hint of the delegator address
-             */
-            delegate(url: string, signer?: string): this
-
-            /** register a callback function fired when the request is accepted by user wallet */
-            accepted(cb: () => void): this
-
-            /** send the request */
-            request(): Promise<TxResponse>
-        }
-
-        /** the interface is for requesting user wallet to sign certificates */
-        interface CertSigningService {
-            /** designate the signer address */
-            signer(addr: string): this
-
-            /** 
-             * provides the url of web page to reveal cert related information.
-             * first appearance of slice '{certid}' in the given link url will be replaced with certid.
-             */
-            link(url: string): this
-
-            /** register a callback function fired when the request is accepted by user wallet */
-            accepted(cb: () => void): this
-
-            /** send the request */
-            request(): Promise<CertResponse>
-        }
-
-        type TxMessage = Array<Connex.VM.Clause & {
-            /** comment to the clause */
-            comment?: string
-            /** as the hint for wallet to decode clause data */
-            abi?: object
-        }>
-
-        type CertMessage = {
-            purpose: 'identification' | 'agreement'
-            payload: {
-                type: 'text'
-                content: string
-            }
-        }
-
-        type TxResponse = {
-            txid: string
-            signer: string
-        }
-
-        type CertResponse = {
-            annex: {
-                domain: string
-                timestamp: number
-                signer: string
-            }
-            signature: string
-        }
-    }
-}
-
-```
-{% endtab %}
-{% endtabs %}
-
-### Use SDK
-
-Coming soon.
+{% endhint %}

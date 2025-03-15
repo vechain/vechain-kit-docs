@@ -2,7 +2,9 @@
 
 Fee Delegation is mostly meant to be implemented to support end-user-experience, removing the need to purchase/collect gas tokens and remove need to pay for the applications activities.
 
-Currently, it is mandatory to sponsor your transactions when using Privy as login provider.&#x20;
+{% hint style="warning" %}
+Currently, it is mandatory to sponsor transaction for users that use social login. You can deploy your own custom solution or use [vechain.energy](https://vechain.energy/).
+{% endhint %}
 
 ### FEE\_DELEGATION\_URL
 
@@ -117,9 +119,5 @@ You can learn more about the feature from docs.vechain.org on [How to Integrate 
 Fee Delegation is mostly meant to be implemented to support end-user-experience, removing the need to purchase/collect gas tokens and remove need to pay for the applications activities.
 
 Other use-cases are instant interactions with blockchains from different backends or processes without introducing account management for gas tokens.
-
-### Is it required for Privy + Smart Wallets?
-
-Currently, it is mandatory to sponsor your Privy transactions. You can deploy your own custom solution or use [vechain.energy](https://vechain.energy/).
 
 [^1]: 

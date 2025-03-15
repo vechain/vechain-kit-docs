@@ -16,6 +16,10 @@ Our [smart accounts](https://github.com/vechain/smart-accounts) are a simplified
 Every wallet on VeChain owns a smart account. The address of your smart account is deterministic, and it can be deployed at any time, and receive tokens even if it is not deployed yet.
 {% endhint %}
 
+{% hint style="warning" %}
+Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to  `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change when upgrading to v1.5.0.
+{% endhint %}
+
 ### Contracts
 
 There are 2 contracts that work together to enable social login and account abstraction:

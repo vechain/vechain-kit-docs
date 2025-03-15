@@ -41,7 +41,7 @@ import {
     useLoginWithPasskey,
     useLoginWithOAuth,
     useLoginWithVeChain 
-} from '@login';
+} from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     // Passkey authentication

@@ -42,7 +42,7 @@ import {
     useSelectedGmNft,
     useGetNodeManager,
     useParticipatedInGovernance,
-} from '@vebetterdao';
+} from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     const userAddress = "0x..."; // User's wallet address

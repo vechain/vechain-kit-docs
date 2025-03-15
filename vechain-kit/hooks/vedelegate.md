@@ -12,7 +12,7 @@ The hooks provide tools for interacting with VeDelegate token and functionality:
 
 ```typescript
 // Example usage of VeDelegate hooks
-import { useGetVeDelegateBalance } from '@veDelegate';
+import { useGetVeDelegateBalance } from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     const userAddress = "0x..."; // User's wallet address

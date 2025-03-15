@@ -31,7 +31,7 @@ The hooks provide tools for interacting with the B3TR indexer service, offering 
 import { 
     useSustainabilityActions,
     useRoundAppVotes 
-} from '@indexer';
+} from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     // Get sustainability actions with pagination

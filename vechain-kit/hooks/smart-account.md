@@ -28,7 +28,7 @@ import {
     useSmartAccountImplementationAddress,
     useUpgradeSmartAccountVersion,
     useHasV1SmartAccount,
-} from '@/hooks';
+} from '@vechain/vechain-kit';
 
 // connectedWallet is the owner of the smart account, can be the Privy embedded wallet or VeWorld
 const { connectedWallet } = useWallet();

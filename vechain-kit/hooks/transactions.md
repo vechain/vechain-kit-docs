@@ -73,7 +73,7 @@ import {
     useSendTransaction,
     useTransferERC20,
     useTransferVET 
-} from '@transactions';
+} from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     // Example of sending VET

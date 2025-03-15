@@ -4,31 +4,45 @@ VeChain Kit supports 3 types of connections:
 
 ## 1) Privy
 
-Connecting with Privy means that the developer has created his own app on Privy and is using his personal APP\_ID and CLIENT\_ID.&#x20;
+This connection type is often used by organizations like VeBetterDAO, Cleanify, and Greencart. When connected, users can back up their embedded wallets, sign transactions without confirmation prompts, and add login methods. By connecting with Privy, developers use their personal APP\_ID and CLIENT\_ID to create their own app on Privy.
 
-When connected this way the user can backup his embedded wallet, sign transactions without confirmation modals, add login methods, etc.
+{% hint style="info" %}
+**Pros of self hosting Privy:**
 
-This type of connection is typically used by: VeBetterDAO, Cleanify, Greencart, etc.
+* No UI confirmations on users transactions
+* Allow your users to backup their keys and update security settings directly in your app
+* Targetted social login methods
+
+**Cons:**
+
+* Price
+* Responsibilities to correctly secure your Privy account, since it contains access to user's wallet settings
+* Your users will need to login into other apps through ecosystem mode
+{% endhint %}
 
 ## 2) Privy Cross App
 
-Privy embedded wallets can be made interoperable across apps. In this setup, embedded wallets foster a **cross-app ecosystem** where users can easily port their embedded wallets from one app to another.
-
-Using **cross-app wallets**, users can seamlessly move assets between different apps and can easily prove ownership of, sign messages, or send transactions with their existing embedded wallets.
+When users integrate VeChain-kit using "Login with VeChain" and "Ecosystem" logins (eg: Mugshot and Greencart), this will be the default connection type. It is easily recognizable because login and wallet activities will open a secured popup window where the owner of the wallet will approve the actions.
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-With this type of connection you can have social login without actually create an app on Privy, and you can also allow logins from apps like Cleanify, EVEarn, Mugshot, Greencart, etc.&#x20;
+{% hint style="info" %}
+With this type of connection, you can have social login in your app without actually paying Privy.
+{% endhint %}
 
-This connection type is also crucial for allowing users to "Login with VeChain".
+## 3) Self-custody wallets
 
-Typically, all apps that do not have their own Privy will use this connection type.
+This connection type allows login with self custody wallets, and  is using the dapp-kit package under the hood.&#x20;
 
-## 3) Wallet (VeWorld, Sync2, Wallet Connect)
+The available wallets are: VeWorld mobile, VeWorld extension, Sync2, and Wallet Connect for VeWorld mobile.
 
-The last type of connection is for wallets, which is using dapp-kit under the hood.
+{% hint style="info" %}
+Other  wallets are available when login in with VeChain, such as Metamask, Rabby, Phantom, Coinbase Wallet, and Ranibow. \
+That will use Privy under the hood though, which means the connection type will be "privy-cross-app".
+{% endhint %}
 
-You can allow users connect to your app only with wallet by using the dapp-kit connect modal, as follows:
+{% hint style="success" %}
+If you want to use vechain-kit but do not care about social login then you can skip the first login modal and directly show the "Connect Wallet" modal like this:
 
 ```typescript
 import { useDAppKitWalletModal, DAppKitWalletButton } from '@vechain/vechain-kit';
@@ -46,6 +60,7 @@ export const LoginComponent = () => {
     <DAppKitWalletButton>
 )}
 ```
+{% endhint %}
 
 {% hint style="warning" %}
 When your app is opened inside VeWorld mobile wallet, VeWorld is always enforced as a login choice.

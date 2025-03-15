@@ -25,7 +25,7 @@ import {
     useIpfsMetadata,
     useSingleImageUpload,
     useUploadImages
-} from '@ipfs';
+} from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     // Fetch an NFT image from IPFS

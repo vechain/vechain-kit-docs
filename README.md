@@ -27,9 +27,11 @@ Smart Account Factory: [https://vechain.github.io/smart-accounts-factory/](https
 
 NPM: [https://www.npmjs.com/package/@vechain/vechain-kit](https://www.npmjs.com/package/@vechain/vechain-kit)
 
-Github: [https://github.com/vechain/vechain-kit](https://github.com/vechain/vechain-kit)
+Check our [Troubleshooting section](vechain-kit/troubleshooting.md).
 
-Devs support: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+
+Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
 
 ## Available imports
 

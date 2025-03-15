@@ -72,7 +72,6 @@ export function VeChainKitProviderWrapper({ children }: Props) {
             loginMethods={[
                 { method: 'vechain', gridColumn: 4 },
                 { method: 'dappkit', gridColumn: 4 },
-                { method: 'ecosystem', gridColumn: 4 },
             ]}
             darkMode={true}
             language="en"
@@ -101,18 +100,7 @@ const VeChainKitProviderWrapper = dynamic(
 );
 ```
 
-### Available Login Methods
-
-The modal supports several authentication methods:
-
-* Social Login - Email and Google authentication through Privy (only available for self hosted Privy)
-* VeChain Login - Direct VeChain wallet authentication
-* Passkey - Biometric/device-based authentication (only available for self hosted Privy)
-* DappKit - Connection through VeWorld or other VeChain wallets
-* Ecosystem - Cross-app authentication within the VeChain ecosystem
-* More Options - Additional Privy-supported login methods (only available for self hosted Privy)
-
-### Login Modal Customization
+### Login Methods
 
 The modal implements a dynamic grid layout system that can be customized through the `loginMethods` configuration.
 
@@ -126,8 +114,13 @@ The modal can be configured through the `VeChainKitProvider` props.
     }}
     loginMethods={[
         { method: 'vechain', gridColumn: 4 },
-        { method: 'email', gridColumn: 2 },
-        { method: 'passkey', gridColumn: 2 },
+        { method: 'dappkit', gridColumn: 4 }, // VeChain wallets, always available
+        { method: 'ecosystem', gridColumn: 4 }, // Mugshot, Cleanify, Greencart, ...
+        { method: 'email', gridColumn: 2 }, // only available with your own Privy
+        { method: 'passkey', gridColumn: 2 },  // only available with your own Privy
+        { method: 'google', gridColumn: 4 }, // only available with your own Privy
+        { method: 'more', gridColumn: 2 }, // will open your own Privy login, only available with your own Privy
+        
     ]}
     allowCustomTokens={false} // allow the user to manage custom tokens
 >
@@ -135,7 +128,10 @@ The modal can be configured through the `VeChainKitProvider` props.
 </VeChainKitProvider>
 ```
 
-* vechain, dappkit, and ecosystem are always valid options
+{% hint style="warning" %}
+Login methods selection:
+
+* vechain, dappkit, and ecosystem are always available options
 * The Privy-dependent methods (email, google, passkey, more) are only available when the privy prop is defined
 * TypeScript will show an error if someone tries to use a Privy-dependent method when privy is not configured
 
@@ -176,21 +172,15 @@ const validConfig2: VechainKitProviderProps = {
     // ... other required props
 };
 ```
+{% endhint %}
 
-#### **Ecosystem button**
-
-The ways to show the ecosystem login button are:
-
-1. You define "ecosystem" in the loginMethods in the config
-2. You do not define the loginMethods in the config, so we default to showing the ecosystem login button
-
-To not show the ecosystem login button, you must explicitly define the loginMethods array in the config and not include ecosystem in the options.
-
+{% hint style="info" %}
 By default we have a list of default apps that will be shown as ecosystem login options. If you want to customize this list you can pass the `allowedApps` array prop. You can find the app ids in the [Ecosystem](https://dashboard.privy.io/) tab in the Privy dashboard.
+{% endhint %}
 
-## 3) Setup Fee Delegation (mandatory)
+## 3) Setup Fee Delegation (mandatory if allowing social login)
 
-Fee delegation is **mandatory** in order to use this kit. Learn how to setup fee delegation in the following guide:
+Fee delegation is **mandatory** if you want to use this kit with social login. Learn how to setup fee delegation in the following guide:
 
 {% content-ref url="../social-login/fee-delegation.md" %}
 [fee-delegation.md](../social-login/fee-delegation.md)
@@ -198,21 +188,7 @@ Fee delegation is **mandatory** in order to use this kit. Learn how to setup fee
 
 ## 4) Setup Privy (optional)
 
-If you already use Privy you can pass an additional prop with you settings and you will be able to access Privy SDK, customizing the login modal based on your needs.
-
-Pros of self hosting Privy:
-
-* No UI confirmations on users transactions
-* Allow your users to backup their keys and update security settings directly in your app
-* Targetted social login methods
-
-Cons:
-
-* Price
-* Responsibilities to correctly secure your Privy account, since it contains access to user's wallet settings
-* Your users will need to login into other apps through ecosystem mode
-
-To setup Privy you need to add the following parameters:
+If you have your own Privy app, you can pass an additional prop with your settings.
 
 ```javascript
 import { VechainKitProvider } from '@vechain/vechain-kit';
@@ -266,11 +242,25 @@ If you setup your own Privy be sure to go over the recommended security settings
 [https://docs.privy.io/guide/security/implementation/](https://docs.privy.io/guide/security/implementation/) and [https://docs.privy.io/guide/security/implementation/csp](https://docs.privy.io/guide/security/implementation/csp)
 {% endhint %}
 
-## 5) Use the kit
+{% hint style="info" %}
+**Pros of self hosting Privy:**
 
-Once you setup the kit provider and created your fee delegation service you are good to go and you can allow your users to login.
+* No UI confirmations on users transactions
+* Allow your users to backup their keys and update security settings directly in your app
+* Targetted social login methods
 
-### Wallet Button
+**Cons:**
+
+* Price
+* Responsibilities to correctly secure your Privy account, since it contains access to user's wallet settings
+* Your users will need to login into other apps through ecosystem mode
+{% endhint %}
+
+## 5) Show the login button
+
+Once you set up the kit provider, you are good to go, and you can allow your users to login, customizing the login experience based on your needs.
+
+### Option 1: Use the WalletButton component
 
 You can use this component by importing it from the kit, it will handle for you the connection state and show a login button if the user is disconnected or the profile button when the user is connected.
 
@@ -288,7 +278,7 @@ export function Page() {
 
 Read more [here](quickstart.md#wallet-button) on how to customize this button here.
 
-### Custom button
+### Option 2: create your own custom button
 
 Alternatively, you can create your own custom button and invoke the connect modal or account modal based on your needs.
 
@@ -324,7 +314,54 @@ export function Page() {
 }
 ```
 
-### Allow only wallets connections
+### Option 3: call login methods on demand (only available for self hosted Privy)
+
+This is an example of doing login with Google custom button, for more in depth details read [here](hooks/login.md).
+
+```typescript
+// Example usage of Login hooks
+import { 
+    useLoginWithOAuth,
+} from '@vechain/vechain-kit';
+
+const ExampleComponent = () => {
+    // OAuth authentication
+    const {
+        initOAuth,
+    } = useLoginWithOAuth();
+
+    const handleOAuthLogin = async (provider: OAuthProvider) => {
+        try {
+            await initOAuth({ provider });
+            console.log(`${provider} OAuth login initiated`);
+        } catch (error) {
+            console.error("OAuth login failed:", error);
+        }
+    };
+
+    return (
+        <div>
+            {/* OAuth Login Options */}
+            <button onClick={() => handleOAuthLogin('google')}>
+                Login with Google
+            </button>
+            <button onClick={() => handleOAuthLogin('twitter')}>
+                Login with Twitter
+            </button>
+            <button onClick={() => handleOAuthLogin('apple')}>
+                Login with Apple
+            </button>
+            <button onClick={() => handleOAuthLogin('discord')}>
+                Login with Discord
+            </button>
+        </div>
+    );
+};
+
+export default ExampleComponent;
+```
+
+### Option 4: allow only wallets connections
 
 You can allow users connect to your app only with wallet by using the dapp-kit connect modal, as follows:
 
@@ -353,6 +390,8 @@ When your app is opened inside VeWorld mobile wallet, VeWorld is always enforced
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
 
-Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+Check our [Troubleshooting section](troubleshooting.md).
 
-Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
+Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+
+Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)

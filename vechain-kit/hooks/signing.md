@@ -46,7 +46,7 @@ interface UseSignTypedDataReturnValue {
 
 ```typescript
 // Example usage of Signing hooks
-import { useSignMessage, useSignTypedData } from '@signing';
+import { useSignMessage, useSignTypedData } from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
     // Example of signing a message
