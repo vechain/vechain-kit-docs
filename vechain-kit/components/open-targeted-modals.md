@@ -5,6 +5,7 @@ The hooks provide tools for managing various modals in the VeChain application:
 ### Account Related Modals
 
 * `useAccountModal`: Core account modal management
+* `useProfileModal`: Show the user only his profile, with customize and logout option
 * `useAccountCustomizationModal`: Account customization settings
 * `useAccessAndSecurityModal`: Security settings and access management
 * `useChooseNameModal`: Account name selection
