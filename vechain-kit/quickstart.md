@@ -91,7 +91,7 @@ On Next.js you will need to dynamically load the import
 ```typescript
 import dynamic from 'next/dynamic';
 
-const VeChainKitProviderWrapper = dynamic(
+const VeChainKitProvider = dynamic(
     async () =>
         (await import('@vechain/vechain-kit')).VeChainKitProvider,
     {
