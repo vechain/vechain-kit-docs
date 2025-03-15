@@ -1,6 +1,6 @@
 # Intro
 
-<figure><img src=".gitbook/assets/kit-banner.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/kit-preview.png" alt=""><figcaption></figcaption></figure>
 
 **VeChain Kit** is a comprehensive library designed to make building VeChain applications fast and straightforward. It offers:
 
