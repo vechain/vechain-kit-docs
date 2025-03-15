@@ -49,6 +49,10 @@ export function VeChainKitProviderWrapper({ children }: Props) {
                 // set to false if you want to delegate ONLY social login transactions
                 delegateAllTransactions: true 
             }}
+            loginMethods={[
+                { method: 'vechain', gridColumn: 4 },
+                { method: 'dappkit', gridColumn: 4 },
+            ]}
             dappKit={{
                  allowedWallets: ['veworld', 'wallet-connect', 'sync2'],
                  walletConnectOptions: {
@@ -58,21 +62,15 @@ export function VeChainKitProviderWrapper({ children }: Props) {
                     metadata: {
                         name: 'Your App Name',
                         description:
-                            'This is a demo description.',
+                            'This is the description of your app visible in VeWorld upon connection request.',
                         url:
                             typeof window !== 'undefined'
                                 ? window.location.origin
                                 : '',
-                        icons: [
-                            typeof window !== 'undefined' ? "https://path-to-logo.png" : '',
-                        ],
+                        icons: ["https://path-to-logo.png"],
                     },
                 },
             }}
-            loginMethods={[
-                { method: 'vechain', gridColumn: 4 },
-                { method: 'dappkit', gridColumn: 4 },
-            ]}
             darkMode={true}
             language="en"
             network={{
