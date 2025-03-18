@@ -141,10 +141,9 @@ export function SigningTypedDataExample(): ReactElement {
 
 ## Certificate Signing
 
-When integrating VeChain Privy with your application, you may want to allow users to sign in using different methods (e.g., Google). Unlike the VeWorld wallet, Privy does not handle signing certificates in the same way. To authenticate users in your backend (BE) and issue them a JWT (JSON Web Token), you need a reliable signing method that proves user identity.&#x20;
+To authenticate users in your backend (BE) and issue them a JWT (JSON Web Token), you may need to check that the connected user actually holds the private keys of that wallet (assuring he is not pretending to be someone else).&#x20;
 
-The recommended approach is to use `signTypedData` to have the user sign a piece of structured data.\
-This allows you to include fields such as a random nonce or a timestamp, ensuring the signed payload is unique for each authentication request.
+The recommended approach is to use `signTypedData` to have the user sign a piece of structured data, ensuring the signed payload is unique for each authentication request.
 
 {% hint style="warning" %}
 When using Privy the user owns a smart account (which is a smart contract), and he cannot directly sign a message with the smart account but needs to do it with his Embedded Wallet (the wallet created and secured by Privy). This means that when you verify identities of users connected with social login **you will need to check that the address that signed the message is actually the owner of the smart account**.
@@ -346,6 +345,34 @@ export const useSignatureVerification = () => {
 
   return { hasVerified, isVerifying, signature, verifySignature, value };
 };
+```
+{% endtab %}
+
+{% tab title="Backend Validation" %}
+On your backend validate the signature as follows:
+
+```typescript
+import {ethers} from "ethers";
+
+export class VerifySignatureService {
+
+    static async verifySignature(signature: string, value: { user: string , timestamp: string }): Promise<string> {
+        const domain = {
+            name: "My App Name",
+            version: "1",
+        };
+
+        const types = {
+            Authentication: [
+                {name: "user", type: "address"},
+                {name: "timestamp", type: "string"},
+            ],
+        };
+
+        return ethers.verifyTypedData(domain, types, value, signature);
+    }
+}
+
 ```
 {% endtab %}
 {% endtabs %}

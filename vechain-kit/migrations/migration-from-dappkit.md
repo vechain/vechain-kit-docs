@@ -2,7 +2,7 @@
 
 1\) Install and overwrite the Provider.
 
-2\) Search all imports of `@vechain/dapp-kit-react` `@vechain/dapp-kit` and `@vechain/dapp-kit-ui` with **`@vechain/vechain-kit.`**
+2\) Replace all imports of `@vechain/dapp-kit-react` `@vechain/dapp-kit` and `@vechain/dapp-kit-ui` with **`@vechain/vechain-kit.`**
 
 3\) Wherever you use the `account` property from the `useWallet()` hook you need to access the user address differently:
 
