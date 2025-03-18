@@ -354,23 +354,34 @@ On your backend validate the signature as follows:
 ```typescript
 import {ethers} from "ethers";
 
-export class VerifySignatureService {
+static async verifySignature(signature: string, value: { user: string , timestamp: string }): Promise<string> {
+    const domain = {
+        name: "My App Name",
+        version: "1",
+    };
 
-    static async verifySignature(signature: string, value: { user: string , timestamp: string }): Promise<string> {
-        const domain = {
-            name: "My App Name",
-            version: "1",
-        };
+    const types = {
+        Authentication: [
+            {name: "user", type: "address"},
+            {name: "timestamp", type: "string"},
+        ],
+    };
 
-        const types = {
-            Authentication: [
-                {name: "user", type: "address"},
-                {name: "timestamp", type: "string"},
-            ],
-        };
+    return ethers.verifyTypedData(domain, types, value, signature);
+}
 
-        return ethers.verifyTypedData(domain, types, value, signature);
-    }
+const signerAddress = await verifySignature(
+      signature,
+      value
+    );
+    
+if (signerAddress.toLowerCase() != address.toLowerCase()) {
+    return {
+        statusCode: 403,
+        body: JSON.stringify({
+        error: "Invalid signature",
+        }),
+    };
 }
 
 ```
