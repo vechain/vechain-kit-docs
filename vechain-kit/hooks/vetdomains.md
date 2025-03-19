@@ -13,7 +13,8 @@ The hooks provide tools for interacting with VET domains and their functionality
 ### Domain Record Management Hooks
 
 * `useGetTextRecords`: Gets all text records for a domain
-* `useGetAvatar`: Gets the avatar URL for a domain
+* `useGetAvatar`: Gets the avatar URL for a domain. This hook will return directly the URL of the image, removing the need for developers to convert the URI to URL manually. The response can be null if the domain name does not exist or if there is no avatar attached to this domain.
+* `useGetAvatarOfAddress` : This hook will check if the address has any primary domain name set, if yes it will fetch and return the avatar URL (again, no need to manually convert URI to URL, the hook does it). If there is no domain name attached to it or if there is no avatar attached to the domain, it will return the Picasso image.
 * `useGetResolverAddress`: Gets the resolver contract address for a domain
 * `useUpdateTextRecord`: Updates text records for a domain with transaction handling
 
@@ -92,6 +93,7 @@ const ExampleComponent = () => {
     // Get domain records
     const { data: textRecords } = useGetTextRecords(domain);
     const { data: avatar } = useGetAvatar(domain);
+    const { data: avatarOfAddress } = useGetAvatarOfAddress(address);
     
     // Update domain records
     const { sendTransaction: updateRecord } = useUpdateTextRecord({
