@@ -98,10 +98,14 @@ export function SigningTypedDataExample(): ReactElement {
         isSigningPending: isTypedDataSignPending,
         signature: typedDataSignature,
     } = useSignTypedData();
+    
+    const { account } = useWallet()
 
     const handleSignTypedData = useCallback(async () => {
         try {
-            const signature = await signTypedData(exampleTypedData);
+            const signature = await signTypedData(exampleTypedData, {
+                signer: account?.address
+            });
             alert({
                 title: 'Typed data signed!',
                 description: `Signature: ${signature.slice(0, 20)}...`,
@@ -119,7 +123,7 @@ export function SigningTypedDataExample(): ReactElement {
                 isClosable: true,
             });
         }
-    }, [signTypedData, toast]);
+    }, [signTypedData, toast, account]);
 
     return (
         <>
@@ -325,6 +329,8 @@ export const useSignatureVerification = () => {
         types,
         message: value,
         primaryType: "Authentication",
+      }, {
+        signer: account?.address
       });
 
       const isValid = ethers.verifyTypedData(domain, types, value, signature);
