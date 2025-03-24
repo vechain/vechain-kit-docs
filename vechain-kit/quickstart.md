@@ -39,11 +39,11 @@ React query, chakra and dapp-kit are peer dependencies.
 ```typescript
 'use client';
 
-import VeChainKitProvider from '@vechain/vechain-kit'
+import { VeChainKitProvider } from '@vechain/vechain-kit'
 
-export function VeChainKitProviderWrapper({ children }: Props) {
+export function VeChainKitProviderWrapper({ children }: any) {
     return (
-         <VechainKitProvider
+         <VeChainKitProvider
             feeDelegation={{
                 delegatorUrl: process.env.NEXT_PUBLIC_DELEGATOR_URL!,
                 // set to false if you want to delegate ONLY social login transactions
