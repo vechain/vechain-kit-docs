@@ -60,7 +60,7 @@ interface WalletInfo {
 
 ```typescript
 // Example usage of ProfileCard component
-import { ProfileCard } from '@vechain-kit/components';
+import { ProfileCard } from '@vechain/vechain-kit';
 
 const MyComponent = () => {
     // Example wallet address

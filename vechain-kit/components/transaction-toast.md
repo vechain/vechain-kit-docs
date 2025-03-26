@@ -10,7 +10,8 @@ Usage example
 
 <pre class="language-typescript"><code class="lang-typescript">'use client';
 import { useWallet, useSendTransaction, useTransactionModal, TransactionModal, getConfig } from '@vechain/vechain-kit'; 
-import { IB3TR__factory } from '@vechain/vechain-kit/contracts'; import { humanAddress } from '@vechain/vechain-kit/utils'; 
+import { IB3TR__factory } from '@vechain/vechain-kit/contracts'; 
+import { humanAddress } from '@vechain/vechain-kit/utils'; 
 import { useMemo, useCallback } from 'react';
 
 export function TransactionExamples() { const { account } = useWallet(); 
