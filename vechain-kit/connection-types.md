@@ -45,7 +45,7 @@ That will use Privy under the hood though, which means the connection type will 
 If you want to use vechain-kit but do not care about social login then you can skip the first login modal and directly show the "Connect Wallet" modal like this:
 
 ```typescript
-import { useDAppKitWalletModal, DAppKitWalletButton } from '@vechain/vechain-kit';
+import { useDAppKitWalletModal } from '@vechain/vechain-kit';
 
 export const LoginComponent = () => {
   const { open: openWalletModal } = useDAppKitWalletModal();
@@ -54,10 +54,6 @@ export const LoginComponent = () => {
     <Button onClick={openWalletModal}>
         Open only "Connect Wallet"
     </Button>
-    
-    // or
-
-    <DAppKitWalletButton>
 )}
 ```
 {% endhint %}

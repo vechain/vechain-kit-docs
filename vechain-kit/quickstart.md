@@ -39,47 +39,44 @@ React query, chakra and dapp-kit are peer dependencies.
 ```typescript
 'use client';
 
-import { VeChainKitProvider } from '@vechain/vechain-kit'
+import {VeChainKitProvider} from "@vechain/vechain-kit";
 
-export function VeChainKitProviderWrapper({ children }: any) {
-    return (
-         <VeChainKitProvider
-            feeDelegation={{
-                delegatorUrl: process.env.NEXT_PUBLIC_DELEGATOR_URL!,
-                // set to false if you want to delegate ONLY social login transactions
-                delegateAllTransactions: true 
-            }}
-            loginMethods={[
-                { method: 'vechain', gridColumn: 4 },
-                { method: 'dappkit', gridColumn: 4 },
-            ]}
-            dappKit={{
-                 allowedWallets: ['veworld', 'wallet-connect', 'sync2'],
-                 walletConnectOptions: {
-                    projectId:
-                        // Get this on https://cloud.reown.com/sign-in
-                        process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID!,
-                    metadata: {
-                        name: 'Your App Name',
-                        description:
-                            'This is the description of your app visible in VeWorld upon connection request.',
-                        url:
-                            typeof window !== 'undefined'
-                                ? window.location.origin
-                                : '',
-                        icons: ["https://path-to-logo.png"],
-                    },
-                },
-            }}
-            darkMode={true}
-            language="en"
-            network={{
-                type: 'main',
-            }}
-        >
-            {children}
-        </VechainKitProvider>
-    );
+export function VeChainKitProviderWrapper({children}: any) {
+  return (
+    <VeChainKitProvider
+      feeDelegation={{
+        delegatorUrl: "https://sponsor-testnet.vechain.energy/by/441",
+        // set to false if you want to delegate ONLY social login transactions
+        // social login transactions sponsorship is currently mandatory
+        delegateAllTransactions: false,
+      }}
+      loginMethods={[
+        {method: "vechain", gridColumn: 4},
+        {method: "dappkit", gridColumn: 4},
+      ]}
+      dappKit={{
+        allowedWallets: ["veworld", "wallet-connect", "sync2"],
+        walletConnectOptions: {
+          projectId:
+            // Get this on https://cloud.reown.com/sign-in
+            process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID!,
+          metadata: {
+            name: "React Dapp Template",
+            description: "This is the description of your app visible in VeWorld upon connection request.",
+            url: typeof window !== "undefined" ? window.location.origin : "",
+            icons: ["https://path-to-logo.png"],
+          },
+        },
+      }}
+      darkMode={false}
+      language="en"
+      network={{
+        type: "test",
+      }}
+    >
+      {children}
+    </VeChainKitProvider>
+  );
 }
 
 ```
@@ -256,10 +253,10 @@ If you setup your own Privy be sure to go over the recommended security settings
 
 ## 5) Show the login button
 
-Once you set up the kit provider, you are good to go, and you can allow your users to login, customizing the login experience based on your needs.
+Once you set up the kit provider, you are good to go, and you can allow your users to login, customizing the login experience based on your needs. You can choose between many options, leaving you complete freedom on your design.
 
-### Option 1: Use the WalletButton component
-
+{% tabs %}
+{% tab title="1) Use WalletButton component" %}
 You can use this component by importing it from the kit, it will handle for you the connection state and show a login button if the user is disconnected or the profile button when the user is connected.
 
 ```typescript
@@ -274,10 +271,10 @@ export function Page() {
 }
 ```
 
-Read more [here](quickstart.md#wallet-button) on how to customize this button here.
+Read more [here](quickstart.md#wallet-button) on how to customize this button.
+{% endtab %}
 
-### Option 2: create your own custom button
-
+{% tab title="2) Create a custom button" %}
 Alternatively, you can create your own custom button and invoke the connect modal or account modal based on your needs.
 
 ```typescript
@@ -311,8 +308,10 @@ export function Page() {
     );
 }
 ```
+{% endtab %}
 
-### Option 3: call login methods on demand (only available for self hosted Privy)
+{% tab title="3) Call targeted login methods" %}
+Only available for apps with self hosted Privy .
 
 This is an example of doing login with Google custom button, for more in depth details read [here](hooks/login.md).
 
@@ -358,13 +357,13 @@ const ExampleComponent = () => {
 
 export default ExampleComponent;
 ```
+{% endtab %}
 
-### Option 4: allow only wallets connections
-
+{% tab title="4) Allow only DAppKit" %}
 You can allow users connect to your app only with wallet by using the dapp-kit connect modal, as follows:
 
 ```typescript
-import { useDAppKitWalletModal, DAppKitWalletButton } from '@vechain/vechain-kit';
+import { useDAppKitWalletModal } from '@vechain/vechain-kit';
 
 export const LoginComponent = () => {
   const { open: openWalletModal } = useDAppKitWalletModal();
@@ -373,12 +372,10 @@ export const LoginComponent = () => {
     <Button onClick={openWalletModal}>
         Open only "Connect Wallet"
     </Button>
-    
-    // or
-
-    <DAppKitWalletButton>
 )}
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 When your app is opened inside VeWorld mobile wallet, VeWorld is always enforced as a login choice.
