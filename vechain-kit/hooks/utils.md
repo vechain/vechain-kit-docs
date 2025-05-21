@@ -12,7 +12,13 @@ The hooks provide utility functions for interacting with the VeChain network and
 ### Token Utility Hooks
 
 * `useGetCustomTokenBalances`: Fetches balances for multiple custom tokens for a given address, returning original, scaled, and formatted values
-* `useGetCustomTokenInfo`: Retrieves token information (name, symbol, decimals) for a custom token address
+* `useGetCustomTokenInfo`: Retrieves token information (name, symbol, decimals) for a custom token address.
+
+### Legal Documents Hook
+
+* `useLegalDocuments`: Retrieves the user's agreement status for required and optional legal documents, including terms of service, privacy policy, and cookie policy.
+
+
 
 ### Usage Example
 
@@ -22,7 +28,8 @@ import {
     useGetChainId,
     useGetNodeUrl,
     useGetCustomTokenBalances,
-    useGetCustomTokenInfo
+    useGetCustomTokenInfo,
+    useLegalDocuments
 } from '@vechain/vechain-kit';
 
 const ExampleComponent = () => {
@@ -42,13 +49,26 @@ const ExampleComponent = () => {
         isLoading,
         error 
     } = useGetCustomTokenBalances(address);
+    
+    // Get legal documents data
+    const {
+        documentsNotAgreed,
+        documents,
+        agreements,
+        hasAgreedToRequiredDocuments,
+    } = useLegalDocuments();
 
     console.log(
         'Chain ID:', chainId,
         'Node URL:', nodeUrl,
         'Token Info:', tokenInfo,
-        'Token Balances:', tokenBalances
+        'Token Balances:', tokenBalances,
+        'Has Agreed to Required Documents:', hasAgreedToRequiredDocuments,
+        'User Document Agreements:', agreements,
+        'Documents Not Agreed:', documentsNotAgreed,
+        'All Legal Documents:', documents
     );
+
 
     return (
         // Your component JSX here

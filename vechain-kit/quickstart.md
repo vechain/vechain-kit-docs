@@ -251,7 +251,82 @@ If you setup your own Privy be sure to go over the recommended security settings
 * Your users will need to login into other apps through ecosystem mode
 {% endhint %}
 
-## 5) Show the login button
+## 5) Setup Legal Documents (optional)
+
+If you want to prompt users to review and accept required or optional terms such as **Terms and Conditions**, **Privacy Policy**, or **Cookie Policy**  VeChainKit offers a simple plug-and-play solution.
+
+You can also optionally enable tracking consent, allowing VeChainKit to track analytics based on user approval.
+
+***
+
+When the `legalDocuments` option is configured, users will see:
+
+* **Left:** A **modal prompt** when connecting their wallet, requiring them to review and accept required and optional legal documents.
+* **Right:** A **summary view** under `Settings > General > Terms and Policies`, showing what documents they’ve already agreed to and when.
+
+<div align="right" data-full-width="true"><figure><img src="../.gitbook/assets/kit-legal-docs-modal (1).png" alt=""><figcaption><p>Legal Docs Modal</p></figcaption></figure> <figure><img src="../.gitbook/assets/kit-legal-docs-review-modal (1).png" alt=""><figcaption><p>Legal Docs Summary View</p></figcaption></figure></div>
+
+***
+
+{% hint style="info" %}
+**Important**
+
+Legal document agreements are tied to the **wallet address**, **document type**, **document version**, and the **url**.
+
+* If the `version` of any document is updated, users will be prompted to accept it again.
+* Agreements are stored in the browser’s **local storage**, meaning acceptance is **per browser and device**.
+* As a result, users may be prompted again if they switch browsers, devices, or clear their local storage  even if they've previously agreed on another setup.
+{% endhint %}
+
+```typescript
+import { VechainKitProvider } from '@vechain/vechain-kit';
+
+export default function App({ Component, pageProps }: AppProps) {
+    return (
+        <VechainKitProvider
+            legalDocuments={{
+                allowAnalytics: true, // Enables optional consent for VeChainKit tracking
+
+                cookiePolicy: [
+                    {
+                        displayName: 'MyApp Policy', // (Optional) Custom display label
+                        url: 'https://www.myapp.com/cookie-policy',
+                        version: 1, // Increment to re-prompt users
+                        required: false, // Optional: User sees a checkbox to opt in
+                    },
+                ],
+
+                privacyPolicy: [
+                    {
+                        url: 'https://www.myapp.com/privacy-policy',
+                        version: 1, // Increment to re-prompt users
+                        required: false, // Optional: can be skipped or rejected
+                    },
+                ],
+
+                termsAndConditions: [
+                    {
+                        displayName: 'MyApp T&C',
+                        url: 'https://www.myapp.com/terms-and-conditions',
+                        version: 1, // Increment to re-prompt users
+                        required: true, // Required: must be accepted to proceed
+                    },
+                ],
+            }}
+            // ... other props
+        >
+            {children}
+        </VechainKitProvider>
+    );
+}
+
+```
+
+**Key Options**
+
+<table><thead><tr><th width="201.77734375">Option</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>allowAnalytics</code></td><td><code>boolean</code></td><td>No</td><td>If <code>true</code>, prompts users with an optional tracking policy.</td></tr><tr><td><code>cookiePolicy</code></td><td><code>array</code></td><td>No</td><td>One or more cookie policy versions.</td></tr><tr><td><code>privacyPolicy</code></td><td><code>array</code></td><td>No</td><td>One or more privacy policy versions.</td></tr><tr><td><code>termsAndConditions</code></td><td><code>array</code></td><td>No</td><td>One or more T&#x26;C versions.</td></tr></tbody></table>
+
+## 6) Show the login button
 
 Once you set up the kit provider, you are good to go, and you can allow your users to login, customizing the login experience based on your needs. You can choose between many options, leaving you complete freedom on your design.
 
