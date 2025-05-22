@@ -253,18 +253,20 @@ If you setup your own Privy be sure to go over the recommended security settings
 
 ## 5) Setup Legal Documents (optional)
 
-If you want to prompt users to review and accept required or optional terms such as **Terms and Conditions**, **Privacy Policy**, or **Cookie Policy**  VeChainKit offers a simple plug-and-play solution.
+To prompt users to review and accept your policies, like **Terms and Conditions**, **Privacy Policy**, or **Cookie Policy,** VeChainKit offers a simple plug-and-play solution.
 
-You can also optionally enable tracking consent, allowing VeChainKit to track analytics based on user approval.
+You can avoid building your own if you haven't already.
+
+By enabling also the tracking consent, you will allow VeChainKit to prompt your users to collect data to improve the kit.
 
 ***
 
-When the `legalDocuments` option is configured, users will see:
+When the `legalDocuments` option is configured, the users will see:
 
 * **Left:** A **modal prompt** when connecting their wallet, requiring them to review and accept required and optional legal documents.
-* **Right:** A **summary view** under `Settings > General > Terms and Policies`, showing what documents they’ve already agreed to and when.
+* **Right:** A **summary view** under `Settings > General > Terms and Policies`, showing which policies they’ve accepted and when.
 
-<div align="right" data-full-width="true"><figure><img src="../.gitbook/assets/kit-legal-docs-modal (1).png" alt=""><figcaption><p>Legal Docs Modal</p></figcaption></figure> <figure><img src="../.gitbook/assets/kit-legal-docs-review-modal (1).png" alt=""><figcaption><p>Legal Docs Summary View</p></figcaption></figure></div>
+<div align="center" data-full-width="true"><figure><img src="../.gitbook/assets/kit-legal-docs-modal (1).png" alt=""><figcaption><p>Legal Docs Modal</p></figcaption></figure> <figure><img src="../.gitbook/assets/kit-legal-docs-review-modal (1).png" alt=""><figcaption><p>Legal Docs Summary View</p></figcaption></figure></div>
 
 ***
 
