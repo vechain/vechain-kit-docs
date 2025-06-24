@@ -462,7 +462,7 @@ When your app is opened inside VeWorld mobile wallet, VeWorld is always enforced
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
 
-Check our [Troubleshooting section](troubleshooting.md).
+Check our [Troubleshooting section](troubleshooting/).
 
 Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
 
