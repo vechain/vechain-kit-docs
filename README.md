@@ -14,11 +14,6 @@
 **Easier Integration**\
 We provide a standardized “kit” that quickly integrates social logins and VeChain Smart Accounts—without the hassle of manual contract deployment or configuration.
 
-**Try It!**\
-Get started with our developer tools, including React Hooks, UI components, and out-of-the-box identity management, to effortlessly build your next VeChain-powered dApp.
-
-{% embed url="https://youtu.be/G8gWThlG2H0" %}
-
 ## Resources
 
 VeChain Kit Demo: [https://vechain-kit.vechain.org/](https://vechain-kit.vechain.org/)
