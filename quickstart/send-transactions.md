@@ -1,5 +1,9 @@
 # Send Transactions
 
+{% hint style="info" %}
+The useSendTransaction hook is mandatory if you use social login in your app, since it handles the social login transactions (that needs to be prepared and broadcasted differently from normal transactions). If you are not interested in social login features then you can avoid using useSendTransaction and useSignMessage and use the `signer` exported by the kit following the SDK guides for creating transactions or signing messages.
+{% endhint %}
+
 This hook will take care of checking your connection type and handle the transaction submission between privy, cross-app and wallet connections.
 
 When implementing VeChain Kit it is mandatory to use this hook to send transaction.

@@ -18,12 +18,12 @@
 * [Setup Privy (optional)](quickstart/setup-privy-optional.md)
 * [Setup Legal Documents (optional)](quickstart/setup-legal-documents-optional.md)
 * [Login Customisation](quickstart/login-customisation.md)
-* [Best Practices](quickstart/best-practices.md)
 * [Send Transactions](quickstart/send-transactions.md)
 
 ***
 
 * [Sign Messages](sign-messages.md)
+* [Best Practices](best-practices.md)
 
 ## Troubleshooting
 

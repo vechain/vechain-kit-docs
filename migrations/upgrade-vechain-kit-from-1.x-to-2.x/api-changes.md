@@ -188,6 +188,6 @@ if (error?.message.includes('reverted')) {
 ### Next Steps
 
 1. Review [Contract Patterns](../../contract-patterns.md) for detailed interaction examples
-2. Apply [Best Practices](../../quickstart/best-practices.md) for optimal performance
+2. Apply [Best Practices](../../best-practices.md) for optimal performance
 3. Verify all functionality works as expected
 4. Consult [Troubleshooting](../../troubleshooting/general.md) for common issues
