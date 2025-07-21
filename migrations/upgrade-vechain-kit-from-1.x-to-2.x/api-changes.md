@@ -187,7 +187,7 @@ if (error?.message.includes('reverted')) {
 
 ### Next Steps
 
-1. Review [Contract Patterns](../../contract-patterns.md) for detailed interaction examples
+1. Review [Contract Patterns](broken-reference) for detailed interaction examples
 2. Apply [Best Practices](../../best-practices.md) for optimal performance
 3. Verify all functionality works as expected
 4. Consult [Troubleshooting](../../troubleshooting/general.md) for common issues

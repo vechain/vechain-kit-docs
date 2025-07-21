@@ -82,7 +82,3 @@
 * [React dApp Template 🛠️](templates/react-dapp-template.md)
 * [Smart Contract Template 📜](templates/smart-contract-template.md)
 * [X2Earn Template 💰](templates/x2earn-template.md)
-
-***
-
-* [Contract Patterns](contract-patterns.md)
