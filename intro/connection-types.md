@@ -6,6 +6,8 @@ VeChain Kit supports 3 types of connections:
 
 This connection type is often used by organizations like VeBetterDAO, Cleanify, and Greencart. When connected, users can back up their embedded wallets, sign transactions without confirmation prompts, and add login methods. By connecting with Privy, developers use their personal APP\_ID and CLIENT\_ID to create their own app on Privy.
 
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 **Pros of self hosting Privy:**
 
@@ -35,6 +37,8 @@ With this type of connection, you can have social login in your app without actu
 This connection type allows login with self custody wallets, and  is using the dapp-kit package under the hood.&#x20;
 
 The available wallets are: VeWorld mobile, VeWorld extension, Sync2, and Wallet Connect for VeWorld mobile.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Other  wallets are available when login in with VeChain, such as Metamask, Rabby, Phantom, Coinbase Wallet, and Ranibow. \

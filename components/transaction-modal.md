@@ -4,7 +4,7 @@ Use our pre built `TransactionModal` or `TransactionToast` components to show yo
 
 
 
-<div align="center"><figure><img src="../../.gitbook/assets/image (1) (2).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../.gitbook/assets/image (1) (2) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### Usage example
 

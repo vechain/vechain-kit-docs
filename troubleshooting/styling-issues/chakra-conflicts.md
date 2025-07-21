@@ -22,7 +22,7 @@ yarn add @chakra-ui/react@2.8.2
 
 Wrap your app with `ChakraProvider` and include `ColorModeScript`:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>One common issue, solvable by installing Chakra and defining &#x3C;ColorModeScript /></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>One common issue, solvable by installing Chakra and defining &#x3C;ColorModeScript /></p></figcaption></figure>
 
 ```bash
 import React from "react";
