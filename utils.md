@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Utils
 
 ## VeChain Kit Utilities

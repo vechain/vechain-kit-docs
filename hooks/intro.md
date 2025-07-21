@@ -1,4 +1,4 @@
-# Hooks
+# Intro
 
 The kit provides hooks for developers to interact with smart contracts like VeBetterDAO, VePassport, veDelegate, and price oracles.&#x20;
 

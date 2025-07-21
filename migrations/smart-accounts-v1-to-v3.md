@@ -1,6 +1,6 @@
 # Smart Accounts v1 to v3
 
-Upgrading to[ **Smart Account v3**](../../social-login/smart-accounts.md) unlocks **multi-clause support**, **enhanced security**, and other essential features for transactions on VeChain. This feature is available in VeChain Kit from [v1.5.0](https://github.com/vechain/vechain-kit/releases/tag/1.5.0).
+Upgrading to[ **Smart Account v3**](../social-login/smart-accounts.md) unlocks **multi-clause support**, **enhanced security**, and other essential features for transactions on VeChain. This feature is available in VeChain Kit from [v1.5.0](https://github.com/vechain/vechain-kit/releases/tag/1.5.0).
 
 When integrating social login in your app, users might have a version 1 smart account. This version doesn’t support multiclause transactions, potentially causing issues within your app.
 
@@ -12,7 +12,7 @@ The kit makes available both the hooks to know if the upgrade is required and th
 * **`useUpgradeSmartAccountModal()`** is the hook that will allow you to open the upgrade modal, that the user will use to upgrade.
 * You can also handle this with your own UI by using the **`useUpgradeSmartAccount(smartAccountAddress, targetVersion: 3)`** hook.
 
-View other useful hooks [here](../hooks/smart-account.md).
+View other useful hooks [here](broken-reference).
 
 ### Example usage
 

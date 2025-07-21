@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Blockchain Hooks
 
 ### `useCurrentBlock()`
@@ -70,47 +56,17 @@ function TransactionStatus({ txId }) {
 
 ## Utility Functions
 
-### **`getEvents()`**
+### **`useEvents()`**
 
 Fetches events from the blockchain based on specified criteria.
 
 ```typescript
 const events = await getEvents({
-  nodeUrl,
-  thor,
-  filterCriteria,
-  order: 'asc',
-  offset: 0,
-  limit: 1000,
-  from: 0,
-  to: undefined
+   abi,
+   contractAddress,
+   eventName,
+   filterParams,
+   mapResponse,
+   nodeUrl,
 });
 ```
-
-### **`getAllEvents()`**
-
-Iteratively fetches all events matching the criteria, handling pagination automatically.
-
-```typescript
-const allEvents = await getAllEvents({
-  nodeUrl,
-  thor,
-  filterCriteria,
-  order: 'asc',
-  from: 0,
-  to: undefined
-});
-```
-
-Parameters for getEvents/getAllEvents:
-
-* nodeUrl: VeChain node URL
-* thor: Thor client instance
-* filterCriteria: Array of event filter criteria
-* order: Sort order ('asc' or 'desc')
-* from: Starting block number
-* to: Ending block number
-* offset: (getEvents only) Number of events to skip
-* limit: (getEvents only) Maximum number of events to return
-
-These hooks and functions are designed to work with the VeChain blockchain and require the VeChain Kit context to be properly set up in your application.

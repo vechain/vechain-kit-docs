@@ -40,10 +40,10 @@ This is protocol build by ENS domains and supported by veDelegate. Follow [ENS d
 
 ## Keep reading how to integrate with the VeChain Kit
 
-{% content-ref url="hooks/vetdomains.md" %}
-[vetdomains.md](hooks/vetdomains.md)
+{% content-ref url="vetdomains.md" %}
+[vetdomains.md](vetdomains.md)
 {% endcontent-ref %}
 
-{% content-ref url="components/profile-card.md" %}
-[profile-card.md](components/profile-card.md)
+{% content-ref url="../components/profile-card.md" %}
+[profile-card.md](../components/profile-card.md)
 {% endcontent-ref %}

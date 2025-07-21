@@ -1,4 +1,4 @@
-# Intro
+# VeChain Kit V2
 
 <figure><img src=".gitbook/assets/kit-preview.png" alt=""><figcaption></figcaption></figure>
 
@@ -14,6 +14,12 @@
 **Easier Integration**\
 We provide a standardized “kit” that quickly integrates social logins and VeChain Smart Accounts—without the hassle of manual contract deployment or configuration.
 
+### Version 2
+
+This version of the kit deprecated the use of [connex](https://docs.vechain.org/developer-resources/sdks-and-providers/connex) in favour of the [SDK](https://docs.vechain.org/developer-resources/sdks-and-providers/sdk).&#x20;
+
+It may have some breaking changes based on how you integrated the kit inside your app. Please read more in details what changed from V1 and how to migrate to version 2 in [the following section](broken-reference).
+
 ## Resources
 
 VeChain Kit Demo: [https://vechain-kit.vechain.org/](https://vechain-kit.vechain.org/)
@@ -22,15 +28,18 @@ Smart Account Factory: [https://vechain.github.io/smart-accounts-factory/](https
 
 NPM: [https://www.npmjs.com/package/@vechain/vechain-kit](https://www.npmjs.com/package/@vechain/vechain-kit)
 
-Check our [Troubleshooting section](vechain-kit/troubleshooting/).
+Check our [Troubleshooting section](broken-reference).
 
 Contact us on Discord: [https://discord.com/invite/vechain](https://discord.com/invite/vechain)
 
 Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
 
-## Available imports
+## Troubleshooting
 
-* @vechain/vechain-kit&#x20;
-* @vechain/vechain-kit/utils
-* @vechain/vechain-kit/contracts
-* @vechain/vechain-kit/assets
+Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
+
+Check our [Troubleshooting section](broken-reference).
+
+Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
+
+Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
