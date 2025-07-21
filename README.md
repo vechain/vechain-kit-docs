@@ -18,7 +18,7 @@ We provide a standardized “kit” that quickly integrates social logins and Ve
 
 This version of the kit deprecated the use of [connex](https://docs.vechain.org/developer-resources/sdks-and-providers/connex) in favour of the [SDK](https://docs.vechain.org/developer-resources/sdks-and-providers/sdk).&#x20;
 
-It may have some breaking changes based on how you integrated the kit inside your app. Please read more in details what changed from V1 and how to migrate to version 2 in [the following section](broken-reference).
+It may have some breaking changes based on how you integrated the kit inside your app. Please read more in details what changed from V1 and how to migrate to version 2 in [the following section](migrations/upgrade-vechain-kit-from-1.x-to-2.x/).
 
 ## Resources
 
@@ -38,7 +38,7 @@ Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https:/
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
 
-Check our [Troubleshooting section](broken-reference).
+Check our [Troubleshooting section](migrations/upgrade-vechain-kit-from-1.x-to-2.x/).
 
 Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
 
