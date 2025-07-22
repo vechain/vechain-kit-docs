@@ -121,7 +121,7 @@ Ensuring data is pre-fetched before initiating a transaction is crucial to avoid
 const { data } = useQuery(['someData'], fetchSomeData);
 const sendTx = () => sendTransaction(data);
 
-// ❌ Bad: Fetching data during the transaction
+// ⛔ Bad: Fetching data during the transaction
 const sendTx = async () => {
   const data = await fetchSomeData();
   return sendTransaction(data);
@@ -129,3 +129,46 @@ const sendTx = async () => {
 ```
 {% endhint %}
 
+***
+
+### 🔧 Custom Gas Configuration (optional)
+
+When sending transactions using VechainKit, you can fine-tune the gas settings by using two optional fields: `suggestedMaxGas` and `gasPadding`. These options give you greater control over the gas behavior of your transaction.
+
+#### `suggestedMaxGas`
+
+The `suggestedMaxGas` parameter allows you to explicitly define the maximum amount of gas to be used for the transaction. When this field is set, it will **override the internal gas estimation** logic and also **ignore any `gasPadding` value**.
+
+* Expected format: an integer representing gas units (e.g., `40000000` for 40 million gas).
+* Use this option when you want full control and know in advance the maximum gas your transaction should consume.
+
+> Example:
+
+```ts
+useSendTransaction({
+  ..., //other config
+  suggestedMaxGas: 40000000, // Sets the gas limit directly
+});
+```
+
+#### `gasPadding`
+
+The `gasPadding` option allows you to add a safety buffer **on top of the estimated gas**. This can be useful to prevent underestimations for complex transactions.
+
+* Expected format: a number between `0` and `1`, representing a percentage increase (e.g., `0.1` adds 10%).
+* Only applied **if `suggestedMaxGas` is not set**.
+
+> Example:
+
+```ts
+useSendTransaction({
+  ..., //other config
+  gasPadding: 0.1, // Adds 10% buffer to estimated gas
+});
+```
+
+#### Summary
+
+<table data-full-width="true"><thead><tr><th>Option</th><th>Type</th><th width="198.84375">Applies Gas Estimation</th><th width="153.10546875">Applies Padding</th><th width="201.01171875">Overwrites Estimation</th></tr></thead><tbody><tr><td><code>suggestedMaxGas</code></td><td>Integer</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td><code>gasPadding</code></td><td>Float (0–1)</td><td>✅</td><td>✅</td><td>❌</td></tr></tbody></table>
+
+Use `suggestedMaxGas` when you want to define the gas cap directly, and `gasPadding` when you prefer to work with auto-estimation but want a bit of headroom.
