@@ -65,7 +65,9 @@
 ## Migrations
 
 * [Upgrade VeChain Kit from 1.x to 2.x](migrations/upgrade-vechain-kit-from-1.x-to-2.x/README.md)
-  * [API Changes](migrations/upgrade-vechain-kit-from-1.x-to-2.x/api-changes.md)
+  * [Breaking Changes Overview](migrations/upgrade-vechain-kit-from-1.x-to-2.x/breaking-changes-overview.md)
+  * [Removed Features in v2](migrations/upgrade-vechain-kit-from-1.x-to-2.x/removed-features-in-v2.md)
+  * [API Migration Guide](migrations/upgrade-vechain-kit-from-1.x-to-2.x/api-migration-guide.md)
 * [Migrate from DAppKit](migrations/migrate-from-dappkit.md)
 * [Migrate Social Login Users](migrations/migrate-social-login-users.md)
 * [Smart Accounts v1 to v3](migrations/smart-accounts-v1-to-v3.md)
