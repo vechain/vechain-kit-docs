@@ -36,20 +36,6 @@
 * [Migrate Social Login Users](migrations/migrate-social-login-users.md)
 * [Smart Accounts v1 to v3](migrations/smart-accounts-v1-to-v3.md)
 
-## Troubleshooting
-
-* [Dev support](troubleshooting/dev-support.md)
-* [General](troubleshooting/general.md)
-* [Migration Issues](troubleshooting/migration-issues/README.md)
-  * [Peer Dependencies](troubleshooting/migration-issues/peer-dependencies.md)
-  * [From DApp Kit](troubleshooting/migration-issues/from-dapp-kit.md)
-* [Styling Issues](troubleshooting/styling-issues/README.md)
-  * [Chakra Conflicts](troubleshooting/styling-issues/chakra-conflicts.md)
-  * [CSS Framework Conflicts](troubleshooting/styling-issues/css-framework-conflicts.md)
-* [Integration Issues](troubleshooting/integration-issues/README.md)
-  * [Fee Delegation](troubleshooting/integration-issues/fee-delegation.md)
-  * [Privy Popup Blocking](troubleshooting/integration-issues/privy-popup-blocking.md)
-
 ## Hooks
 
 * [Intro](hooks/intro.md)
@@ -72,6 +58,20 @@
 * [Transaction Modal](components/transaction-modal.md)
 * [Transaction Toast](components/transaction-toast.md)
 * [Open targeted modals](components/open-targeted-modals.md)
+
+## Troubleshooting
+
+* [Dev support](troubleshooting/dev-support.md)
+* [General](troubleshooting/general.md)
+* [Migration Issues](troubleshooting/migration-issues/README.md)
+  * [Peer Dependencies](troubleshooting/migration-issues/peer-dependencies.md)
+  * [From DApp Kit](troubleshooting/migration-issues/from-dapp-kit.md)
+* [Styling Issues](troubleshooting/styling-issues/README.md)
+  * [Chakra Conflicts](troubleshooting/styling-issues/chakra-conflicts.md)
+  * [CSS Framework Conflicts](troubleshooting/styling-issues/css-framework-conflicts.md)
+* [Integration Issues](troubleshooting/integration-issues/README.md)
+  * [Fee Delegation](troubleshooting/integration-issues/fee-delegation.md)
+  * [Privy Popup Blocking](troubleshooting/integration-issues/privy-popup-blocking.md)
 
 ## Social Login
 
