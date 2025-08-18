@@ -14,7 +14,7 @@
 
 * [Installation](quickstart/installation.md)
 * [Provider Configuration](quickstart/provider-configuration.md)
-* [Setup Fee Delegation](quickstart/setup-fee-delegation.md)
+* [Fee Delegation Setup](quickstart/fee-delegation-setup.md)
 * [Setup Privy (optional)](quickstart/setup-privy-optional.md)
 * [Setup Legal Documents (optional)](quickstart/setup-legal-documents-optional.md)
 * [Login Customisation](quickstart/login-customisation.md)
