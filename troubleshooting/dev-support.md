@@ -8,6 +8,10 @@ Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnP
 
 Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
 
+{% hint style="warning" %}
+### Use yarn or npm to build the packages. pnpm is known to have some issues we are trying to solve.
+{% endhint %}
+
 ### Quick Links
 
 If your issue is not addressed here, please reach out to us:
