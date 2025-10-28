@@ -44,8 +44,8 @@ export function SigningExample(): ReactElement {
     return (
         <>
             <button
-                onClick={handleSignTypedData}
-                isLoading={isTypedDataSignPending}
+                onClick={handleSignMessage}
+                isLoading={isMessageSignPending}
             >
                 Sign Typed Data
             </button>

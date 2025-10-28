@@ -3,11 +3,11 @@
 If you have your own Privy app, you can pass an additional prop with your settings.
 
 ```javascript
-import { VechainKitProvider } from '@vechain/vechain-kit';
+import { VeChainKitProvider } from '@vechain/vechain-kit';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <VechainKitProvider
+        <VeChainKitProvider
             privy={{
                 appId: process.env.NEXT_PUBLIC_PRIVY_APP_ID!,
                 clientId: process.env.NEXT_PUBLIC_PRIVY_CLIENT_ID!,
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
             //other props
         >
             {children}
-        </VechainKitProvider>
+        </VeChainKitProvider>
     );
 }
 ```

@@ -28,11 +28,11 @@ Legal document agreements are tied to the **wallet address**, **document type**,
 {% endhint %}
 
 ```typescript
-import { VechainKitProvider } from '@vechain/vechain-kit';
+import { VeChainKitProvider } from '@vechain/vechain-kit';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <VechainKitProvider
+        <VeChainKitProvider
             legalDocuments={{
                 allowAnalytics: true, // Enables optional consent for VeChainKit tracking
 
@@ -65,7 +65,7 @@ export default function App({ Component, pageProps }: AppProps) {
             // ... other props
         >
             {children}
-        </VechainKitProvider>
+        </VeChainKitProvider>
     );
 }
 
