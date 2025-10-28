@@ -30,10 +30,10 @@ type EnhancedClause = {
 };
 
 interface TransactionHookReturnValue {
-    sendTransaction: () => Promise<void>;
+    sendTransaction: (clauses?: TransactionClause[]) => Promise<void>;
     isTransactionPending: boolean;
     isWaitingForWalletConfirmation: boolean;
-    txReceipt: Connex.Thor.Transaction.Receipt | null;
+    txReceipt: TransactionReceipt | null;
     status: TransactionStatus;
     resetStatus: () => void;
     error?: TransactionStatusErrorType;

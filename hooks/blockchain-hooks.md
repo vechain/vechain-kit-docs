@@ -12,7 +12,7 @@ Features:
 
 * Auto-refreshes every 10 seconds
 * Caches data for 1 minute
-* Returns the latest block information as Connex.Thor.Block
+* Returns the latest expanded block information&#x20;
 
 Example:
 
@@ -39,7 +39,7 @@ Parameters:
 
 Returns:
 
-* data: Transaction receipt (Connex.Thor.Transaction.Receipt)
+* data: Transaction receipt (TransactionReceipt)
 * isLoading: Boolean indicating if the receipt is being fetched
 * error: Error object if the operation fails
 
