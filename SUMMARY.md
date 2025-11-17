@@ -3,7 +3,7 @@
 ## Intro
 
 * [VeChain Kit V2](README.md)
-* [Version 2](intro/version-2.md)
+* [New in V2](intro/new-in-v2.md)
 * [Connection Types](intro/connection-types.md)
 
 ***
