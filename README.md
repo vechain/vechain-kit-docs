@@ -16,19 +16,11 @@ We provide a standardized “kit” that quickly integrates social logins and Ve
 
 ## Resources
 
-VeChain Kit Demo: [https://vechain-kit.vechain.org/](https://vechain-kit.vechain.org/)
-
-Smart Account Factory: [https://vechain.github.io/smart-accounts-factory/](https://vechain.github.io/smart-accounts-factory/)
+Demo: [https://vechain-kit.vechain.org/](https://vechain-kit.vechain.org/)
 
 NPM: [https://www.npmjs.com/package/@vechain/vechain-kit](https://www.npmjs.com/package/@vechain/vechain-kit)
 
-Check our [Troubleshooting section](broken-reference).
-
-Contact us on Discord: [https://discord.com/invite/vechain](https://discord.com/invite/vechain)
-
-Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
-
-## Troubleshooting
+### Troubleshooting
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
 
