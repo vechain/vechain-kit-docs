@@ -8,7 +8,7 @@ Experience faster development with reduced bundle sizes, facilitating smoother p
 
 Not only you can open specific flows of the vechain-kit modal in an isolated mode (eg: show only the "receive" or the "send" flow without allowing the user to browse/see other parts of the modal), but we also added customization options to it, so you can now set the colours and fonts of your brand and make the modals look more similar to your app.
 
-Head over to the Customization section to explore all the available options.
+Head over to the [Customization](../customization/theme.md) section to explore all the available options.
 
 ### **Simplified Installation**
 
@@ -26,7 +26,7 @@ We also improved the useSendTransaction() hook allowing you to decide to sponsor
 
 Keep in mind, though, that even if you are not required to pay for user transactions anymore, you may still want to sponsor some transaction here and there for new users or to show them (mainly to social login users) how many fees a transaction will require.
 
-Head over to the [fee-delegation.md](../social-login/fee-delegation.md "mention")section to learn more about this.
+Head over to the [fee-delegation.md](../social-login/fee-delegation.md "mention") section to learn more about this.
 
 ### **Server-Side Rendering Compatibility**
 
