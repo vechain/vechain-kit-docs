@@ -178,6 +178,24 @@ All XNodes-related functionality has been removed.
 
 </details>
 
+### Removed Components
+
+<details>
+
+<summary><strong>View removed components</strong></summary>
+
+#### `ProfileCard`
+
+* **Purpose**: component showing avatar, description, vet domain and address of the user
+* **Alternative**: Use the available hooks to build your own UI
+
+#### `TransactionToast`   &#x20;
+
+* **Purpose**: Show the status of a transaction in a toast component
+* **Alternative**: Use the receipt hook to track the status of the transaction and create your own UI or use the `TransactionModal` component
+
+</details>
+
 ### Migration Strategies
 
 #### For VeBetterDAO Features

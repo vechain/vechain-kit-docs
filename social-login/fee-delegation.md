@@ -16,8 +16,7 @@ To obtain one you can deploy your own custom solution or use [vechain.energy](ht
 
 ## Option 1: create your own
 
-You can deploy this as a microservice (through lambda, cloudflare, etc.) or as an endpoint of your backend.\
-
+You can deploy this as a microservice (through lambda, cloudflare, etc.) or as an endpoint of your backend.<br>
 
 ```typescript
 import { Address, HDKey, Transaction, Secp256k1, Hex } from '@vechain/sdk-core';

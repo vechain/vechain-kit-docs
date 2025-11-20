@@ -15,10 +15,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <VeChainKitProvider
       network={{ type: "test" }}
-      feeDelegation={{
-        delegatorUrl: "https://sponsor-testnet.vechain.energy/by/441",
-        delegateAllTransactions: false,
-      }}
     >
       {children}
     </VeChainKitProvider>
@@ -66,20 +62,31 @@ export function VeChainKitProviderWrapper({ children }: { children: React.ReactN
         type: "test", // "main" | "test" | "solo"
       }}
       
-      // Fee Delegation
-      feeDelegation={{
-        delegatorUrl: "https://sponsor-testnet.vechain.energy/by/441",
-        delegateAllTransactions: false, // Set to true to delegate all transactions
+      // UI Configuration
+      darkMode={false}
+      language="en"
+      theme={{
+          backgroundColor: 'black'
+      }}
+      
+      // Login Modal UI Customization
+      loginModalUI={{
+        logo: '/your-logo.png',
+        description: 'Welcome to our DApp',
       }}
       
       // Login Methods Configuration
       loginMethods={[
         { method: "vechain", gridColumn: 4 },
         { method: "dappkit", gridColumn: 4 },
-        { method: "ecosystem", gridColumn: 4 },
       ]}
       
-      // DApp Kit Configuration
+      // Sponsor transactions
+      feeDelegation={{
+          delegatorUrl: process.env.NEXT_PUBLIC_DELEGATOR_URL!,
+      }}
+      
+      // Wallet Connection Configuration
       dappKit={{
         allowedWallets: ["veworld", "wallet-connect", "sync2"],
         walletConnectOptions: {
@@ -91,17 +98,6 @@ export function VeChainKitProviderWrapper({ children }: { children: React.ReactN
             icons: ["https://your-domain.com/logo.png"],
           },
         },
-      }}
-      
-      // UI Configuration
-      darkMode={false}
-      language="en"
-      allowCustomTokens={false}
-      
-      // Login Modal UI Customization
-      loginModalUI={{
-        logo: '/your-logo.png',
-        description: 'Welcome to our DApp',
       }}
     >
       {children}
@@ -127,11 +123,8 @@ Configure transaction fee sponsorship:
 ```typescript
 feeDelegation: {
   delegatorUrl: string,           // Fee delegation service URL
-  delegateAllTransactions: boolean // true: delegate all | false: only social login
 }
 ```
-
-**Note**: Social login transaction sponsorship is mandatory and always enabled.
 
 #### Login Methods
 
@@ -140,11 +133,11 @@ Configure available authentication methods with a flexible grid layout:
 ```typescript
 loginMethods: [
   // Always available methods
-  { method: "vechain", gridColumn: 4 },    // VeChain login
+  { method: "vechain", gridColumn: 4 },    // VeChain social login
   { method: "dappkit", gridColumn: 4 },    // VeChain wallets
   { method: "ecosystem", gridColumn: 4 },  // Ecosystem apps (Mugshot, Cleanify, Greencart, etc.)
   
-  // Privy-dependent methods (require privy configuration)
+  // Privy-dependent methods (require your own privy configuration)
   { method: "email", gridColumn: 2 },      // Email login
   { method: "passkey", gridColumn: 2 },    // Passkey authentication
   { method: "google", gridColumn: 4 },     // Google OAuth
@@ -154,28 +147,9 @@ loginMethods: [
 
 **Grid Layout**: The `gridColumn` property determines the width of each login option in the modal (based on a 4-column grid).
 
-#### DApp Kit Configuration
-
-Configure wallet connection options:
-
-```typescript
-dappKit: {
-  allowedWallets: ["veworld", "wallet-connect", "sync2"],
-  walletConnectOptions: {
-    projectId: "YOUR_WALLET_CONNECT_PROJECT_ID", // Get from https://cloud.reown.com
-    metadata: {
-      name: string,
-      description: string,
-      url: string,
-      icons: string[]
-    }
-  }
-}
-```
-
 ### Privy Integration (Optional)
 
-To enable social login methods, configure Privy:
+To enable social login methods with your own Privy account:
 
 ```typescript
 <VeChainKitProvider
@@ -195,29 +169,6 @@ To enable social login methods, configure Privy:
 </VeChainKitProvider>
 ```
 
-#### Type Safety with Privy
-
-TypeScript enforces that Privy-dependent methods can only be used when Privy is configured:
-
-```typescript
-// ❌ This will show a type error
-const invalidConfig = {
-  // No privy configuration
-  loginMethods: [
-    { method: 'email' }  // Type error: 'email' requires Privy
-  ]
-};
-
-// ✅ This is valid
-const validConfig = {
-  privy: { appId: 'xxx', clientId: 'yyy' },
-  loginMethods: [
-    { method: 'email' },   // OK: Privy is configured
-    { method: 'vechain' }  // OK: Always available
-  ]
-};
-```
-
 ### Ecosystem Apps Configuration
 
 Customize which ecosystem apps appear in the login modal:
@@ -235,15 +186,6 @@ Customize which ecosystem apps appear in the login modal:
 </VeChainKitProvider>
 ```
 
-### Environment Variables
-
-Required environment variables:
-
-```bash
-# .env.local
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_project_id_here
-```
-
 ### Best Practices
 
 1. **Dynamic Import**: Always use dynamic import in Next.js to avoid SSR issues
@@ -255,6 +197,5 @@ NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_project_id_here
 ### Next Steps
 
 * Implement Authentication Methods
-* Configure Fee Delegation
 * Customize UI Theme
 * Handle Wallet Interactions

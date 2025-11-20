@@ -20,13 +20,13 @@ The new version replaces Connex with the SDK, allowing more options for develope
 
 ### **Improved Fee Delegation Handling**
 
-No more need to setup a fee delegation service: with V2 we added out of the box fee handling for social logged in users, that will pay for the transactions with their own tokens (by using the Generic Delegator tech), allowing you to not spend any cent for those users.
+No more need to set up a fee delegation service: with V2 we added out-of-the-box transaction sponsorship for social logged-in users, that will pay for the transactions with their own tokens (by using the Generic Delegator tech), allowing you to not spend any cent for those users.
 
 We also improved the useSendTransaction() hook allowing you to decide to sponsor a single transaction based on your criteria.
 
-Keep in mind though, that even if you are not required to pay for user transactions anymore, you may still want to sponsor some transaction here and there for new users or to show them (mainly to social login users) how many fees a transaction will require.
+Keep in mind, though, that even if you are not required to pay for user transactions anymore, you may still want to sponsor some transaction here and there for new users or to show them (mainly to social login users) how many fees a transaction will require.
 
-Head over the [fee-delegation.md](../social-login/fee-delegation.md "mention")section to learn more about this.
+Head over to the [fee-delegation.md](../social-login/fee-delegation.md "mention")section to learn more about this.
 
 ### **Server-Side Rendering Compatibility**
 

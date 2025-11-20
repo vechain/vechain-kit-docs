@@ -15,7 +15,6 @@
 
 * [Installation](quickstart/installation.md)
 * [Provider Configuration](quickstart/provider-configuration.md)
-* [Fee Delegation Setup](quickstart/fee-delegation-setup.md)
 * [Setup Privy (optional)](quickstart/setup-privy-optional.md)
 * [Setup Legal Documents (optional)](quickstart/setup-legal-documents-optional.md)
 * [Login Customisation](quickstart/login-customisation.md)
@@ -50,14 +49,19 @@
 * [Utils](hooks/utils.md)
 * [vetDomains](hooks/vetdomains.md)
 
+## Customization
+
+* [Intro](customization/intro.md)
+* [Open targeted modals](customization/open-targeted-modals.md)
+* [Theme](customization/theme.md)
+* [Glass Effect](customization/glass-effect.md)
+* [Fonts](customization/fonts.md)
+
 ## Components
 
 * [Intro](components/intro.md)
-* [WalletButton](components/walletbutton.md)
-* [Profile Card](components/profile-card.md)
+* [Wallet Button](components/wallet-button.md)
 * [Transaction Modal](components/transaction-modal.md)
-* [Transaction Toast](components/transaction-toast.md)
-* [Open targeted modals](components/open-targeted-modals.md)
 
 ## Troubleshooting
 
@@ -72,6 +76,11 @@
 * [Integration Issues](troubleshooting/integration-issues/README.md)
   * [Fee Delegation](troubleshooting/integration-issues/fee-delegation.md)
   * [Privy Popup Blocking](troubleshooting/integration-issues/privy-popup-blocking.md)
+
+## Fee Delegation
+
+* [Generic Delegator - Default Option](fee-delegation/generic-delegator-default-option.md)
+* [Fee Delegation Setup](fee-delegation/fee-delegation-setup.md)
 
 ## Social Login
 

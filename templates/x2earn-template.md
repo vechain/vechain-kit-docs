@@ -21,4 +21,4 @@ Perfect for building sophisticated X2Earn applications on VeChain.
 
 {% embed url="https://www.youtube.com/watch?ab_channel=PieroBassa&v=fmm2IDMuYjE" %}
 
-\
+<br>

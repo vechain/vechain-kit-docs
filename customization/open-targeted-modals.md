@@ -2,6 +2,10 @@
 
 The hooks provide tools for managing various modals in the VeChain application:
 
+{% hint style="success" %}
+Use the { isolatedView: true } prop to show to not allow the user to browse other sections of the kit.
+{% endhint %}
+
 ### Account Related Modals
 
 * `useAccountModal`: Core account modal management

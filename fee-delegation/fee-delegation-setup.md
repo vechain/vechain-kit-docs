@@ -1,6 +1,6 @@
 # Fee Delegation Setup
 
-Fee delegation allows your dApp to sponsor transaction fees for users, removing the barrier of requiring VTHO tokens. This is **mandatory** for social login users who don't have VTHO to pay for transactions.
+Fee delegation allows your dApp to sponsor transaction fees for users, removing the barrier of requiring VTHO tokens.
 
 ### What is Fee Delegation?
 
@@ -36,7 +36,11 @@ Add fee delegation to your VeChainKitProvider:
 
 You have two options for setting up fee delegation:
 
-#### Option 1: Create Your Own Service
+Option 1: Create your own backend service
+
+Option 2: Use existing free tools
+
+#### Create Your Own Service
 
 Deploy a custom fee delegation service as a microservice or backend endpoint.
 
@@ -125,7 +129,7 @@ SIGNER_MNEMONIC="your twelve word mnemonic phrase here"
 3. **Add rate limiting**: Prevent abuse of your delegation service
 4. **Monitor usage**: Track delegation requests and VTHO consumption
 
-#### Option 2: Use VeChain.Energy
+#### Use VeChain.Energy
 
 VeChain.Energy provides a managed fee delegation service.
 
