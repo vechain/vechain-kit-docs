@@ -51,11 +51,11 @@
 
 ## Customization
 
-* [Intro](customization/intro.md)
-* [Open targeted modals](customization/open-targeted-modals.md)
-* [Theme](customization/theme.md)
+* [Theming](customization/theming.md)
 * [Glass Effect](customization/glass-effect.md)
+* [Buttons](customization/buttons.md)
 * [Fonts](customization/fonts.md)
+* [Isolated Modals](customization/isolated-modals.md)
 
 ## Components
 
