@@ -36,9 +36,17 @@ Ensured that the new version supports server-side rendering (SSR) to enhance per
 
 Access comprehensive and detailed documentation designed to guide you through the transition with ease.
 
-### **New Features**
+### **UI Redesign**
 
-Explore new functionalities like swap capabilities and advanced hooks and components, enriching the development toolkit.
+In version 2, we have completely overhauled the user interface to simplify navigation and enhance user experience. The new design focuses on clarity and usability, placing a stronger emphasis on wallet features to streamline user interactions. This redesign aims to provide an intuitive and efficient workflow, allowing users to access essential functionalities effortlessly.
+
+### Token Swap Integration
+
+Version 2 introduces a powerful swap mechanism, enabling users to exchange tokens directly within the kit, eliminating the need to navigate to external websites. Leveraging the advanced capabilities of BetterSwap and VeTrade, this feature ensures secure and efficient transactions, providing a seamless user experience. Users can now manage their crypto assets with greater ease and confidence, taking advantage of these integrated tools for smooth and reliable swaps.
+
+### Amazing Roadmap Ahead
+
+We have an array of exciting features planned, including a revamped login flow, improved cross-app connections, transaction history, NFTs, DeFi, and more. Those features will be available only in V2.
 
 {% hint style="danger" %}
 **Breakign Changes**
