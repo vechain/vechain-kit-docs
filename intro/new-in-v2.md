@@ -58,10 +58,6 @@ We now use the new VeWorld endpoints, delivering:
 * Smoother logins
 * Easier wallet switching
 
-### **🖥️ Server-Side Rendering Support**
-
-V2 is fully compatible with SSR, improving performance and SEO.
-
 ### **📘 Improved Documentation**
 
 Clearer, more complete documentation helps you transition and integrate features with confidence.
