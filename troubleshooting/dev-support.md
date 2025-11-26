@@ -2,7 +2,7 @@
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
 
-Check our [Troubleshooting section](broken-reference).
+Check our [Troubleshooting section](/broken/pages/7MxPJrScaKYWaMqshYjH).
 
 Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
 

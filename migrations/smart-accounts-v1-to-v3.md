@@ -12,7 +12,7 @@ The kit makes available both the hooks to know if the upgrade is required and th
 * **`useUpgradeSmartAccountModal()`** is the hook that will allow you to open the upgrade modal, that the user will use to upgrade.
 * You can also handle this with your own UI by using the **`useUpgradeSmartAccount(smartAccountAddress, targetVersion: 3)`** hook.
 
-View other useful hooks [here](broken-reference).
+View other useful hooks [here](/broken/pages/8wxpoC4K6414le5r9cSu).
 
 ### Example usage
 

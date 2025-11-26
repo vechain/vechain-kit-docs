@@ -82,7 +82,7 @@ To facilitate the mandatory upgrade process, the kit now includes:
 
 ### Hooks
 
-Developers can efficiently manage smart accounts using a [variety of hooks](broken-reference) provided by the kit.
+Developers can efficiently manage smart accounts using a [variety of hooks](/broken/pages/8wxpoC4K6414le5r9cSu) provided by the kit.
 
 By importing these hooks, developers can:
 

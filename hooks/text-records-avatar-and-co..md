@@ -44,6 +44,6 @@ This is protocol build by ENS domains and supported by veDelegate. Follow [ENS d
 [vetdomains.md](vetdomains.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="/broken/pages/7CHe0v8VZqBxzugUu9Rr" %}
+[Broken link](/broken/pages/7CHe0v8VZqBxzugUu9Rr)
 {% endcontent-ref %}

@@ -33,7 +33,7 @@ This provides a high-level summary of all breaking changes in VeChain Kit v2. Fo
 
 * Many hooks moved to new locations for better organization
 * Import paths have changed significantly
-* [**See Hook Relocations →**](broken-reference)
+* [**See Hook Relocations →**](/broken/pages/up5wuf323ff7ZRsHEeLM)
 
 ### Quick Decision Guide
 
