@@ -2,9 +2,9 @@
 
 <figure><img src=".gitbook/assets/vechain-kit-v2-shocase.png" alt=""><figcaption></figcaption></figure>
 
-**VeChain Kit** is a comprehensive library designed to make building VeChain applications fast and straightforward. It offers:
+**VeChain Kit** is a comprehensive SDK designed to make building frontend applications on VeChain fast and straightforward. It offers:
 
-* **Seamless Wallet Integration:** Support for VeWorld, Sync2, WalletConnect, VeChain Embedded Wallet, and social logins (powered by Privy).
+* **Seamless Wallet Integration:** Support for VeWorld, WalletConnect, and social logins.
 * **Developer-Friendly Hooks:** Easy-to-use React Hooks that let you read and write data on the VeChainThor blockchain.
 * **Token Operations:** Send and swap tokens, check balances, manage VET domains, and more—all in one place.
 * **Pre-Built UI Components:** Ready-to-use components (e.g., `TransactionModal`) to simplify wallet operations and enhance your users’ experience.

@@ -4,7 +4,7 @@ This guide covers how to set up and configure the `VeChainKitProvider` in your a
 
 ### Basic Setup
 
-To use VeChain Kit in your application, wrap your app with the `VeChainKitProvider`:
+Wrap your app with the `VeChainKitProvider`:
 
 ```typescript
 'use client';
