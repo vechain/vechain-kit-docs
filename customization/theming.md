@@ -4,12 +4,14 @@ This guide explains how to customize the VeChain Kit theme to match your app's d
 
 ### Quick Start
 
-The theme system is designed to be simple - you only need to provide a base `backgroundColor` and `textColor`, and all other colors are automatically derived. You can optionally customize specific aspects like overlay, buttons, and glass effects.
+The theme system is designed to be simple - you only need to provide a base `modal.backgroundColor` and `textColor`, and all other colors are automatically derived. You can optionally customize specific aspects like overlay, buttons, and glass effects.
 
 ```tsx
 <VeChainKitProvider
     theme={{
-        backgroundColor: isDarkMode ? '#1f1f1e' : '#ffffff',
+        modal: {
+            backgroundColor: isDarkMode ? '#1f1f1e' : '#ffffff',
+        },
         textColor: isDarkMode ? 'rgb(223, 223, 221)' : '#2e2e2e',
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -41,7 +43,7 @@ The theme configuration has been simplified to focus on what matters most:
 
 #### Base Colors
 
-* **`backgroundColor`** (optional) - Base background color. Automatically derives:
+* **`modal.backgroundColor`** (optional) - Base background color for the modal. Automatically derives:
   * Modal background (100% opacity)
   * Card background (80% opacity)
   * Sticky header background (90% opacity)
@@ -71,7 +73,10 @@ Here's a complete example with glass effects:
 import type { VechainKitThemeConfig } from '@vechain/vechain-kit';
 
 const theme: VechainKitThemeConfig = {
-    backgroundColor: isDarkMode ? '#1f1f1e' : '#ffffff',
+    modal: {
+        backgroundColor: isDarkMode ? '#1f1f1e' : '#ffffff',
+        border: "1px solid #00000"
+    },
     textColor: isDarkMode ? 'rgb(223, 223, 221)' : '#2e2e2e',
     overlay: {
         backgroundColor: isDarkMode
