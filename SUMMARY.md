@@ -17,6 +17,7 @@
 * [Provider Configuration](quickstart/provider-configuration.md)
 * [Setup Privy (optional)](quickstart/setup-privy-optional.md)
 * [Setup Legal Documents (optional)](quickstart/setup-legal-documents-optional.md)
+* [Language and Currency Synchronization](quickstart/language-and-currency-synchronization.md)
 * [Login Customisation](quickstart/login-customisation.md)
 * [Send Transactions](quickstart/send-transactions.md)
 
