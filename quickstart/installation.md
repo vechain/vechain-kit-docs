@@ -4,7 +4,7 @@ description: How to install and set up VeChain Kit in your project
 
 # Installation
 
-###
+### Quick-start
 
 {% stepper %}
 {% step %}
