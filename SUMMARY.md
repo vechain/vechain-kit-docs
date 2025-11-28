@@ -1,10 +1,10 @@
 # Table of contents
 
-## Intro
+## DISCOVER VECHAIN KIT
 
-* [VeChain Kit V2](README.md)
-* [New in V2](intro/new-in-v2.md)
-* [Connection Types](intro/connection-types.md)
+* [What's VeChain Kit?](README.md)
+* [What's new?](discover-vechain-kit/whats-new.md)
+* [Connection Types](discover-vechain-kit/connection-types.md)
 
 ***
 

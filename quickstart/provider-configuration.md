@@ -11,11 +11,9 @@ Wrap your app with the `VeChainKitProvider`:
 
 import { VeChainKitProvider } from "@vechain/vechain-kit";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children }) {
   return (
-    <VeChainKitProvider
-      network={{ type: "test" }}
-    >
+    <VeChainKitProvider>
       {children}
     </VeChainKitProvider>
   );
@@ -34,11 +32,9 @@ const VeChainKitProvider = dynamic(
   { ssr: false }
 );
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children }) {
   return (
-    <VeChainKitProvider
-      // ... configuration
-    >
+    <VeChainKitProvider>
       {children}
     </VeChainKitProvider>
   );

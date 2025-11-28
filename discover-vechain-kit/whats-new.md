@@ -1,10 +1,17 @@
-# New in V2
+---
+description: >-
+  This update brings a refreshed interface, better performance, more
+  flexibility, and an improved developer experience. It also transitions from
+  Connex to the SDK, with V1 now deprecated.
+---
+
+# What's new?
 
 ### ⚡ Faster Development
 
-We’ve introduced several optimizations that drastically reduce bundle size and speed up development builds.\
-To support modular workflows, we’ve also released standalone packages like **`@vechain/vechain-contract-types`** and **`@vechain/contract-getters`**, which you can use independently.\
-More improvements are coming soon.
+* We’ve introduced several optimizations that drastically reduce bundle size and speed up development builds.
+* To support modular workflows, we’ve also released standalone packages like [**`@vechain/vechain-contract-types`**](https://www.npmjs.com/package/@vechain/vechain-contract-types) and [**`@vechain/contract-getters`**](https://www.npmjs.com/package/@vechain/contract-getters), which you can use independently.
+* More improvements are coming soon.
 
 ### 🎨 More Customization
 
@@ -74,7 +81,7 @@ Coming soon (and exclusive to V2):
 * And more
 
 {% hint style="danger" %}
-**Breakign Changes**
+**Breaking Changes**
 
 V2 may have some breaking changes based on your V1 integration. Please read more in details what changed from V1 and how to migrate to version 2 in [the following section](../migrations/upgrade-vechain-kit-from-1.x-to-2.x/).
 {% endhint %}
