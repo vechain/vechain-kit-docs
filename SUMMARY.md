@@ -18,7 +18,7 @@
 * [Setup Privy (optional)](quickstart/setup-privy-optional.md)
 * [Setup Legal Documents (optional)](quickstart/setup-legal-documents-optional.md)
 * [Language and Currency Synchronization](quickstart/language-and-currency-synchronization.md)
-* [Login Customisation](quickstart/login-customisation.md)
+* [Login Customization](quickstart/login-customization.md)
 * [Send Transactions](quickstart/send-transactions.md)
 
 ***
