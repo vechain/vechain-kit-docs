@@ -27,7 +27,7 @@ When glass is enabled, the system automatically:
 * `medium`: `blur(3px)`, modal opacity 0.7, sticky header opacity 0.8
 * `high`: `blur(5px)`, modal opacity 0.8, sticky header opacity 0.85
 
-
+<figure><img src="../.gitbook/assets/Group 21 (2).png" alt=""><figcaption></figcaption></figure>
 
 When glass effects are enabled:
 
