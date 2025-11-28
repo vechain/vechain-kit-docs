@@ -13,7 +13,7 @@ When the `legalDocuments` option is configured, the users will see:
 * **Left:** A **modal prompt** when connecting their wallet, requiring them to review and accept required and optional legal documents.
 * **Right:** A **summary view** under `Settings > General > Terms and Policies`, showing which policies they’ve accepted and when.
 
-<div align="center" data-full-width="true"><figure><img src="../.gitbook/assets/kit-legal-docs-modal (1).png" alt=""><figcaption><p>Legal Docs Modal</p></figcaption></figure> <figure><img src="../.gitbook/assets/kit-legal-docs-review-modal (1).png" alt=""><figcaption><p>Legal Docs Summary View</p></figcaption></figure></div>
+<figure><img src="../.gitbook/assets/Subtract (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
