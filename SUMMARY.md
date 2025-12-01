@@ -4,7 +4,6 @@
 
 * [What's VeChain Kit?](README.md)
 * [What's new?](discover-vechain-kit/whats-new.md)
-* [Connection Types](discover-vechain-kit/connection-types.md)
 
 ***
 
@@ -25,6 +24,7 @@
 
 * [Sign Messages](sign-messages.md)
 * [Best Practices](best-practices.md)
+* [Connection Types](connection-types.md)
 
 ## Migrations
 
