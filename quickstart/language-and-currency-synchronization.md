@@ -180,6 +180,43 @@ function App() {
 }
 ```
 
+{% hint style="warning" %}
+In your `i18n.ts` file be sure to check localstorage for setting the language, to avoid issues during refresh.<br>
+
+```typescript
+// Custom language detector that checks localStorage first, then prop, then browser
+const customLanguageDetector = {
+    name: 'customDetector',
+    lookup: (options?: { languages?: string[] } | undefined) => {
+        // Check localStorage first (for persistence across page refreshes)
+        if (typeof window !== 'undefined') {
+            const storedLanguage = localStorage.getItem('i18nextLng');
+            if (storedLanguage && supportedLanguages.includes(storedLanguage)) {
+                return storedLanguage;
+            }
+        }
+
+        const propLanguage = options?.languages?.[0];
+
+        if (propLanguage && supportedLanguages.includes(propLanguage)) {
+            return propLanguage;
+        }
+
+        // Get browser language
+        const browserLang = navigator.language.split('-')[0];
+        if (browserLang && supportedLanguages.includes(browserLang)) {
+            return browserLang;
+        }
+
+        return 'en'; // fallback
+    },
+    cacheUserLanguage: (lng: string) => {
+        localStorage.setItem('i18nextLng', lng);
+    },
+};
+```
+{% endhint %}
+
 ### API Reference
 
 #### VeChainKitProvider Props
@@ -232,115 +269,6 @@ Returns the full VeChainKit configuration including current language and currenc
 * `setCurrency: (currency: CURRENCY) => void` - Function to change currency
 * ... (other config properties)
 
-### Examples
-
-#### Complete Example: Syncing with Next.js App
-
-```tsx
-'use client';
-
-import { useState, useEffect, useCallback } from 'react';
-import {
-    VeChainKitProvider,
-    useCurrentLanguage,
-    useCurrentCurrency,
-} from '@vechain/vechain-kit';
-import { useTranslation } from 'react-i18next';
-
-function LanguageSelector() {
-    const { currentLanguage, setLanguage } = useCurrentLanguage();
-    const { i18n } = useTranslation();
-
-    return (
-        <select
-            value={currentLanguage}
-            onChange={(e) => {
-                setLanguage(e.target.value);
-                i18n.changeLanguage(e.target.value);
-            }}
-        >
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-        </select>
-    );
-}
-
-function CurrencySelector() {
-    const { currentCurrency, setCurrency } = useCurrentCurrency();
-
-    return (
-        <select
-            value={currentCurrency}
-            onChange={(e) =>
-                setCurrency(e.target.value as 'usd' | 'eur' | 'gbp')
-            }
-        >
-            <option value="usd">USD ($)</option>
-            <option value="eur">EUR (€)</option>
-            <option value="gbp">GBP (£)</option>
-        </select>
-    );
-}
-
-export function AppProvider({ children }) {
-    const { i18n } = useTranslation();
-    
-    // Initialize hostLanguage from localStorage first, then i18n
-    const [hostLanguage, setHostLanguage] = useState(() => {
-        if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem('i18nextLng');
-            return stored || i18n.language;
-        }
-        return i18n.language;
-    });
-    
-    // Initialize hostCurrency from localStorage first
-    const [hostCurrency, setHostCurrency] = useState<'usd' | 'eur' | 'gbp'>(
-        () => {
-            if (typeof window !== 'undefined') {
-                const stored = localStorage.getItem('vechain_kit_currency');
-                if (stored && ['usd', 'eur', 'gbp'].includes(stored)) {
-                    return stored as 'usd' | 'eur' | 'gbp';
-                }
-            }
-            return 'usd';
-        },
-    );
-    
-    // Sync host app language changes to VeChainKit
-    useEffect(() => {
-        setHostLanguage(i18n.language);
-    }, [i18n.language]);
-
-    // Sync VeChainKit language changes to host app
-    const handleLanguageChange = useCallback(
-        (language: string) => {
-            i18n.changeLanguage(language);
-            setHostLanguage(language);
-        },
-        [i18n],
-    );
-
-    // Sync VeChainKit currency changes to host app
-    const handleCurrencyChange = useCallback((currency) => {
-        setHostCurrency(currency);
-    }, []);
-
-    return (
-        <VeChainKitProvider
-            language={hostLanguage}
-            defaultCurrency={hostCurrency}
-            onLanguageChange={handleLanguageChange}
-            onCurrencyChange={handleCurrencyChange}
-            // ... other props
-        >
-            {children}
-        </VeChainKitProvider>
-    );
-}
-```
-
 ### Storage
 
 Language and currency preferences are persisted in browser localStorage:
@@ -356,40 +284,3 @@ Changes persist across page reloads and browser sessions.
 * Changes made in VeChainKit settings automatically update localStorage and trigger callbacks.
 * Changes made via `setLanguage()` or `setCurrency()` from the host app automatically sync to VeChainKit.
 * The sync works bidirectionally - changes in either direction are reflected in both places.
-
-{% hint style="warning" %}
-In your `i18n.ts` file be sure to check localstorage for setting the language, to avoid issues during refresh.<br>
-
-```typescript
-// Custom language detector that checks localStorage first, then prop, then browser
-const customLanguageDetector = {
-    name: 'customDetector',
-    lookup: (options?: { languages?: string[] } | undefined) => {
-        // Check localStorage first (for persistence across page refreshes)
-        if (typeof window !== 'undefined') {
-            const storedLanguage = localStorage.getItem('i18nextLng');
-            if (storedLanguage && supportedLanguages.includes(storedLanguage)) {
-                return storedLanguage;
-            }
-        }
-
-        const propLanguage = options?.languages?.[0];
-
-        if (propLanguage && supportedLanguages.includes(propLanguage)) {
-            return propLanguage;
-        }
-
-        // Get browser language
-        const browserLang = navigator.language.split('-')[0];
-        if (browserLang && supportedLanguages.includes(browserLang)) {
-            return browserLang;
-        }
-
-        return 'en'; // fallback
-    },
-    cacheUserLanguage: (lng: string) => {
-        localStorage.setItem('i18nextLng', lng);
-    },
-};
-```
-{% endhint %}
