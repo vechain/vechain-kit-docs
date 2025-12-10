@@ -75,7 +75,11 @@ import type { VechainKitThemeConfig } from '@vechain/vechain-kit';
 const theme: VechainKitThemeConfig = {
     modal: {
         backgroundColor: isDarkMode ? '#1f1f1e' : '#ffffff',
-        border: "1px solid #00000"
+        border: "1px solid #00000",
+        // backdropFilter?: string; // Backdrop filter for modal dialog (e.g., "blur(10px)")
+        // width?: string; // Modal dialog width (e.g., "22rem", "400px")
+        // borderRadius?: string; // Modal dialog border radius (e.g., "24px", "1rem") - deprecated, use rounded instead
+        // rounded?: string | number; // Border radius (Chakra UI rounded prop: "sm", "md", "lg", "xl", "2xl", "3xl", "full", or number)
     },
     textColor: isDarkMode ? 'rgb(223, 223, 221)' : '#2e2e2e',
     overlay: {
@@ -85,15 +89,17 @@ const theme: VechainKitThemeConfig = {
         blur: 'blur(3px)',
     },
     buttons: {
-        secondaryButton: {
-            bg: isDarkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.1)',
-            color: isDarkMode ? 'rgb(223, 223, 221)' : '#2e2e2e',
-            border: 'none',
-        },
         primaryButton: {
             bg: isDarkMode ? '#3182CE' : '#2B6CB0',
             color: 'white',
             border: 'none',
+        },    
+        secondaryButton: {
+            bg: isDarkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.1)',
+            color: isDarkMode ? 'rgb(223, 223, 221)' : '#2e2e2e',
+            border: 'none',
+            // backdropFilter?: string; // Optional backdrop filter (e.g., "blur(10px)")
+            // rounded?: string | number; // Border radius (Chakra UI rounded prop: "sm", "md", "lg", "xl", "2xl", "3xl", "full", or number)
         },
         loginButton: {
             bg: 'transparent',
