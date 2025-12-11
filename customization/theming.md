@@ -77,7 +77,6 @@ const theme: VechainKitThemeConfig = {
         backgroundColor: isDarkMode ? '#1f1f1e' : '#ffffff',
         border: "1px solid #00000",
         // backdropFilter?: string; // Backdrop filter for modal dialog (e.g., "blur(10px)")
-        // width?: string; // Modal dialog width (e.g., "22rem", "400px")
         // borderRadius?: string; // Modal dialog border radius (e.g., "24px", "1rem") - deprecated, use rounded instead
         // rounded?: string | number; // Border radius (Chakra UI rounded prop: "sm", "md", "lg", "xl", "2xl", "3xl", "full", or number)
     },
