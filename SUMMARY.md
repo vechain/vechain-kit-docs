@@ -53,10 +53,11 @@
 ## Customization
 
 * [Theming](customization/theming.md)
-* [Glass Effect](customization/glass-effect.md)
 * [Buttons](customization/buttons.md)
 * [Fonts](customization/fonts.md)
 * [Isolated Modals](customization/isolated-modals.md)
+* [Bottomsheet](customization/bottomsheet.md)
+* [Glass Effect](customization/glass-effect.md)
 
 ## Components
 

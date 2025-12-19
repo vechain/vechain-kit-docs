@@ -19,6 +19,7 @@ You now have much more control over the **vechain-kit modal**:
 
 * Open specific flows in isolation (e.g., only _Receive_ or _Send_, without exposing the rest of the modal).
 * Customize colors and fonts to match your brand.
+* Use Bottomsheets instead of Modals on mobile!
 
 Check the [Customization](../customization/theming.md) section for all available options.
 
