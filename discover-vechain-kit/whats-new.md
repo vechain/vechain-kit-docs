@@ -27,6 +27,10 @@ Check the [Customization](../customization/theming.md) section for all available
 
 In version 2, we have completely overhauled the user interface to simplify navigation and enhance user experience. The new design focuses on clarity and usability, placing a stronger emphasis on wallet features to streamline user interactions. This redesign aims to provide an intuitive and efficient workflow, allowing users to access essential functionalities effortlessly.
 
+### 🔑 Quick Wallet Switching
+
+Easily switch between wallets without the need to log out and log back in, enhancing the fluidity of your transactions and interactions.
+
 ### 🔄 Built-In Token Swap
 
 Swap tokens directly inside the kit—no need to send users to external websites.

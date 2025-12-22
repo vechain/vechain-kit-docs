@@ -4,6 +4,7 @@
 
 * [What's VeChain Kit?](README.md)
 * [What's new?](discover-vechain-kit/whats-new.md)
+* [Should I use it?](discover-vechain-kit/should-i-use-it.md)
 
 ***
 
