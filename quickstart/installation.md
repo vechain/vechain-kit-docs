@@ -4,6 +4,19 @@ description: How to install and set up VeChain Kit in your project
 
 # Installation
 
+### Get the template
+
+Only one command to setup
+
+```bash
+$ npx create-vechain-dapp@latest
+
+? Select template ›
+    ❯ VeChain Kit Next.js Template (Chakra, React Query, SDK)
+```
+
+Or you can install the kit in your package as follows.
+
 ### Quick-start
 
 {% stepper %}
