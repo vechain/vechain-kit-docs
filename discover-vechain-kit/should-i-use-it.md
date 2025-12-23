@@ -21,7 +21,7 @@ DApp Kit is ideal to who wants a lightweight package, that handles only the esse
 
 ### VeChain Kit
 
-* It uses both dappkit and sdk, so you have all the functionalities of above
+* It uses both dappkit and sdk under the hood, so you have all the functionalities of above
 * You have social login
 * You have out of the box components, hooks, and functionalities
 * Only supports Next and React frameworks
@@ -30,13 +30,13 @@ DApp Kit is ideal to who wants a lightweight package, that handles only the esse
 
 ### Do you want social login?
 
-If yes, you need to go with VeChain Kit, or build social login on top of your implementation with DAppKit or SDK.
+If yes, you need to go with VeChain Kit, or build your social login implementation on your own.
 
 ### Do you want to enhance your app with the VeChaikit UI components?
 
 If you want to allow your users to swap, send tokens, view balances, switch account out of the box then you need to use VeChain Kit.
 
-### Do you want out of the box hooks for sending transactions, signing messages, reading data, retrive avatars, etc.?
+### Do you want out of the box hooks for transactions, signings, avatars, etc.?
 
-Then you can use the VeChain Kit, it has all the hooks you may need, and we will add more.
+Then you can use the VeChain Kit, it has all the hooks you may need, and more will be added.
 
