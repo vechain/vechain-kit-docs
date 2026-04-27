@@ -2,7 +2,7 @@
 
 With every name come a set of records. These records are key value pairs that can be used to store information about the profile. Think of this as a user's **digital backpack**. Utalized for storage of preferences, public details, and more.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt="" width="322"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt="" width="322"><figcaption></figcaption></figure>
 
 ### Types of Records
 
@@ -44,6 +44,6 @@ This is protocol build by ENS domains and supported by veDelegate. Follow [ENS d
 [vetdomains.md](vetdomains.md)
 {% endcontent-ref %}
 
-{% content-ref url="/broken/pages/7CHe0v8VZqBxzugUu9Rr" %}
-[Broken link](/broken/pages/7CHe0v8VZqBxzugUu9Rr)
+{% content-ref url="vetdomains.md" %}
+[VET Domains](vetdomains.md)
 {% endcontent-ref %}

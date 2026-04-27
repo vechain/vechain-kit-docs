@@ -17,7 +17,7 @@ Every wallet on VeChain owns a smart account. The address of your smart account 
 {% endhint %}
 
 {% hint style="warning" %}
-Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to  `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change when upgrading to v1.5.0.
+Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change when upgrading to v1.5.0.
 {% endhint %}
 
 ### Contracts
@@ -66,7 +66,7 @@ The system has evolved through multiple versions to improve functionality and se
 The factory maintains compatibility with all account versions, ensuring a smooth experience across different dApps and versions.
 
 {% hint style="warning" %}
-Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to  `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change.
+Testnet Factory address changed from v1 to v3 from `0x7EABA81B4F3741Ac381af7e025f3B6e0428F05Fb` to `0x713b908Bcf77f3E00EFEf328E50b657a1A23AeaF` which will cause all your testnet smart account addresses to change.
 {% endhint %}
 
 ### Smart Accounts V3 upgrade
@@ -78,11 +78,11 @@ To facilitate the mandatory upgrade process, the kit now includes:
 * **Built-in Check**: Automatically displays an alert prompting users to upgrade if they possess a V1 smart account.
 * **Hooks & Component**: To avoid apps spending VTHO to upgrade accounts of users that won't do any action on the app we allow the developer to check upgradeability on demand by using the `useUpgradeRequiredForAccount` hook and show the `UpgradeSmartAccountModal` (importable from the kit).
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>Example of the upgrade modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Example of the upgrade modal</p></figcaption></figure>
 
 ### Hooks
 
-Developers can efficiently manage smart accounts using a [variety of hooks](/broken/pages/8wxpoC4K6414le5r9cSu) provided by the kit.
+Developers can efficiently manage smart accounts using a [variety of hooks](../hooks/intro.md) provided by the kit.
 
 By importing these hooks, developers can:
 
@@ -198,4 +198,3 @@ How to use `executeBatchWithAuthorization` and the `nonce` :
 {% hint style="danger" %}
 Currently VeChain Kit does not support the handling of a smart account by a VeWorld wallet.
 {% endhint %}
-
