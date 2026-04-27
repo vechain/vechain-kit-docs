@@ -95,6 +95,13 @@ export function VeChainKitProviderWrapper({ children }: { children: React.ReactN
           },
         },
       }}
+
+      // Contract Address Overrides (optional)
+      // Override default contract addresses for custom deployments
+      contractAddresses={{
+        b3trContractAddress: "0x...",
+        vot3ContractAddress: "0x...",
+      }}
     >
       {children}
     </VeChainKitProvider>
@@ -142,6 +149,40 @@ loginMethods: [
 ```
 
 **Grid Layout**: The `gridColumn` property determines the width of each login option in the modal (based on a 4-column grid).
+
+#### Contract Address Overrides
+
+Override default contract addresses for custom deployments on solo or testnet. Only the provided fields are overridden; the rest use the network defaults.
+
+```typescript
+contractAddresses: Partial<AppConfig>  // Any field from AppConfig can be overridden
+```
+
+This is useful when you deploy your own contract instances (e.g., B3TR, VOT3) and need the kit to use those addresses instead of the built-in defaults:
+
+```typescript
+<VeChainKitProvider
+  network={{ type: "solo" }}
+  contractAddresses={{
+    b3trContractAddress: "0x026771d1be764467f8bdb78bb230df10c924b00d",
+    vot3ContractAddress: "0xf7a08af15cb3501feee53ebe11f4428a966fa459",
+    // You can override any AppConfig field — see Configs page for the full list
+  }}
+>
+  {children}
+</VeChainKitProvider>
+```
+
+To access the merged config (network defaults + your overrides) in your components, use the `useAppConfig` hook:
+
+```typescript
+import { useAppConfig } from '@vechain/vechain-kit';
+
+function MyComponent() {
+  const config = useAppConfig();
+  console.log(config.b3trContractAddress); // Your overridden address
+}
+```
 
 ### Privy Integration (Optional)
 
