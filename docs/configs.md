@@ -94,11 +94,36 @@ const getExplorerUrl = (txId: string) =>
     `${mainnetConfig.explorerUrl}/${txId}`;
 ```
 
+### Overriding Contract Addresses
+
+If you deploy custom contract instances (e.g., on solo or testnet), you can override any config field via the `contractAddresses` prop on `VeChainKitProvider`:
+
+```typescript
+<VeChainKitProvider
+  network={{ type: "solo" }}
+  contractAddresses={{
+    b3trContractAddress: "0x...",
+    vot3ContractAddress: "0x...",
+  }}
+>
+```
+
+The overrides are merged with the base config for the selected network. Access the merged config in hooks/components with `useAppConfig`:
+
+```typescript
+import { useAppConfig } from '@vechain/vechain-kit';
+
+const config = useAppConfig();
+// config.b3trContractAddress — uses your override if provided, otherwise network default
+```
+
+`useAppConfig` is the recommended way to access contract addresses in your components, as it respects any overrides passed to the provider. `getConfig()` only returns the built-in defaults.
+
 ### Notes
 
 * Network configurations are immutable after initialization
 * Solo network is intended for local development
-* Contract addresses vary between networks
+* Contract addresses vary between networks — and can be overridden via `contractAddresses`
 * Explorer URLs are network-specific
 * Genesis blocks define network identity
 * Block time is standardized at 10 seconds
