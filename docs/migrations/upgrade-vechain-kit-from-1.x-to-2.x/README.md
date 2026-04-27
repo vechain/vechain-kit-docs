@@ -124,6 +124,6 @@ It might require to `rm -rf node_modules yarn.lock && yarn`
 ### Next Steps
 
 1. Start with the [API Changes](api-migration-guide.md) guide to update your core dependencies and imports
-2. Review [Contract Patterns](/broken/pages/6c9hPxysSCGLPWFc1HTV) to understand new interaction methods
+2. Review [Contract Patterns](api-migration-guide.md#contract-interactions) to understand new interaction methods
 3. Apply [Best Practices](../../best-practices.md) for optimal performance
 4. Consult [Troubleshooting](../../troubleshooting/general.md) if you encounter issues

@@ -2,14 +2,14 @@
 
 Are you having issues using the kit? Join our discord server to receive support from our devs or open an issue on our Github!
 
-Check our [Troubleshooting section](/broken/pages/7MxPJrScaKYWaMqshYjH).
+Check our [Troubleshooting section](general.md).
 
 Contact us on Discord: [https://discord.gg/wGkQnPpRVq](https://discord.gg/wGkQnPpRVq)
 
 Open an issue on Github: [https://github.com/vechain/vechain-kit/issues](https://github.com/vechain/vechain-kit/issues)
 
 {% hint style="warning" %}
-### Use yarn or npm to build the packages. pnpm is known to have some issues we are trying to solve.
+#### Use yarn or npm to build the packages. pnpm is known to have some issues we are trying to solve.
 {% endhint %}
 
 ### Quick Links
