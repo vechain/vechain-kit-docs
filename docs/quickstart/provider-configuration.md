@@ -62,7 +62,9 @@ export function VeChainKitProviderWrapper({ children }: { children: React.ReactN
       darkMode={false}
       language="en"
       theme={{
-          backgroundColor: 'black'
+        // Brand accent — spinner, focus rings, "Waiting for signature…" headline
+        accent: '#3b82f6',
+        modal: { backgroundColor: 'black' },
       }}
       
       // Login Modal UI Customization
@@ -71,10 +73,12 @@ export function VeChainKitProviderWrapper({ children }: { children: React.ReactN
         description: 'Welcome to our DApp',
       }}
       
-      // Login Methods Configuration
+      // Login Methods Configuration (variation A default)
       loginMethods={[
-        { method: "vechain", gridColumn: 4 },
-        { method: "dappkit", gridColumn: 4 },
+        { method: "veworld", gridColumn: 4 },  // primary CTA, recommended
+        { method: "google",  gridColumn: 4 },
+        { method: "apple",   gridColumn: 4 },
+        { method: "more",    gridColumn: 4 },  // overflow sub-view (wallets / socials / ecosystem)
       ]}
       
       // Sponsor transactions
@@ -131,24 +135,40 @@ feeDelegation: {
 
 #### Login Methods
 
-Configure available authentication methods with a flexible grid layout:
+Configure available authentication methods with a flexible grid layout. Each entry pins a `method` and an optional `gridColumn` (1–4) controlling how many of the 4 columns the button spans.
 
 ```typescript
 loginMethods: [
-  // Always available methods
-  { method: "vechain", gridColumn: 4 },    // VeChain social login
-  { method: "dappkit", gridColumn: 4 },    // VeChain wallets
-  { method: "ecosystem", gridColumn: 4 },  // Ecosystem apps (Mugshot, Cleanify, Greencart, etc.)
-  
-  // Privy-dependent methods (require your own privy configuration)
-  { method: "email", gridColumn: 2 },      // Email login
-  { method: "passkey", gridColumn: 2 },    // Passkey authentication
-  { method: "google", gridColumn: 4 },     // Google OAuth
-  { method: "more", gridColumn: 2 },       // Additional Privy methods
+  // --- Wallets (drives @vechain/dapp-kit programmatically; kit owns the UI) ---
+  { method: "veworld",        gridColumn: 4 },  // primary CTA — filled, recommended dot
+  { method: "sync2",          gridColumn: 4 },
+  { method: "wallet-connect", gridColumn: 4 },  // triggers WC's own QR modal
+
+  // --- VeChain native ---
+  { method: "vechain",   gridColumn: 4 },       // VeChain cross-app social login
+  { method: "ecosystem", gridColumn: 4 },       // x2earn ecosystem apps footer
+
+  // --- Privy social (require `privy` configuration) ---
+  { method: "google",  gridColumn: 4 },
+  { method: "apple",   gridColumn: 4 },
+  { method: "github",  gridColumn: 4 },
+  { method: "email",   gridColumn: 4 },
+  { method: "passkey", gridColumn: 4 },
+  { method: "more",    gridColumn: 4 },         // sub-view with overflow socials/wallets/ecosystem
+
+  // --- Legacy ---
+  { method: "dappkit", gridColumn: 4 },         // Opens dapp-kit's native picker. Preserved for backwards compat.
 ]
 ```
 
-**Grid Layout**: The `gridColumn` property determines the width of each login option in the modal (based on a 4-column grid).
+**Defaults** (when `loginMethods` is omitted):
+
+* With `privy`: `[veworld, google, apple, more]`
+* Without `privy`: `[veworld, sync2, wallet-connect]`
+
+**Gating**: granular wallet methods (`veworld`, `sync2`, `wallet-connect`) only render when their source is also in `dappKit.allowedWallets`.
+
+For the full layout, theming and migration guide, see [Login Customization](login-customization.md).
 
 #### Contract Address Overrides
 

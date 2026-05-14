@@ -7,6 +7,19 @@ description: >-
 
 # What's new?
 
+### 🔑 Connect Modal v2.7 — custom UI for VeWorld / Sync2
+
+The connect modal now owns the **entire VeWorld and Sync2 connection flow** end-to-end. No more hand-off to dapp-kit's native picker — clicking a wallet button drives `@vechain/dapp-kit` programmatically and renders the kit's own "Waiting for signature…" view. WalletConnect's QR modal is preserved.
+
+Highlights:
+
+* New granular `loginMethods` entries: `veworld`, `sync2`, `wallet-connect`, `apple`.
+* New variation A layout — VeWorld primary filled (recommended), Google / Apple outline secondary, and a "More options ⌄" link footer that opens an in-modal sub-view with overflow wallets / socials / ecosystem apps.
+* Themeable accent — `theme.accent` drives the spinner, focus rings and the "Waiting for signature…" headline.
+* Zero breaking changes: pin `{ method: 'dappkit' }` in `loginMethods` to keep the legacy flow.
+
+See [Login Customization](../quickstart/login-customization.md) for the full guide.
+
 ### ⚡ Faster Development
 
 * We’ve introduced several optimizations that drastically reduce bundle size and speed up development builds.
