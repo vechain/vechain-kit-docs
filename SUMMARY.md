@@ -75,6 +75,7 @@
   * [From DApp Kit](docs/troubleshooting/migration-issues/from-dapp-kit.md)
 * [Styling Issues](docs/troubleshooting/styling-issues/README.md)
   * [Chakra Conflicts](docs/troubleshooting/styling-issues/chakra-conflicts.md)
+  * [Chakra v3 host: useToken returns a snapshot](docs/troubleshooting/styling-issues/chakra-v3-host.md)
   * [CSS Framework Conflicts](docs/troubleshooting/styling-issues/css-framework-conflicts.md)
 * [Integration Issues](docs/troubleshooting/integration-issues/README.md)
   * [Fee Delegation](docs/troubleshooting/integration-issues/fee-delegation.md)

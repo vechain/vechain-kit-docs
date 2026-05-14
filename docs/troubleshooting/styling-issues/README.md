@@ -21,6 +21,10 @@ VeChain Kit uses Chakra UI internally, which can cause styling conflicts with ot
 
 Setting up Chakra UI properly and resolving conflicts when your app also uses Chakra.
 
+#### [Chakra v3 host: useToken returns a snapshot](./#chakra-v3-host-usetoken-returns-a-snapshot-not-a-css-variable)
+
+Why piping `useToken('colors', [...])` from a Chakra v3 host into the Kit's `theme` prop freezes colors at first render, and how to keep them reactive with `sys.token.var(...)`.
+
 #### [CSS Framework Conflicts](./#css-framework-conflicts)
 
 Using CSS layers to resolve conflicts with Tailwind, Bootstrap, and other CSS frameworks.
