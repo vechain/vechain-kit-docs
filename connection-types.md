@@ -22,15 +22,21 @@ This connection type is often used by organizations like VeBetterDAO, Cleanify, 
 * Your users will need to login into other apps through ecosystem mode
 {% endhint %}
 
-## 2) Privy Cross App
+## 2) Privy Cross App (VeChain whitelabel)
 
-When users integrate VeChain-kit using "Login with VeChain" and "Ecosystem" logins (eg: Mugshot and Greencart), this will be the default connection type. It is easily recognizable because login and wallet activities will open a secured popup window where the owner of the wallet will approve the actions.
+This is the default connection type when your app **does not** pass a `privy` prop to `VeChainKitProvider`. Social logins (Google, Apple, X, Discord, GitHub, TikTok, LINE, and the multi-provider "Continue with VeChain" picker) run through VeChain's whitelabel popup at [`connect.vechain.org`](https://connect.vechain.org). The popup handles the OAuth handshake, decodes the transaction in plain language for the user, and posts the signed result back to your dApp.
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-With this type of connection, you can have social login in your app without actually paying Privy.
-{% endhint %}
+Why this is the default in v2.7+:
+
+* **Free social login** — no Privy account, no API keys, no billing. Drop a `{ method: 'google' }` button and it works.
+* **One identity across the ecosystem** — the user's VeChain address is the same in every kit-integrated dApp, so balances, NFTs and domains follow them.
+* **VeChain-branded** — the popup is whitelabeled (logo, palette, dark/light, 17 languages matching the kit). No Privy chrome leaks through.
+* **Smart-contract-aware transaction review** — instead of raw hex, the user sees "Send 10 B3TR to vechain.vet" or "Vote FOR on a VeBetterDAO proposal" with verified-contract chips.
+* **Auto-recovery from stale sessions** — if the connection record expires, the kit logs the user out and re-opens the login modal automatically.
+
+Use this option unless you have a specific reason to self-host Privy (see option 1).
 
 ## 3) Self-custody wallets
 

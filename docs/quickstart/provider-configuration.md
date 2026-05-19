@@ -148,12 +148,17 @@ loginMethods: [
   { method: "vechain",   gridColumn: 4 },       // VeChain cross-app social login
   { method: "ecosystem", gridColumn: 4 },       // x2earn ecosystem apps footer
 
-  // --- Privy social (require `privy` configuration) ---
-  { method: "google",  gridColumn: 4 },
-  { method: "apple",   gridColumn: 4 },
-  { method: "github",  gridColumn: 4 },
-  { method: "email",   gridColumn: 4 },
-  { method: "passkey", gridColumn: 4 },
+  // --- Social (routed through VeChain's whitelabel cross-app popup unless you pass `privy`) ---
+  { method: "google",  gridColumn: 4 },         // works without `privy` (cross-app intent)
+  { method: "apple",   gridColumn: 4 },         // works without `privy`
+  { method: "twitter", gridColumn: 4 },         // works without `privy`
+  { method: "discord", gridColumn: 4 },         // works without `privy`
+  { method: "github",  gridColumn: 4 },         // works without `privy`
+  { method: "tiktok",  gridColumn: 4 },         // works without `privy`
+  { method: "line",    gridColumn: 4 },         // works without `privy`
+  { method: "email",   gridColumn: 4 },         // requires your own `privy` (inline, no popup)
+  { method: "passkey", gridColumn: 4 },         // requires your own `privy`
+  { method: "sms",     gridColumn: 4 },         // requires your own `privy`
   { method: "more",    gridColumn: 4 },         // sub-view with overflow socials/wallets/ecosystem
 
   // --- Legacy ---
@@ -206,7 +211,9 @@ function MyComponent() {
 
 ### Privy Integration (Optional)
 
-To enable social login methods with your own Privy account:
+Most social logins work without your own Privy account — the kit routes Google / Apple / X / Discord / GitHub / TikTok / LINE through VeChain's whitelabel cross-app popup automatically. Pass the `privy` prop only if you need email, passkey, SMS, additional OAuth providers, or want the login flow to render entirely inside your dApp instead of in a popup window.
+
+To enable those flows with your own Privy account:
 
 ```typescript
 <VeChainKitProvider

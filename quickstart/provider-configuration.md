@@ -136,15 +136,24 @@ Configure available authentication methods with a flexible grid layout:
 ```typescript
 loginMethods: [
   // Always available methods
-  { method: "vechain", gridColumn: 4 },    // VeChain social login
+  { method: "vechain", gridColumn: 4 },    // VeChain whitelabel cross-app picker
   { method: "dappkit", gridColumn: 4 },    // VeChain wallets
   { method: "ecosystem", gridColumn: 4 },  // Ecosystem apps (Mugshot, Cleanify, Greencart, etc.)
-  
-  // Privy-dependent methods (require your own privy configuration)
-  { method: "email", gridColumn: 2 },      // Email login
+
+  // OAuth methods — work WITHOUT your own Privy account (routed via the whitelabel cross-app popup)
+  { method: "google",  gridColumn: 4 },    // Google
+  { method: "apple",   gridColumn: 4 },    // Apple
+  { method: "twitter", gridColumn: 4 },    // X / Twitter
+  { method: "discord", gridColumn: 4 },    // Discord
+  { method: "github",  gridColumn: 4 },    // GitHub
+  { method: "tiktok",  gridColumn: 4 },    // TikTok
+  { method: "line",    gridColumn: 4 },    // LINE
+
+  // Privy-dependent methods (require your own privy configuration — inline, no popup)
+  { method: "email",   gridColumn: 2 },    // Email login
   { method: "passkey", gridColumn: 2 },    // Passkey authentication
-  { method: "google", gridColumn: 4 },     // Google OAuth
-  { method: "more", gridColumn: 2 },       // Additional Privy methods
+  { method: "sms",     gridColumn: 2 },    // SMS login
+  { method: "more",    gridColumn: 2 },    // Sub-view with overflow socials/wallets/ecosystem
 ]
 ```
 
@@ -186,7 +195,9 @@ function MyComponent() {
 
 ### Privy Integration (Optional)
 
-To enable social login methods with your own Privy account:
+Most social logins work without your own Privy account — the kit routes Google / Apple / X / Discord / GitHub / TikTok / LINE through VeChain's whitelabel cross-app popup automatically. Pass the `privy` prop only if you need email, passkey, SMS, additional OAuth providers, or want the login flow to render entirely inside your dApp instead of in a popup window.
+
+To enable those flows with your own Privy account:
 
 ```typescript
 <VeChainKitProvider
