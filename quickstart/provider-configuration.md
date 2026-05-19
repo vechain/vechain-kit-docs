@@ -131,14 +131,15 @@ feeDelegation: {
 
 #### Login Methods
 
-Configure available authentication methods with a flexible grid layout:
+Configure available authentication methods with a flexible grid layout. Mark one entry with `isPrimary: true` to render it as the recommended CTA (filled inverted surface + green "recommended" dot). If you don't, the kit highlights the first visible method automatically. The filled treatment currently supports `veworld`, `google`, `apple`, and `github`; other methods can sit on the grid but stay outline.
 
 ```typescript
 loginMethods: [
   // Always available methods
-  { method: "vechain", gridColumn: 4 },    // VeChain whitelabel cross-app picker
-  { method: "dappkit", gridColumn: 4 },    // VeChain wallets
-  { method: "ecosystem", gridColumn: 4 },  // Ecosystem apps (Mugshot, Cleanify, Greencart, etc.)
+  { method: "veworld", gridColumn: 4, isPrimary: true },    // recommended CTA — filled, dot
+  { method: "vechain", gridColumn: 4 },                     // VeChain whitelabel cross-app picker
+  { method: "dappkit", gridColumn: 4 },                     // VeChain wallets
+  { method: "ecosystem", gridColumn: 4 },                   // Ecosystem apps (Mugshot, Cleanify, Greencart, etc.)
 
   // OAuth methods — work WITHOUT your own Privy account (routed via the whitelabel cross-app popup)
   { method: "google",  gridColumn: 4 },    // Google

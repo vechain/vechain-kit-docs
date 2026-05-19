@@ -75,10 +75,10 @@ export function VeChainKitProviderWrapper({ children }: { children: React.ReactN
       
       // Login Methods Configuration (variation A default)
       loginMethods={[
-        { method: "veworld", gridColumn: 4 },  // primary CTA, recommended
+        { method: "veworld", gridColumn: 4, isPrimary: true },  // recommended CTA, filled + dot
         { method: "google",  gridColumn: 4 },
         { method: "apple",   gridColumn: 4 },
-        { method: "more",    gridColumn: 4 },  // overflow sub-view (wallets / socials / ecosystem)
+        { method: "more",    gridColumn: 4 },                   // overflow sub-view (wallets / socials / ecosystem)
       ]}
       
       // Sponsor transactions
@@ -135,12 +135,12 @@ feeDelegation: {
 
 #### Login Methods
 
-Configure available authentication methods with a flexible grid layout. Each entry pins a `method` and an optional `gridColumn` (1–4) controlling how many of the 4 columns the button spans.
+Configure available authentication methods with a flexible grid layout. Each entry pins a `method`, an optional `gridColumn` (1–4) controlling how many of the 4 columns the button spans, and an optional `isPrimary` flag that promotes the button to the recommended CTA (filled inverted surface + "recommended" green dot). If no entry sets `isPrimary`, the kit falls back to highlighting the first visible method. Only one button per grid is primary; `isPrimary` on the `more` footer link is ignored. The filled treatment currently supports `veworld`, `google`, `apple`, and `github`.
 
 ```typescript
 loginMethods: [
   // --- Wallets (drives @vechain/dapp-kit programmatically; kit owns the UI) ---
-  { method: "veworld",        gridColumn: 4 },  // primary CTA — filled, recommended dot
+  { method: "veworld",        gridColumn: 4, isPrimary: true },  // recommended CTA — filled, dot
   { method: "sync2",          gridColumn: 4 },
   { method: "wallet-connect", gridColumn: 4 },  // triggers WC's own QR modal
 

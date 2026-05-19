@@ -6,7 +6,7 @@ This guide covers the connect-modal authentication surface in VeChain Kit. From 
 
 - **Custom in-house connection flow** for VeWorld and Sync2. Clicking a wallet button drives `@vechain/dapp-kit` programmatically (`setSource()` + `connect()`) and renders the kit's own "Waiting for signature…" view. WalletConnect's QR modal is preserved because that modal _is_ the QR.
 - **Granular `loginMethods`**: `veworld`, `sync2`, `wallet-connect`, `apple` are now first-class entries you can pin individually. The legacy `dappkit` value still works.
-- **Variation A layout**: VeWorld primary filled (recommended), Google + Apple as outline secondary, "More options ⌄" link footer that opens an in-modal sub-view with overflow wallets / socials / ecosystem apps.
+- **Variation A layout**: one recommended primary CTA (filled inverted + "recommended" dot) — usually VeWorld in the default config, but the dev controls which method gets the emphasis via `isPrimary`; the rest render as outline secondary. "More options ⌄" link footer opens an in-modal sub-view with overflow wallets / socials / ecosystem apps.
 - **Themeable accent**: spinner, focus rings and the "Waiting for signature…" headline read from `theme.accent`.
 
 ### Overview
@@ -88,7 +88,7 @@ await initOAuth({ provider: 'google' }); // 'google' | 'apple' | 'github' | 'dis
 
 ### Configuring the grid: `loginMethods`
 
-The order and shape of the connect-modal grid is controlled by `loginMethods` on `<VeChainKitProvider>`. Each entry has a `method` and an optional `gridColumn` (1–4 — buttons span that many of the 4 columns).
+The order and shape of the connect-modal grid is controlled by `loginMethods` on `<VeChainKitProvider>`. Each entry has a `method`, an optional `gridColumn` (1–4 — buttons span that many of the 4 columns), and an optional `isPrimary` flag that controls which button gets the recommended-CTA treatment.
 
 ```tsx
 <VeChainKitProvider
@@ -103,12 +103,37 @@ The order and shape of the connect-modal grid is controlled by `loginMethods` on
     walletConnectOptions: { /* ... */ },
   }}
   loginMethods={[
-    { method: 'veworld', gridColumn: 4 },   // primary CTA — filled, "recommended" dot
-    { method: 'google',  gridColumn: 4 },   // outline secondary
-    { method: 'apple',   gridColumn: 4 },   // outline secondary
-    { method: 'more',    gridColumn: 4 },   // opens an in-modal sub-view
+    { method: 'veworld', gridColumn: 4, isPrimary: true },  // recommended CTA — filled, "recommended" dot
+    { method: 'google',  gridColumn: 4 },                   // outline secondary
+    { method: 'apple',   gridColumn: 4 },                   // outline secondary
+    { method: 'more',    gridColumn: 4 },                   // opens an in-modal sub-view
   ]}
 >
+```
+
+#### Recommended primary CTA — `isPrimary`
+
+One method per grid renders as the recommended CTA: filled inverted surface (dark on light mode, white on dark mode) with a small green dot. The rest render as outline secondary. Two ways the kit picks which:
+
+1. **Explicit** — any entry with `isPrimary: true` (excluding `more`, which is a footer link). If multiple entries set `isPrimary`, the first one wins.
+2. **Implicit fallback** — when no entry sets `isPrimary`, the kit highlights the first visible method in the array. So a minimal config like `[{ method: 'google' }, { method: 'apple' }]` still gets Google as the recommended CTA without thinking about emphasis.
+
+Currently supported as primary: `veworld`, `google`, `apple`, `github`. Other methods can sit on the main grid but won't switch to the filled treatment when first / `isPrimary: true` — they keep their outline look. (Adding more is a one-prop change per button; open an issue if you need it.)
+
+```tsx
+// Default: Google is primary because it's first.
+loginMethods={[
+  { method: 'google',  gridColumn: 4 },
+  { method: 'apple',   gridColumn: 4 },
+  { method: 'more',    gridColumn: 4 },
+]}
+
+// Explicit: Apple is primary, Google is outline.
+loginMethods={[
+  { method: 'google',  gridColumn: 4 },
+  { method: 'apple',   gridColumn: 4, isPrimary: true },
+  { method: 'more',    gridColumn: 4 },
+]}
 ```
 
 #### Method values
