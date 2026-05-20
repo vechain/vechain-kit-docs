@@ -1,5 +1,11 @@
 # Setup Privy (optional)
 
+{% hint style="success" %}
+**You do not need a Privy account to ship social login.** By default, VeChain Kit routes Google, Apple, X, Discord, GitHub, TikTok, LINE, and the multi-provider "Continue with VeChain" button through VeChain's whitelabel cross-app popup at [`connect.vechain.org`](https://connect.vechain.org) — branded for VeChain, free, and the user keeps a single identity across every kit-integrated dApp.
+
+Self-host Privy only if you need email / passkey / SMS login, additional OAuth providers, no popup, or branding-inside-your-dApp transaction prompts. See _Pros / Cons_ at the bottom of this page.
+{% endhint %}
+
 If you have your own Privy app, you can pass an additional prop with your settings.
 
 ```javascript
@@ -57,13 +63,15 @@ If you setup your own Privy be sure to go over the recommended security settings
 {% hint style="info" %}
 **Pros of self hosting Privy:**
 
-* No UI confirmations on users transactions
-* Allow your users to backup their keys and update security settings directly in your app
-* Targetted social login methods
+* No UI confirmations on user transactions (no popup window per signature)
+* Allow your users to back up their keys and update security settings directly in your app
+* Email / passkey / SMS login (these can't run via the whitelabel popup)
+* Additional OAuth providers Privy supports but VeChain's whitelabel doesn't enable (LinkedIn, Spotify, …)
+* Your dApp's branding throughout the login modal
 
 **Cons:**
 
-* Price
-* Responsibilities to correctly secure your Privy account, since it contains access to user's wallet settings
-* Your users will need to login into other apps through ecosystem mode
+* Price (Privy pricing tiers)
+* Responsibility to correctly secure your Privy account, since it contains access to users' wallet settings
+* Users have their own wallet scoped to your dApp instead of a single VeChain-wide identity (cross-app linking still possible via ecosystem mode)
 {% endhint %}
